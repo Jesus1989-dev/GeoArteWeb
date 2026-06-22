@@ -1,0 +1,5093 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 6690
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+39.6850393700787407 796.5356692913385359 Td
+(Manual de usuario - GEO ARTE CDMX) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 764.7876377952756002 Td
+(Version: 1.2  -  Audiencia: ciudadanos, investigadores y autoridades   Plataforma: aplicacion web Next.js  -  Datos: padron) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 753.3073228346456744 Td
+(SECTEI, metricas territoriales y repositorio cualitativo) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 733.3230708661417339 Td
+(GEO ARTE CDMX es una plataforma de inteligencia territorial para consultar, analizar y -segun el perfil- gestionar la) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 721.8427559055118081 Td
+(infraestructura cultural de las 16 alcaldias de la Ciudad de Mexico.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 701.8585039370078675 Td
+(Este manual explica:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 681.8742519685039269 Td
+(1. Como funciona la interfaz global.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 670.3939370078740012 Td
+(2. Los tres tipos de inicio de sesion y sus diferencias.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 658.9136220472440755 Td
+(3. Cada pantalla, control y flujo de trabajo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 647.4333070866141497 Td
+(4. Que miden los KPIs, graficos y exportaciones y de que fuentes provienen los datos \([capitulo) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 635.9529921259843377 Td
+(9]\(#9-referencia-de-kpis-y-graficos\), §9.1-9.8\), incluidas las [columnas del padron en Excel/CSV/JSON) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 624.4726771653542983 Td
+(\(§9.8\)]\(#98-exportacion-del-padron--columnas-y-hojas\).) Tj
+ET
+0.78 G
+39.6850393700787407 595.9844881889764565 m
+555.5949606299211609 595.9844881889764565 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 564.8033858267717733 Td
+(Tabla de contenidos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 536.8821259842520703 Td
+(1. [Convenciones y modos de operacion]\(#1-convenciones-y-modos-de-operacion\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 525.4018110236220309 Td
+(2. [Interfaz global]\(#2-interfaz-global\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 513.9214960629922189 Td
+(3. [Autenticacion y perfiles]\(#3-autenticacion-y-perfiles\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 502.4411811023622931 Td
+(4. [Navegacion por tipo de usuario]\(#4-navegacion-por-tipo-de-usuario\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 490.9608661417323674 Td
+(5. [Modulos publicos]\(#5-modulos-publicos\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 479.4805511811024417 Td
+(6. [Mi Perfil]\(#6-mi-perfil\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 468.0002362204725159 Td
+(7. [Centro de reportes]\(#7-centro-de-reportes\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 456.5199212598425902 Td
+(8. [Panel de administracion]\(#8-panel-de-administracion\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 445.0396062992126076 Td
+(9. [Referencia de KPIs y graficos]\(#9-referencia-de-kpis-y-graficos\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 433.5592913385826819 Td
+(10. [Glosario y estados]\(#10-glosario-y-estados\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 422.0789763779526993 Td
+(11. [Preguntas frecuentes operativas]\(#11-preguntas-frecuentes-operativas\)) Tj
+ET
+0.78 G
+39.6850393700787407 393.590787401574687 m
+555.5949606299211609 393.590787401574687 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 362.4096850393700038 Td
+(1. Convenciones y modos de operacion) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 323.1498425196849666 Td
+(1.1 Modo demo vs. Supabase) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 297.7797637795275705 Td
+(La aplicacion puede mostrar datos de dos formas:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 272.1262204724408775 Td
+(Indicador en pantalla  |  Significado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 261.9214960629921052 Td
+(**Modo demo** / badge ambar  |  Datos de ejemplo locales; no requiere base de datos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 251.7167716535432191 Td
+(**Metricas Supabase** / badge verde  |  Datos reales desde Supabase \(padron, metricas, exportaciones\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 230.1734645669290558 Td
+(Cuando Supabase esta configurado \('NEXT_PUBLIC_SUPABASE_*' en el entorno\), las pantallas intentan cargar datos en vivo. Si) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 218.69314960629913 Td
+(falla la conexion, muchas secciones vuelven a modo demo con un aviso.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 187.3703149606297984 Td
+(1.2 Rutas principales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 156.3309448818896499 Td
+(Ruta  |  Nombre en menu) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 146.1262204724408775 Td
+('/'  |  Inicio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 135.9214960629921052 Td
+('/sobre-el-proyecto'  |  Proyecto) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 125.7167716535433328 Td
+('/mapa'  |  Mapa) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 115.5120472440944468 Td
+('/dashboard'  |  Dashboard) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 105.3073228346455608 Td
+('/reportes'  |  Reportes) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 95.1025984251966747 Td
+('/investigacion'  |  Investigacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 84.8978740157477887 Td
+('/politicas'  |  Politicas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 74.6931496062989027 Td
+('/contacto'  |  Soporte) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 64.4884251968500166 Td
+('/admin'  |  Administracion *\(solo Autoridad\)*) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 54.2837007874011306 Td
+('/perfil'  |  Mi perfil *\(sesion\)*) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 1 de 16) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 5333
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+('/login'  |  Iniciar sesion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 792.0002362204724022 Td
+('/registro'  |  Crear cuenta) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 759.1183464566928478 Td
+(1.3 Alcaldias de la CDMX) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 733.748267716535338 Td
+(La plataforma trabaja con las 16 demarcaciones territoriales de Ciudad de Mexico. Aparecen en filtros, busquedas, comparadores) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 722.2679527559055259 Td
+(y metricas de brecha/cobertura.) Tj
+ET
+0.78 G
+39.6850393700787407 693.7797637795275705 m
+555.5949606299211609 693.7797637795275705 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 662.5986614173227736 Td
+(2. Interfaz global) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 623.3388188976377933 Td
+(2.1 Barra superior \(Header\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 597.9687401574802834 Td
+(Logo GEO ARTE CDMX -> enlace a Inicio.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 577.9844881889763428 Td
+(Menu principal \(scroll horizontal en pantallas pequenas\):) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 558.0002362204724022 Td
+(- Orden: Inicio  -  Proyecto  -  Mapa  -  Admin *\(solo Autoridad\)*  -  Dashboard  -  Reportes  -  Investigacion  -  Politicas  - ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 546.5199212598424765 Td
+(Soporte.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 535.0396062992126645 Td
+(- El item activo se resalta segun la ruta actual.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 515.0553543307087239 Td
+(Busqueda cultural \(visible en pantallas 'xl' y superiores\):) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 495.0711023622047264 Td
+(- Campo compacto: *«Buscar alcaldia o espacio…»*.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 483.5907874015748007 Td
+(- Autocompletado de alcaldias y espacios culturales \(consulta remota cuando hay Supabase\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 472.110472440944875 Td
+(- Al seleccionar un resultado, navega al mapa con parametros URL \(q, alcaldia, espacio\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 452.1262204724408775 Td
+(Menu de usuario \(avatar o iniciales\):) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 432.1419685039369369 Td
+(- Con sesion: enlace a Mi perfil, nombre, rol y Cerrar sesion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 420.6616535433069544 Td
+(- Sin sesion: enlace a Iniciar sesion.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 389.3388188976376227 Td
+(2.2 Pie de pagina \(Footer\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 363.9687401574801697 Td
+(Enlaces rapidos a Mapa, Estadisticas \(Dashboard\), Investigacion, Recomendaciones \(Politicas\), Proyecto y Soporte. Incluye) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 352.488425196850244 Td
+(aviso de copyright institucional.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 321.1655905511809124 Td
+(2.3 Busqueda cultural - uso detallado) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 295.7955118110234025 Td
+(La busqueda aparece en tres variantes:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 270.1419685039368233 Td
+(Ubicacion  |  Variante  |  Comportamiento) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 259.9372440944880509 Td
+(Barra superior  |  'compact'  |  Navega al mapa al elegir sugerencia) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 249.7325196850391649 Td
+(Inicio \(hero\)  |  'hero'  |  Boton «Explorar Datos»; lista ampliada de alcaldias) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 239.5277952755903925 Td
+(Mapa  |  'map'  |  Filtra el visor sin salir de la pagina) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 217.9844881889762291 Td
+(Sugerencias mostradas:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 198.0002362204722886 Td
+(- Alcaldia: nombre de demarcacion + subtitulo «Alcaldia  -  CDMX».) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 186.5199212598423628 Td
+(- Espacio: nombre del espacio cultural del padron; al elegirlo, centra el mapa en ese pin.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 166.5356692913383085 Td
+(Atajos de teclado en el desplegable: flechas arriba/abajo para navegar, Enter para confirmar, Escape para cerrar.) Tj
+ET
+0.78 G
+39.6850393700787407 138.0474803149603247 m
+555.5949606299211609 138.0474803149603247 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 106.8663779527556699 Td
+(3. Autenticacion y perfiles) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 67.6065354330704622 Td
+(3.1 Los tres perfiles) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 2 de 16) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 6693
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Perfil  |  Icono  |  Descripcion en pantalla  |  Campos extra en registro) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 792.0002362204724022 Td
+(**Ciudadano**  |  Usuario  |  Consulta mapas, guarda recursos y participa  |  Ninguno) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 781.7955118110236299 Td
+(**Investigador**  |  Microscopio  |  Datos, reportes y analisis territorial  |  Institucion, area de investigacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 771.5907874015747439 Td
+(**Autoridad**  |  Escudo  |  Administra espacios, capas SIG y validaciones  |  Institucion, cargo o area) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 750.0474803149605805 Td
+(Importante: al iniciar sesion debes seleccionar el mismo perfil con el que te registraste. Si no coincide, veras un error del tipo:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 738.5671653543306547 Td
+(«Esta cuenta esta registrada como investigador, no como ciudadano».) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 707.2443307086614368 Td
+(3.2 Iniciar sesion \('/login'\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 681.8742519685039269 Td
+(Pasos:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 661.8899999999999864 Td
+(1. Abre Iniciar sesion desde el menu de usuario o /login.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 650.4096850393700606 Td
+(2. En Tipo de perfil, elige Ciudadano, Investigador o Autoridad.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 638.9293700787401349 Td
+(3. Ingresa correo y contrasena \(minimo 6 caracteres\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 627.4490551181102092 Td
+(4. Pulsa Entrar.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 607.4648031496062686 Td
+(Opciones adicionales:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 587.480551181102328 Td
+(- ¿Olvidaste tu contrasena? -> /recuperar-contrasena.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 576.0002362204725159 Td
+(- ¿No tienes cuenta? -> /registro.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 564.5199212598424765 Td
+(- Parametro ?next=/ruta - tras login exitoso, te lleva a esa ruta \(si es segura\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 544.5356692913385359 Td
+(Redireccion automatica tras login:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 518.8821259842520703 Td
+(Perfil  |  Destino por defecto) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 508.6774015748031843 Td
+(Ciudadano  |  '/perfil') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 498.472677165354412 Td
+(Investigador  |  '/perfil') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 488.2679527559055828 Td
+(Autoridad  |  '/admin') Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 466.7246456692913625 Td
+(Modo demo \(sin Supabase\): aparece un bloque «Cuentas de demostracion» con usuarios precargados \(contrasena 'demo123') Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 455.2443307086614368 Td
+(para todos\):) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 429.5907874015748007 Td
+(Correo  |  Perfil) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 419.3860629921259715 Td
+('ciudadano@geoarte.mx'  |  Ciudadano) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 409.1813385826771992 Td
+('investigador@geoarte.mx'  |  Investigador) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 398.97661417322837 Td
+('autoridad@geoarte.mx'  |  Autoridad) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 377.4333070866142066 Td
+(Con Supabase: si existen credenciales 'TEST_LOGIN_*' en '.env', se autocompletan al cambiar de perfil.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 346.110472440944875 Td
+(3.3 Crear cuenta \('/registro'\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 320.7403937007874219 Td
+(Campos comunes:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 300.7561417322834814 Td
+(- Nombre completo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 289.2758267716535556 Td
+(- Correo electronico.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 277.7955118110235162 Td
+(- Contrasena y confirmacion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 266.3151968503935905 Td
+(- Aceptacion de terminos del servicio y politica de privacidad CDMX.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 246.3309448818896499 Td
+(Campos condicionales:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 226.3466929133857093 Td
+(- Investigador: Institucion u organizacion  -  Area de investigacion \(texto en mayusculas\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 214.8663779527556699 Td
+(- Autoridad: Institucion u organizacion  -  Cargo o area \(texto en mayusculas\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 194.8821259842517293 Td
+(Tras registrarse con Supabase, el correo debe verificarse antes de usar funciones completas.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 163.5592913385823977 Td
+(3.4 Verificacion y recuperacion de contrasena) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 132.5199212598422491 Td
+(Ruta  |  Funcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 122.3151968503934768 Td
+('/verificar-email'  |  Reenviar correo de verificacion; simular verificacion en demo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 112.1104724409447044 Td
+('/email-verificado'  |  Confirmacion de cuenta activada) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 101.9057480314958184 Td
+('/recuperar-contrasena'  |  Solicitar enlace de restablecimiento) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 91.7010236220469324 Td
+('/restablecer-contrasena'  |  Definir nueva contrasena \(requiere token valido del correo\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 70.1577165354326553 Td
+(Si inicias sesion con correo no verificado, se redirige automaticamente a Verificar email.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 3 de 16) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 5785
+>>
+stream
+0.5670000000000001 w
+0.78 G
+0.78 G
+39.6850393700787407 802.2049606299211746 m
+555.5949606299211609 802.2049606299211746 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 771.0238582677164914 Td
+(4. Navegacion por tipo de usuario) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 731.7640157480315111 Td
+(4.1 Matriz de acceso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 700.7246456692912489 Td
+(Funcionalidad  |  Visitante  |  Ciudadano  |  Investigador  |  Autoridad) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 690.5199212598424765 Td
+( I n i c i o ,   P r o y e c t o ,   M a p a ,   D a s h b o a r d ,   I n v e s t i g a c i o n ,   P o l i t i c a s ,   C o n t a c t o     |    '     |    '     |    '     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 680.3151968503937042 Td
+( V e r   m e n u   * * A d m i n i s t r a c i o n * *     |    'L     |    'L     |    'L     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 670.1104724409448181 Td
+( E n t r a r   a   ' / a d m i n '     |    'L     |    'L     |    'L     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 659.9057480314960458 Td
+( * * M i   P e r f i l * *     |    'L     |    '     |    '     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 649.7010236220471597 Td
+( G u a r d a r   e s p a c i o s   e n   m a p a     |    'L     |    '     |    '     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 639.4962992125983874 Td
+( * * R e p o r t e s * *   \( S u p a b a s e \)     |    'L     |    ' *     |    '     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 629.291574803149615 Td
+( G e n e r a r   e x p o r t a c i o n e s   r e m o t a s     |    'L     |    ' *     |    '     |    ') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 619.0868503937008427 Td
+( G e s t i o n a r   p a d r o n   y   u s u a r i o s     |    'L     |    'L     |    'L     |    ') Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 597.5435433070866793 Td
+(\\* Requiere cuenta Supabase verificada.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 566.2207086614173477 Td
+(4.2 Rutas de trabajo recomendadas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 540.8506299212599515 Td
+(Ciudadano) Tj
+ET
+0.96 g
+39.6850393700787407 523.7010236220472734 515.9099212598424629 -24.0944881889763813 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 515.1970866141732586 Td
+(Inicio -> Mapa \(explorar y guardar\) -> Politicas \(contexto\) -> Perfil \(recursos guardados\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 491.4569291338582957 Td
+(Investigador) Tj
+ET
+0.96 g
+39.6850393700787407 474.3073228346457313 515.9099212598424629 -24.0944881889763813 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 465.8033858267717164 Td
+(Dashboard \(filtros\) -> Investigacion \(cualitativo\) -> Reportes \(exportar\) -> Perfil \(historial\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 442.0632283464567536 Td
+(Autoridad) Tj
+ET
+0.96 g
+39.6850393700787407 424.9136220472441323 515.9099212598424629 -24.0944881889763813 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 416.4096850393701175 Td
+(Admin \(mantenimiento\) -> Mapa \(validar georreferencia\) -> Dashboard \(supervision\) -> Logs \(auditoria\)) Tj
+ET
+0.78 G
+39.6850393700787407 384.1655905511811397 m
+555.5949606299211609 384.1655905511811397 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 352.9844881889763997 Td
+(5. Modulos publicos) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 313.7246456692913625 Td
+(5.1 Inicio \('/'\)) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 277.0159842519685753 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 252.9214960629922189 Td
+(Panorama ejecutivo de la infraestructura cultural: indicadores clave, vista previa del mapa y alertas de brecha territorial.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 221.5986614173228872 Td
+(Secciones de la pantalla) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 197.5041732283465308 Td
+(A. Hero) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 177.5199212598424765 Td
+(- Titulo: *Visualizacion y Analisis de la Infraestructura Cultural en CDMX*.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 166.0396062992125508 Td
+(- Busqueda por alcaldia con autocompletado \(misma logica que la barra superior\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 154.559291338582625 Td
+(- Boton Explorar Datos -> navega al mapa con la alcaldia o consulta seleccionada.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 134.5750393700786844 Td
+(B. Tarjetas de indicadores \(4 KPIs\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 108.9214960629918778 Td
+(KPI  |  Que muestra) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 98.7167716535429918 Td
+(Total Espacios  |  Conteo del padron georreferenciado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 88.5120472440941057 Td
+(Alcaldias  |  Cobertura territorial \(p. ej. '16 / 16'\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 78.3073228346452197 Td
+(Cobertura Prom.  |  Indice promedio de accesibilidad) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 68.1025984251963337 Td
+(Periodo  |  Corte de datos \(ano o semestre\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 4 de 16) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 5771
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 802.2049606299212883 Td
+(- Badge Supabase y boton Actualizar cuando hay datos en vivo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 782.2207086614173477 Td
+(C. Explorador espacial) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 762.2364566929134071 Td
+(- Mini-mapa con pins de muestra del padron.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 750.7561417322834814 Td
+(- Contador de espacios georreferenciados visibles.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 739.2758267716535556 Td
+(- Enlace Abrir mapa completo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 719.291574803149615 Td
+(D. Accesos directos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 693.6380314960629221 Td
+(Tarjeta  |  Destino  |  Uso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 683.4333070866141497 Td
+(Visor Geografico  |  '/mapa'  |  Capas y vacios territoriales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 673.2285826771653774 Td
+(Tablero Estadistico  |  '/dashboard'  |  Graficas comparativas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 663.0238582677164914 Td
+(Generador de Reportes  |  '/reportes'  |  Informes sectoriales *\(destacado\)*) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 652.819133858267719 Td
+(Gestion de Datos  |  '/admin'  |  Solo util para Autoridad) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 631.2758267716535556 Td
+(E. Monitoreo de infraestructura) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 611.291574803149615 Td
+(Dos paneles analiticos:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 591.3073228346456744 Td
+(1. Crecimiento del padron \(grafico de area\): evolucion anual del numero de espacios \(eje X: anos; eje Y: total de espacios\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 579.8270078740158624 Td
+(2. Brecha territorial \(barras horizontales\): deficit por alcaldia, dividido en:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 565.5120472440944468 Td
+(   - Mayor deficit - alcaldias con brecha mas alta.    - Menor deficit - alcaldias con mejor cobertura relativa.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 545.5277952755906199 Td
+(Cada barra muestra el % de brecha y el numero de espacios. Las prioridades son:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 519.8742519685040406 Td
+(Prioridad  |  Significado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 509.6695275590551546 Td
+(**Critico**  |  Brecha muy alta; intervencion urgente) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 499.4648031496063822 Td
+(**Atencion**  |  Brecha moderada) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 489.2600787401575531 Td
+(**Estable**  |  Situacion relativamente equilibrada) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 467.7167716535433897 Td
+(Enlace Ver Dashboard Completo al final de la seccion.) Tj
+ET
+0.78 G
+39.6850393700787407 439.2285826771654342 m
+555.5949606299211609 439.2285826771654342 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 408.0474803149606942 Td
+(5.2 Proyecto \('/sobre-el-proyecto'\)) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 371.338818897637907 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 347.2443307086614936 Td
+(Documentacion institucional: por que existe la plataforma, como se construyeron los datos y quien participa.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 315.9214960629922189 Td
+(Contenido) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 286.15771653543311 Td
+(Bloque  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 275.9529921259843377 Td
+(**Hero**  |  Presentacion del proyecto GEO ARTE CDMX) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 265.7482677165355653 Td
+(**Objetivos estrategicos**  |  Metas de visualizacion, analisis y politica publica) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 255.5435433070866793 Td
+(**Metodologia**  |  Pasos: recoleccion -> georreferenciacion -> validacion -> publicacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 245.338818897637907 Td
+(**Fuentes de informacion**  |  SECTEI, padron cultural, fuentes abiertas; badge de origen de datos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 235.1340944881891346 Td
+(**Barra lateral**  |  Equipo core, colaboradores, licencia de datos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 224.9293700787403623 Td
+(**CTA datos crudos**  |  Enlace al centro de contacto / datasets) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 203.3860629921261989 Td
+(No requiere sesion. Ideal para citar la plataforma en informes academicos o memorias tecnicas.) Tj
+ET
+0.78 G
+39.6850393700787407 174.8978740157481582 m
+555.5949606299211609 174.8978740157481582 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 143.7167716535434465 Td
+(5.3 Mapa interactivo \('/mapa'\)) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 107.0081102362206593 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 82.9136220472443028 Td
+(Visor GIS principal: espacios del padron SIC, capas territoriales, recursos cualitativos y herramientas de filtrado.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 5 de 16) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 7218
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Layout de la pantalla) Tj
+ET
+0.96 g
+39.6850393700787407 780.9451181102361943 515.9099212598424629 -113.3858267716535551 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 772.4411811023621794 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 762.8742519685039269 Td
+(%     B u s q u e d a    %     P r e s e t   c a p a s    %     C a p a s    %     F i l t r o s    %  &ö    %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 753.3073228346456744 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %$) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 743.7403937007874219 Td
+(%                                                                                                                  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 734.1734645669291695 Td
+(%                                         M A P A   \( L e a f l e t \)                                              %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 724.6065354330708033 Td
+(%                                                                                                                  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 715.0396062992125508 Td
+(%                             [ P a n e l   f l o t a n t e   d e   e s p a c i o / r e c u r s o ]                %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 705.4726771653542983 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 670.3939370078740012 Td
+(Controles superiores) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 640.6301574803148924 Td
+(Control  |  Funcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 630.42543307086612 Td
+(**Busqueda**  |  Filtra por alcaldia o nombre de espacio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 620.2207086614173477 Td
+(**Preset Infraestructura**  |  Muestra las 12 tipologias SIC del padron) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 610.0159842519685753 Td
+(**Preset Territorial**  |  Oculta pins; activa capas de densidad, cobertura y NSE) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 599.8112598425196893 Td
+(**Capas**  |  Panel lateral: visibilidad y opacidad por tipologia) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 589.606535433070917 Td
+(**Filtros avanzados**  |  Tipos, brecha minima, solo vacios culturales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 579.4018110236220309 Td
+(**Pantalla completa**  |  Expande el mapa a todo el viewport) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 546.5199212598425902 Td
+(Las 12 tipologias SIC \(capas de infraestructura\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 522.4254330708662337 Td
+(Cada tipo tiene color propio en el mapa:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 502.4411811023622931 Td
+(1. Auditorios  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 490.9608661417323674 Td
+(2. Bibliotecas  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 479.4805511811024417 Td
+(3. Bibliotecas DGB  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 468.0002362204725159 Td
+(4. Casas de artesanias  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 456.5199212598425902 Td
+(5. Casas y centros culturales  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 445.0396062992126076 Td
+(6. Centros coord. de pueblos indigenas  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 433.5592913385826819 Td
+(7. Complejos cinematograficos  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 422.0789763779526993 Td
+(8. Galerias  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 410.5986614173227736 Td
+(9. Librerias y puntos de venta  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 399.118346456692791 Td
+(10. Museos  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 387.6380314960628652 Td
+(11. Teatros  ) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 376.1577165354328827 Td
+(12. Universidades  ) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 344.834881889763551 Td
+(Capas territoriales adicionales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 315.0711023622045559 Td
+(Capa  |  Que representa) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 304.8663779527556699 Td
+(**Transporte**  |  Red de transporte publico \(lineas/estaciones\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 294.6616535433068975 Td
+(**Densidad**  |  Densidad de infraestructura por macrozona) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 284.4569291338581252 Td
+(**Nivel socioeconomico**  |  Segmentacion NSE territorial) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 274.2522047244092391 Td
+(**Cobertura**  |  Indice de cobertura cultural por zona) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 241.3703149606297984 Td
+(Filtros avanzados) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 217.2758267716534419 Td
+(- Tipos de espacio: activar/desactivar cada tipologia SIC.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 205.7955118110234025 Td
+(- Brecha minima \(%\): slider para mostrar solo zonas con deficit igual o superior.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 194.3151968503934768 Td
+(- Solo vacios culturales: oculta espacios en zonas ya saturadas.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 182.834881889763551 Td
+(- Alcaldia: limita el analisis a una demarcacion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 171.3545669291336253 Td
+(- Botones Aplicar y Restablecer.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 140.0317322834642937 Td
+(Interaccion con espacios) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 115.9372440944878235 Td
+(1. Clic en un pin -> panel inferior con:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 101.6222834645666353 Td
+(   - Fotografia del espacio \(si existe en Storage/SIC\).    - Tipologia, nombre, direccion.    - Como llegar -> abre Google Maps con) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 90.1419685039365959 Td
+(coordenadas.    - Guardar espacio / Quitar de guardados \(requiere sesion\).    - Mi perfil -> acceso directo a recursos guardados.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 70.1577165354326553 Td
+(1. Sin sesion, el boton de guardar muestra Inicia sesion para guardar.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 6 de 16) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 5921
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Recursos cualitativos en el mapa) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 778.1104724409448181 Td
+(Si un recurso de investigacion tiene coordenadas, puede abrirse con '?recurso=ID'. Se muestra un panel con snippet, investigador) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 766.6301574803148924 Td
+(y enlace al detalle en Investigacion.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 735.3073228346456744 Td
+(Parametros URL \(enlaces profundos\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 705.5435433070865656 Td
+(Parametro  |  Ejemplo  |  Efecto) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 695.3388188976377933 Td
+('q'  |  '?q=Iztapalapa'  |  Busqueda de texto) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 685.1340944881889072 Td
+('alcaldia'  |  '?alcaldia=Coyoacan'  |  Filtra por demarcacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 674.9293700787401349 Td
+('espacio'  |  '?espacio=UUID'  |  Centra y abre ficha del espacio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 664.7246456692912489 Td
+('recurso'  |  '?recurso=c1'  |  Abre recurso cualitativo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 654.5199212598424765 Td
+('lat' + 'lng'  |  '?lat=19.43&lng=-99.14'  |  Centra el mapa en coordenadas) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 621.6380314960629221 Td
+(Fuente de datos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 597.5435433070865656 Td
+(- Espacios: tabla espacios_culturales \(Supabase\) o mock local.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 586.0632283464566399 Td
+(- Territorial: metricas por alcaldia, poligonos, densidad macrozonal, transporte.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 574.5829133858267141 Td
+(- Badge inferior indica si las capas vienen de Supabase o estimacion local.) Tj
+ET
+0.78 G
+39.6850393700787407 546.0947244094487587 m
+555.5949606299211609 546.0947244094487587 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 514.9136220472440755 Td
+(5.4 Dashboard estadistico \('/dashboard'\)) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 478.2049606299211746 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 454.1104724409448181 Td
+(Analisis cuantitativo del padron con filtros cruzados, graficos interactivos, comparador entre alcaldias y exportacion masiva.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 422.7876377952754865 Td
+(Barra de filtros avanzados) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 398.6931496062990732 Td
+(Seis selectores que recalculan todos los KPIs, graficos y la tabla:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 373.0396062992124371 Td
+(Filtro  |  Opciones tipicas  |  Efecto) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 362.8348818897636079 Td
+(**Alcaldia**  |  Todas + 16 demarcaciones  |  Cambia KPIs a vista local; recarga densidad por macrozona) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 352.6301574803148355 Td
+(**Disciplina**  |  Todas, Musica, Teatro, Artes visuales, Danza…  |  Filtra espacios y participacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 342.4254330708660063 Td
+(**Periodo**  |  Anos academicos \(p. ej. 2023-2024\)  |  Puede recargar metricas de otro 'anioCorte' via API) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 332.220708661417234 Td
+(**NSE**  |  Todos, Bajo, Medio, Alto  |  Segmenta estadisticas socioeconomicas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 322.0159842519684616 Td
+(**Rango de edad**  |  Todos, 18-29, 30-44, 45-59, 60+  |  Activa serie «Participacion Edad» si existe en Supabase) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 311.8112598425195756 Td
+(**Genero**  |  Todos, Mujer, Hombre, No binario/otro  |  Filtra visualizacion del grafico de participacion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 290.2679527559054122 Td
+(Debajo de los filtros aparece un resumen textual del corte activo \(p. ej. «Toda la CDMX  -  corte 2024»\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 270.2837007874014716 Td
+(Avisos \(badge ambar\): si no hay datos para la combinacion de filtros \(p. ej. participacion por genero vacia\), se muestra un) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 258.8033858267715459 Td
+(mensaje explicativo.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 227.4805511811022143 Td
+(Cabecera del tablero) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 203.3860629921258578 Td
+(- Titulo Dashboard Estadistico + ano de corte.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 191.9057480314958184 Td
+(- Badge Metricas Supabase o Modo demo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 180.4254330708658927 Td
+(- Exportar Datos -> PDF del snapshot actual.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 168.9451181102359669 Td
+(- Generar Reporte -> /reportes.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 137.6222834645666353 Td
+(KPIs \(4 tarjetas superiores\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 113.5277952755902788 Td
+(Ver seccion 9.2 para el detalle completo segun filtro de alcaldia.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 82.2049606299210609 Td
+(Graficos principales) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 58.1104724409445907 Td
+(Ver seccion 9.3.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 7 de 16) Tj
+ET
+endstream
+endobj
+17 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 5666
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Interaccion:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 782.2207086614173477 Td
+(- Participacion por genero: desplazamiento horizontal en movil \(muchas tipologias SIC\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 770.7403937007874219 Td
+(- Tooltips: al pasar el cursor sobre barras, lineas o sectores del donut.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 759.2600787401574962 Td
+(- Leyenda scrollable en distribucion por tipologia.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 727.9372440944881646 Td
+(Tabla «Detalle de espacios culturales») Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 698.1734645669290558 Td
+(Columna  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 687.9687401574802834 Td
+(ID  |  Identificador abreviado del registro) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 677.7640157480313974 Td
+(Nombre  |  Denominacion oficial) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 667.559291338582625 Td
+(Alcaldia  |  Demarcacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 657.3545669291338527 Td
+(Completitud  |  % de campos llenos en el padron \(0-100\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 647.1498425196849666 Td
+(Estado  |  Publicado  -  Revision  -  Borrador) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 625.6065354330708033 Td
+(- Paginacion: 20 registros por pagina.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 614.1262204724409912 Td
+(- Exportar pagina o conjunto completo: CSV o JSON.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 582.8033858267716596 Td
+(Panel lateral - Comparador territorial) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 558.7088976377951894 Td
+(1. Selecciona Alcaldia A \(indicador azul marino\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 547.2285826771653774 Td
+( 2 .   P u l s a   e l   b o t o n   c e n t r a l  !Å   p a r a   i n t e r c a m b i a r   A   y   B .) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 535.7482677165354517 Td
+(3. Selecciona Alcaldia B \(indicador rosa\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 515.7640157480315111 Td
+(Metricas comparadas \(Supabase\):) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 495.7797637795275705 Td
+(- Espacios culturales \(conteo\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 484.2994488188976447 Td
+(- Cobertura \(%\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 472.819133858267719 Td
+(- Brecha territorial \(%\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 452.8348818897637216 Td
+(Hallazgo automatico: texto del tipo «Alcaldia X y Y difieren N pp en brecha territorial».) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 432.850629921259781 Td
+(Ver Recomendaciones -> '/politicas'.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 401.5277952755904494 Td
+(Exportacion rapida \(panel inferior derecho\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 371.7640157480313974 Td
+(Formato  |  Contenido) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 361.5592913385825682 Td
+(**GeoJSON**  |  Geometrias de espacios filtrados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 351.354566929133739 Td
+(**XLSX**  |  Libro Excel multi-hoja \(KPIs, participacion, tendencia y hoja **Espacios** con el padron completo -) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 341.1498425196849666 Td
+([9.8]\(#98-exportacion-del-padron--columnas-y-hojas\)\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 330.9451181102361375 Td
+(**CSV / JSON**  |  Padron filtrado desde botones de la tabla \(mismas columnas que [9.8]\(#98-exportacion-del-padron--columnas-y-hojas\)\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 320.7403937007873083 Td
+(**PDF**  |  Informe visual del tablero con filtros aplicados) Tj
+ET
+0.78 G
+39.6850393700787407 290.6931496062991869 m
+555.5949606299211609 290.6931496062991869 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 259.5120472440944468 Td
+(5.5 Investigacion \('/investigacion'\)) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 222.8033858267716596 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 198.7088976377953031 Td
+(Repositorio de datos cualitativos geolocalizados: entrevistas, encuestas, grupos focales y otros materiales de campo.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 167.3860629921259715 Td
+(KPIs de cabecera) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 137.6222834645668627 Td
+(KPI  |  Calculo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 127.4175590551180903 Td
+(Recursos totales  |  Conteo de entradas activas en catalogo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 117.212834645669318 Td
+(Digitalizados  |  % con flag 'digitalizado = true') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 107.0081102362204319 Td
+(Alcaldias  |  Demarcaciones distintas con al menos un recurso) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 74.1262204724407638 Td
+(Panel izquierdo - catalogo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 8 de 16) Tj
+ET
+endstream
+endobj
+19 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 20 0 R
+>>
+endobj
+20 0 obj
+<<
+/Length 5436
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 802.2049606299212883 Td
+(- Busqueda por texto en titulo/snippet.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 790.7246456692913625 Td
+(- Filtros desplegables: tipo de recurso, alcaldia.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 779.2443307086614368 Td
+(- Limpiar filtros restablece la vista.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 767.7640157480315111 Td
+(- Lista paginada; cada tarjeta muestra tipo, fecha, titulo, snippet y badge de verificacion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 747.7797637795275705 Td
+(Tipos de recurso: p. ej. Entrevista, Encuesta, Grupo focal \(segun catalogo activo\).) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 716.4569291338582389 Td
+(Panel derecho - detalle) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 692.3624409448818824 Td
+(Pestana Ficha:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 672.3781889763779418 Td
+(- Titulo, investigador, fecha, alcaldia.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 660.8978740157480161 Td
+(- Resumen ejecutivo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 649.4175590551180903 Td
+(- Transcripcion por turnos \(Investigador / Informante\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 637.9372440944881646 Td
+(- Badge Verificado si paso validacion institucional.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 617.952992125984224 Td
+(Pestana Herramientas:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 592.2994488188976447 Td
+(Accion  |  Resultado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 582.0947244094488724 Td
+(Generar informe  |  PDF del recurso via API) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 571.8900000000001 Td
+(Exportar JSON  |  Archivo estructurado del recurso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 561.685275590551214 Td
+(Exportar CSV  |  Tabla resumida) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 551.4805511811024417 Td
+(Ver en mapa  |  '/mapa?recurso=ID&lat=…&lng=…') Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 529.9372440944882783 Td
+(Si el recurso no tiene coordenadas, el enlace al mapa muestra aviso.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 498.6144094488190035 Td
+(Estado vacio) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 474.5199212598425902 Td
+(Si no hay recursos publicados, se invita a crear contenido desde Admin -> Investigacion cualitativa.) Tj
+ET
+0.78 G
+39.6850393700787407 446.0317322834645779 m
+555.5949606299211609 446.0317322834645779 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 414.8506299212598378 Td
+(5.6 Politicas publicas \('/politicas'\)) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 378.1419685039370506 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 354.0474803149606373 Td
+(Traducir el diagnostico territorial en recomendaciones accionables para inversion cultural y equidad de genero.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 322.7246456692913625 Td
+(Hero) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 298.6301574803150061 Td
+(- Badge de fase de implementacion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 287.1498425196849666 Td
+(- KPIs: intervenciones planificadas, impacto social estimado, presupuesto MXN, alcance \(16 municipios\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 275.6695275590550409 Td
+(- Boton Descargar informe completo \(PDF\).) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 244.3466929133857093 Td
+(Evidencia del diagnostico) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 220.2522047244093528 Td
+(- Texto narrativo con cifras destacadas \(p. ej. deficit > 70%\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 208.7718897637794271 Td
+(- Grafico de brecha de inversion por alcaldia: barras comparativas para priorizar zonas.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 177.4490551181100955 Td
+(Recomendaciones estrategicas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 153.3545669291336253 Td
+(- Filtro por objetivo: Todos  -  Equidad de genero  -  Cobertura territorial  -  Infraestructura  -  etc.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 141.8742519685036996 Td
+(- Tarjetas de accion con:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 127.5592913385823977 Td
+(  - Prioridad \(Alta / Media / Baja\).   - Indicador de costo \($ a $$$\).   - Alcaldia objetivo.   - Descripcion e impacto estimado en) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 116.0789763779524719 Td
+(ciudadanos.   - Enlaces a Dashboard o Mapa cuando aplica.   - Descargar brief \(PDF individual por accion\).) Tj
+ET
+0.78 G
+39.6850393700787407 87.5907874015744738 m
+555.5949606299211609 87.5907874015744738 l
+S
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 56.4096850393697196 Td
+(5.7 Soporte / Contacto \('/contacto'\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 9 de 16) Tj
+ET
+endstream
+endobj
+21 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 22 0 R
+>>
+endobj
+22 0 obj
+<<
+/Length 5265
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Proposito) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 778.1104724409448181 Td
+(Canal de ayuda, documentacion tecnica y acceso a datos abiertos.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 746.7876377952756002 Td
+(Secciones) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 722.6931496062992437 Td
+(A. Buzon de consultas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 702.7088976377953031 Td
+(Formulario con nombre, correo, asunto y mensaje. Las consultas llegan al panel Admin -> Consultas de contacto \(Autoridad\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 682.7246456692913625 Td
+(B. Preguntas frecuentes) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 662.7403937007874219 Td
+(Acordeon con temas: actualizacion de datos, uso del mapa, API, licencias, etc.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 642.7561417322834814 Td
+(C. API de datos abiertos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 622.7718897637795408 Td
+(- URL base del API.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 611.291574803149615 Td
+(- Listado de endpoints \(/api/data/home, /api/data/mapa, /api/data/dashboard, etc.\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 599.8112598425196893 Td
+(- Ejemplo cURL listo para copiar.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 588.3309448818897636 Td
+(- Token de acceso *\(si esta configurado en el entorno\)*.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 568.346692913385823 Td
+(D. Datasets) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 548.3624409448818824 Td
+(Catalogo de conjuntos descargables \(GeoJSON del padron, CSV de metricas, etc.\) con descripcion y enlace.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 528.3781889763779418 Td
+(E. Politicas de uso) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 508.3939370078740581 Td
+(Terminos de reutilizacion de datos abiertos CDMX.) Tj
+ET
+0.78 G
+39.6850393700787407 479.9057480314961026 m
+555.5949606299211609 479.9057480314961026 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 448.7246456692914194 Td
+(6. Mi Perfil) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 420.8033858267717164 Td
+(Ruta: '/perfil'  -  Requisito: sesion activa.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 389.4805511811023848 Td
+(6.1 Cabecera) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 364.1104724409449318 Td
+(- Avatar \(foto subida o iniciales del nombre\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 352.6301574803150061 Td
+(- Nombre, subtitulo segun rol e institucion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 341.1498425196850235 Td
+(- Badge de rol \(Ciudadano / Investigador / Autoridad\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 329.6695275590550409 Td
+(- Estadisticas personales: recursos guardados, reportes generados.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 298.3466929133857093 Td
+(6.2 Pestana «Mis Recursos») Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 272.9766141732283131 Td
+(Lista de espacios culturales guardados desde el mapa.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 247.3230708661416202 Td
+(Accion  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 237.1183464566928478 Td
+(Filtrar por tipo  |  Desplegable con tipologias presentes en tu lista) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 226.9136220472440755 Td
+(Abrir  |  Enlace al mapa centrado en el espacio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 216.7088976377951894 Td
+(Eliminar  |  Quita el espacio de favoritos *\(Supabase\)*) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 206.5041732283464171 Td
+(Explorar mapa  |  Boton para descubrir mas espacios) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 184.9608661417322537 Td
+(Estado vacio: mensaje invitando a guardar desde el visor geografico.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 153.6380314960629221 Td
+(6.3 Pestana «Historial») Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 128.2679527559055259 Td
+(Registro de exportaciones y descargas:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 108.2837007874015853 Td
+(- Titulo del informe o dataset.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 96.8033858267716596 Td
+(- Formato \(PDF, Excel, o CSV si es una exportacion anterior\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 85.3230708661417339 Td
+(- Fecha de generacion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 73.8427559055116944 Td
+(- Volver a descargar o eliminar del historial.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 10 de 16) Tj
+ET
+endstream
+endobj
+23 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 24 0 R
+>>
+endobj
+24 0 obj
+<<
+/Length 5862
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(6.4 Pestana «Configuracion») Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 776.8348818897637784 Td
+(- Nombre para mostrar: editable con Supabase.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 765.3545669291338527 Td
+(- Correo: solo lectura.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 753.8742519685039269 Td
+(- Avatar: subida de imagen al bucket avatars *\(Supabase\)*.) Tj
+ET
+0.78 G
+39.6850393700787407 725.3860629921259715 m
+555.5949606299211609 725.3860629921259715 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 694.2049606299212883 Td
+(7. Centro de reportes) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 666.2837007874015853 Td
+(Ruta: '/reportes'  -  Requisito: sesion con Supabase \(cualquier perfil verificado\).) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 634.9608661417322537 Td
+(7.1 Vista general) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 609.5907874015747439 Td
+(- 4 KPIs personales de exportacion \(ver [9.4]\(#94-reportes--kpis\)\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 598.1104724409448181 Td
+(- Enlace Explorar metricas -> Dashboard.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 566.7876377952754865 Td
+(7.2 Generar un reporte - paso a paso) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 541.4175590551180903 Td
+(1. Elegir plantilla en la cuadricula de plantillas:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 515.7640157480313974 Td
+(Plantilla  |  Contenido tipico  |  Formatos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 505.559291338582625 Td
+(Diagnostico Territorial  |  Brechas y cobertura por demarcacion  |  PDF, Excel \(.xlsx\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 495.3545669291338527 Td
+(Impacto Social  |  Participacion por genero, NSE y edad  |  PDF, Excel \(.xlsx\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 485.1498425196850235 Td
+(Resumen Ejecutivo  |  Panorama CDMX para autoridades  |  PDF, Excel \(.xlsx\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 463.6065354330708601 Td
+(1. Ajustar filtros \(mismos ejes que Dashboard\): alcaldia, disciplina, periodo, NSE, edad, genero.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 443.6222834645668627 Td
+(1. Vista previa del resumen de filtros antes de generar.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 423.6380314960629221 Td
+(1. Pulsar el boton del formato deseado: PDF o Excel.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 403.6537795275589247 Td
+(1. El archivo se descarga y queda registrado en Historial de exportaciones.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 383.6695275590549841 Td
+(Nota: El Centro de reportes no ofrece CSV como informe \(un solo archivo plano\). Para datos tabulares del padron con muchas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 372.1892125984250015 Td
+(columnas, usa Excel o la exportacion CSV / JSON desde el Dashboard.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 340.8663779527556699 Td
+(7.3 Contenido del Excel \(.xlsx\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 315.4962992125982737 Td
+(El libro generado en reportes incluye varias hojas \(misma logica que el informe completo del Dashboard\):) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 289.8427559055115807 Td
+(Hoja  |  Contenido) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 279.6380314960628084 Td
+(**Resumen**  |  Filtros aplicados, avisos y total de espacios filtrados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 269.4333070866139224 Td
+(**KPIs**  |  Indicadores del tablero con los filtros actuales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 259.22858267716515 Td
+(**Participacion**  |  Porcentajes por genero \(tipologias agregadas\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 249.0238582677163777 Td
+(**Tendencia**  |  Serie de existencia anual del padron \(segun territorio\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 238.8191338582676053 Td
+(**Espacios**  |  Padron filtrado - ver [columnas en 9.8]\(#98-exportacion-del-padron--columnas-y-hojas\)) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 205.9372440944880509 Td
+(7.4 Historial) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 180.567165354330541 Td
+(Tabla con titulo, categoria, estado \(Publicado / Generado / Borrador\), fecha y autor.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 160.5829133858266005 Td
+(- Menu de acciones: Descargar de nuevo, Eliminar.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 149.1025984251966747 Td
+(- Los reportes generados en esta sesion/web quedan vinculados a tu userId.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 137.622283464566749 Td
+(- El historial puede incluir exportaciones CSV antiguas; las nuevas generaciones en web son PDF y Excel.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 106.2994488188974174 Td
+(7.5 Panel de ayuda) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 80.9293700787399075 Td
+(Texto contextual sobre interpretacion de filtros, formatos y tiempos de generacion.) Tj
+ET
+0.78 G
+39.6850393700787407 52.4411811023619379 m
+555.5949606299211609 52.4411811023619379 l
+S
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 11 de 16) Tj
+ET
+endstream
+endobj
+25 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 26 0 R
+>>
+endobj
+26 0 obj
+<<
+/Length 4948
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(8. Panel de administracion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 774.2837007874015853 Td
+(Ruta: '/admin'  -  Requisito: rol Autoridad con Supabase.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 754.2994488188976447 Td
+(Si no cumples el requisito, veras un mensaje con enlace a login \('?next=/admin'\).) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 722.9766141732283131 Td
+(8.1 Vista general) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 697.6065354330708033 Td
+(- Menu lateral \(desktop\) o selector desplegable \(movil\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 686.1262204724408775 Td
+(- Cabecera: titulo, boton Nuevo Espacio, acceso rapido a Logs del Sistema.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 674.6459055118109518 Td
+(- 4 KPIs administrativos \(ver [9.7]\(#97-administracion--kpis\)\).) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 643.3230708661417339 Td
+(8.2 Espacios culturales) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 617.952992125984224 Td
+(Tres sub-pestanas:) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 586.6301574803148924 Td
+(Listado maestro) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 562.5356692913385359 Td
+(- Busqueda por ID o nombre.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 551.0553543307086102 Td
+(- Tabla: ID, nombre, alcaldia, tipo, estado, acciones \(editar / eliminar\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 539.5750393700786844 Td
+(- Paginacion server-side con Supabase.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 528.0947244094488724 Td
+(- Nuevo espacio abre modal de alta.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 496.7718897637795408 Td
+(Flujo de revision) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 472.6774015748030706 Td
+(Kanban del ciclo de vida:) Tj
+ET
+0.96 g
+39.6850393700787407 455.5277952755904494 515.9099212598424629 -24.0944881889763813 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 447.0238582677164345 Td
+(Borrador -> Revision -> Publicado) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 423.2837007874014716 Td
+(- Arrastrar o boton Publicar mueve espacios entre columnas.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 411.8033858267715459 Td
+(- Solo espacios Publicados aparecen en el mapa publico.) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+39.6850393700787407 380.4805511811022143 Td
+(Editor cartografico) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 356.386062992125801 Td
+(- Seleccionar espacio sin coordenadas validas.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 344.9057480314958752 Td
+(- Introducir latitud y longitud manualmente.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 333.4254330708658927 Td
+(- Guardar coordenadas actualiza el padron y el pin en mapa.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 302.102598425196561 Td
+(8.3 Capas SIG) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 276.7325196850391649 Td
+(CRUD del catalogo de capas vectoriales/raster:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 256.7482677165351106 Td
+(- Nombre, tipo, URL de servicio, estado activo/inactivo.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 245.2679527559051849 Td
+(- Las capas activas alimentan el visor y el contador de KPI «Capas SIG».) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 213.9451181102358532 Td
+(8.4 Capas del mapa) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 188.5750393700784571 Td
+(Panel operativo para sincronizacion territorial:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 168.5907874015745165 Td
+(- Estado de capas: metricas, densidad, geometrias, transporte.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 157.1104724409444771 Td
+(- Boton Sincronizar ejecuta el pipeline admin \(sync:mapa\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 145.6301574803145513 Td
+(- Registro en mapa_sync_log *\(visible en logs\)*.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 114.3073228346452197 Td
+(8.5 Fuentes de informacion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 88.9372440944878235 Td
+(Metadatos de procedencia: institucion, URL, fecha de corte, notas de calidad.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 57.6144094488184919 Td
+(8.6 Politicas publicas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 12 de 16) Tj
+ET
+endstream
+endobj
+27 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 28 0 R
+>>
+endobj
+28 0 obj
+<<
+/Length 5351
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Editor de recomendaciones mostradas en '/politicas':) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 782.2207086614173477 Td
+(- Secciones por objetivo estrategico.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 770.7403937007874219 Td
+(- Acciones con prioridad, costo, alcaldia, impacto.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 759.2600787401574962 Td
+(- Publicar/desactivar entradas.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 727.9372440944881646 Td
+(8.7 Investigacion cualitativa) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 702.5671653543306547 Td
+(Alta/edicion de recursos del repositorio publico:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 682.5829133858267141 Td
+(- Tipo, titulo, alcaldia, investigador, resumen, transcripcion JSON.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 671.1025984251967884 Td
+(- Coordenadas opcionales para geolocalizacion en mapa.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 659.6222834645668627 Td
+(- Flags: verificado, digitalizado, activo.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 628.2994488188976447 Td
+(8.8 Centro de reportes \(admin\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 602.9293700787401349 Td
+(Gestion de plantillas disponibles en '/reportes':) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 582.9451181102361943 Td
+(- Titulo, descripcion, categoria, formatos permitidos.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 571.4648031496062686 Td
+(- Filtros por defecto al seleccionar la plantilla.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 540.1419685039370506 Td
+(8.9 Consultas de contacto) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 514.7718897637794271 Td
+(Bandeja de mensajes del buzon '/contacto':) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 494.7876377952756002 Td
+(- Listado con fecha, correo, asunto.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 483.3073228346456744 Td
+(- Modal de detalle; marcar como atendida.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 451.9844881889763997 Td
+(8.9 Usuarios) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 426.6144094488189467 Td
+(- Listado de cuentas registradas.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 415.1340944881889641 Td
+(- Crear usuario \(correo, nombre, rol inicial\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 403.6537795275590383 Td
+(- Cambiar rol \(Ciudadano / Investigador / Autoridad\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 392.1734645669290558 Td
+(- Solo accesible via API protegida require-autoridad.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 360.8506299212597241 Td
+(8.10 Historial / logs) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 335.4805511811022711 Td
+(Auditoria consolidada:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 315.4962992125982737 Td
+(- Altas y cambios de espacios, capas, usuarios.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 304.015984251968348 Td
+(- Sincronizaciones de mapa.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 292.5356692913384222 Td
+(- Exportaciones relevantes.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 281.0553543307084965 Td
+(- Filtro por fecha y tipo de evento.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 249.7325196850391649 Td
+(8.11 Pendientes) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 224.362440944881655 Td
+(Cola de validaciones institucionales \(contenido en revision, consultas sin responder, espacios incompletos\). El badge numerico en) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 212.8821259842517293 Td
+(el menu indica cuantos items requieren atencion.) Tj
+ET
+0.78 G
+39.6850393700787407 184.393937007873717 m
+555.5949606299211609 184.393937007873717 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 153.2128346456689769 Td
+(9. Referencia de KPIs y graficos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 125.291574803149274 Td
+(Indice del capitulo:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 105.3073228346453334 Td
+(1. [9.1 Inicio]\(#91-inicio\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 93.8270078740154077 Td
+(2. [9.2 Dashboard - KPIs]\(#92-dashboard--kpis\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 82.3466929133854819 Td
+(3. [9.3 Dashboard - graficos]\(#93-dashboard--graficos\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 70.8663779527554425 Td
+(4. [9.4 Reportes - KPIs]\(#94-reportes--kpis\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 59.3860629921255168 Td
+(5. [9.5 Investigacion - KPIs]\(#95-investigacion--kpis\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 13 de 16) Tj
+ET
+endstream
+endobj
+29 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 30 0 R
+>>
+endobj
+30 0 obj
+<<
+/Length 7048
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 802.2049606299212883 Td
+(6. [9.6 Politicas - KPIs del hero]\(#96-politicas--kpis-del-hero\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 790.7246456692913625 Td
+(7. [9.7 Administracion - KPIs]\(#97-administracion--kpis\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 779.2443307086614368 Td
+(8. [9.8 Exportacion del padron - columnas y hojas]\(#98-exportacion-del-padron--columnas-y-hojas\)) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 747.9214960629921052 Td
+(9.1 Inicio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 716.8821259842519567 Td
+(Elemento  |  Tipo  |  Que mide  |  Fuente) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 706.6774015748030706 Td
+(Total Espacios  |  KPI  |  Registros georreferenciados  |  RPC / conteo padron) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 696.4726771653542983 Td
+(Alcaldias  |  KPI  |  Demarcaciones con cobertura  |  Metricas territoriales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 686.2679527559054122 Td
+(Cobertura Prom.  |  KPI  |  Media de indice de accesibilidad  |  'metricas_alcaldia') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 676.0632283464566399 Td
+(Periodo  |  KPI  |  Ano-semestre del corte  |  Config 'anioCorte') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 665.8585039370077538 Td
+(Crecimiento padron  |  Area  |  Espacios por ano  |  Serie existencia anual) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 655.6537795275589815 Td
+(Brecha por alcaldia  |  Barras H  |  % deficit + nº espacios + prioridad  |  Brecha territorial SECTEI) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 622.7718897637794271 Td
+(9.2 Dashboard - KPIs) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 597.4018110236220309 Td
+(Alcaldia = «Todas») Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 571.748267716535338 Td
+(KPI  |  Valor  |  Nota bajo el numero) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 561.5435433070865656 Td
+(Total Espacios  |  Conteo nacional  |  «Padron SECTEI») Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 551.3388188976377933 Td
+(Alcaldias  |  Normalmente 16  |  «Demarcaciones») Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 541.1340944881890209 Td
+(Cobertura Territorial  |  % promedio CDMX  |  «Ciudad completa») Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 530.9293700787401349 Td
+(Brecha Promedio  |  Media de brechas  |  «Por demarcacion») Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 509.3860629921259715 Td
+(Alcaldia especifica) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 483.7325196850393922 Td
+(KPI  |  Significado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 473.5277952755905062 Td
+(Espacios en demarcacion  |  Conteo local) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 463.3230708661417339 Td
+(Cobertura local  |  % en esa alcaldia) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 453.1183464566929047 Td
+(Brecha territorial  |  % deficit SECTEI) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 442.9136220472441323 Td
+(Tipologias activas  |  Tipos SIC distintos en el filtro) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 410.0317322834645779 Td
+(9.3 Dashboard - graficos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 378.9923622047244862 Td
+(Grafico  |  Ejes / series  |  Interpretacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 368.787637795275657 Td
+(**Participacion por Genero**  |  X: tipologia SIC  -  Y: %  -  Series: Masculino, Femenino, Otros  |  Equidad de participacion por tipo de espacio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 358.5829133858268847 Td
+(**Existencia anual del padron**  |  X: ano  -  Y: espacios  -  Serie 2: variacion anual  |  Crecimiento del padron en el tiempo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 348.3781889763780555 Td
+(**Indicadores de movilidad**  |  X: mes  -  Y: minutos promedio  |  Tiempo de acceso cuando no hay serie de existencia) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 338.1734645669292831 Td
+(**Densidad de infraestructura**  |  X: macrozona  -  Y: indice 0-100  |  Concentracion relativa Centro/Sur/Oriente/Poniente/Norte) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 327.9687401574805108 Td
+(**Distribucion por tipologia**  |  Sectores: tipo SIC  -  Valor: conteo  |  Composicion del padron filtrado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 317.7640157480316248 Td
+(**Comparador A vs B**  |  Barras proporcionales por metrica  |  Brecha entre dos demarcaciones elegidas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 296.2207086614174614 Td
+(Estados de espacio en tabla) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 270.5671653543308821 Td
+(Estado  |  Color  |  Significado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 260.3624409448819961 Td
+(Publicado  |  Verde  |  Visible en mapa y estadisticas publicas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 250.1577165354332237 Td
+(Revision  |  Ambar  |  En validacion institucional) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 239.9529921259844514 Td
+(Borrador  |  Gris  |  Solo visible en admin) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 207.071102362204897 Td
+(9.4 Reportes - KPIs) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 181.7010236220475008 Td
+(\(Con Supabase - datos de tu cuenta\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 156.0474803149608078 Td
+(KPI  |  Significado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 145.8427559055120355 Td
+(Total exportaciones  |  Registros en historial personal) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 135.6380314960632631 Td
+(Informes PDF  |  Conteo de PDFs generados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 125.4333070866143771 Td
+(Datos tabulares  |  Archivos **Excel \(.xlsx\)** generados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 115.2285826771654911 Td
+(Generador web  |  Exportaciones en el **mes en curso**; si no hay ninguna, texto *PDF  -  Excel disponibles*; si hay, fecha de la ultima) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 105.023858267716605 Td
+(exportacion) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 72.1419685039370506 Td
+(9.5 Investigacion - KPIs) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 14 de 16) Tj
+ET
+endstream
+endobj
+31 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 32 0 R
+>>
+endobj
+32 0 obj
+<<
+/Length 7194
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(KPI  |  Formula) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 792.0002362204724022 Td
+(Recursos totales  |  'COUNT\(recursos activos\)') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 781.7955118110236299 Td
+(Digitalizados  |  'ROUND\(digitalizados / total × 100\)%') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 771.5907874015747439 Td
+(Alcaldias  |  'COUNT\(DISTINCT alcaldia\)') Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 738.7088976377951894 Td
+(9.6 Politicas - KPIs del hero) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 707.6695275590550409 Td
+(KPI  |  Contenido) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 697.4648031496062686 Td
+(Intervenciones  |  Acciones planificadas en el documento) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 687.2600787401573825 Td
+(Impacto social  |  Ciudadanos estimados beneficiados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 677.0553543307086102 Td
+(Presupuesto  |  MXN estimados de inversion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 666.8506299212597241 Td
+(Municipios  |  Alcaldias cubiertas \(16\)) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 633.9687401574802834 Td
+(9.7 Administracion - KPIs) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 602.9293700787400212 Td
+(KPI  |  Origen) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 592.7246456692912489 Td
+(Total Espacios  |  Espacios activos georreferenciados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 582.5199212598424765 Td
+(Pendientes  |  Registros en estado Revision) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 572.3151968503937042 Td
+(Capas SIG  |  Capas con 'activo = true') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 562.1104724409449318 Td
+(Usuarios activos  |  Perfiles con sesion reciente) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 529.2285826771653774 Td
+(9.8 Exportacion del padron - columnas y hojas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 503.8585039370078675 Td
+(Aplica a la hoja Espacios del Excel generado en Centro de reportes y Dashboard, y a las descargas CSV / JSON / GeoJSON del) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 492.3781889763779418 Td
+(padron en Dashboard \(con Supabase activo\).) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 466.7246456692913625 Td
+(Columna  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 456.5199212598425902 Td
+(ID del espacio  |  UUID o identificador en 'espacios_culturales') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 446.315196850393761 Td
+(ID corto \(vista tabla\)  |  Primeros 8 caracteres del ID \(mayusculas\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 436.1104724409449886 Td
+(Nombre  |  Denominacion del espacio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 425.9057480314961595 Td
+(Tipologia SIC  |  Tipo oficial del registro) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 415.7010236220473871 Td
+(Alcaldia  |  Demarcacion territorial) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 405.4962992125985579 Td
+(Direccion  |  Domicilio o referencia de ubicacion *\(si esta capturada en el padron\)*) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 395.2915748031497287 Td
+(Descripcion  |  Texto descriptivo del espacio *\(si esta capturada\)*) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 385.0868503937009564 Td
+(Horario  |  Horario de servicio) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 374.8821259842521272 Td
+(Telefono  |  Contacto telefonico) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 364.6774015748033548 Td
+(Latitud \(WGS84\)  |  Coordenada norte) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 354.4726771653545256 Td
+(Longitud \(WGS84\)  |  Coordenada este) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 344.2679527559057533 Td
+(Completitud \(%\)  |  Indice 0-100 segun coordenadas, horario y telefono) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 334.0632283464569241 Td
+(Estado editorial  |  Publicado  -  Revision  -  Borrador) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 312.5199212598428176 Td
+(Origen de datos: tabla 'espacios_culturales' en Supabase. Celdas vacias indican que el campo no fue capturado o esta pendiente) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 301.0396062992127781 Td
+(de validacion editorial.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 281.0553543307088376 Td
+(PDF \(reportes\): incluye resumen de metricas y, en el anexo, una muestra de espacios con nombre, alcaldia, direccion/telefono \(si) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 269.5750393700789118 Td
+(existen\) y completitud - no replica todas las columnas del Excel.) Tj
+ET
+0.78 G
+39.6850393700787407 241.0868503937008995 m
+555.5949606299211609 241.0868503937008995 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 209.9057480314961595 Td
+(10. Glosario y estados) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 170.6459055118111792 Td
+(10.1 Terminos clave) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 139.6065354330710306 Td
+(Termino  |  Definicion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 129.4018110236222583 Td
+(**Padron SECTEI**  |  Inventario oficial de espacios culturales de CDMX) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 119.1970866141733723 Td
+(**Tipologia SIC**  |  Clasificacion oficial del tipo de espacio \(12 categorias\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 108.9923622047245999 Td
+(**Brecha territorial**  |  % de deficit de infraestructura respecto a la demanda estimada) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 98.7876377952757139 Td
+(**Cobertura**  |  % de satisfaccion del indice de accesibilidad cultural) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 88.5829133858268278 Td
+(**Completitud**  |  % de campos obligatorios llenos en un registro) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 78.3781889763779418 Td
+(**Recurso cualitativo**  |  Entrevista, encuesta u otro material de investigacion de campo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 68.1734645669290558 Td
+(**Macrozona**  |  Agrupacion territorial: Centro, Sur, Oriente, Poniente, Norte) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 57.9687401574801697 Td
+(**NSE**  |  Nivel socioeconomico \(Bajo, Medio, Alto\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 15 de 16) Tj
+ET
+endstream
+endobj
+33 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 34 0 R
+>>
+endobj
+34 0 obj
+<<
+/Length 5421
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(**Corte / anioCorte**  |  Ano de referencia de las metricas mostradas) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 769.3230708661417339 Td
+(10.2 Formatos de exportacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 738.2837007874015853 Td
+(Formato  |  Donde se genera  |  Contenido) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 728.0789763779526993 Td
+(PDF  |  Dashboard, Reportes, Politicas, Investigacion  |  Informe visual o brief) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 717.8742519685039269 Td
+(CSV  |  Dashboard, Investigacion  |  Padron o transcripciones en texto plano \(coma + UTF-8 en padron; ver) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 707.6695275590550409 Td
+([9.8]\(#98-exportacion-del-padron--columnas-y-hojas\)\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 697.4648031496062686 Td
+(XLSX  |  Dashboard, Reportes  |  Libro Excel multi-hoja; padron en hoja **Espacios** \([9.8]\(#98-exportacion-del-padron--columnas-y-hojas\)\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 687.2600787401574962 Td
+(GeoJSON  |  Dashboard  |  Features con propiedades del padron \([9.8]\(#98-exportacion-del-padron--columnas-y-hojas\)\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 677.0553543307086102 Td
+(JSON  |  Dashboard, Investigacion  |  Snapshot estructurado \(padron o recurso cualitativo\)) Tj
+ET
+0.78 G
+39.6850393700787407 647.0081102362204319 m
+555.5949606299211609 647.0081102362204319 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 615.8270078740157487 Td
+(11. Preguntas frecuentes operativas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 587.9057480314960458 Td
+(¿Puedo usar la plataforma sin registrarme?   Si. Inicio, Proyecto, Mapa, Dashboard, Investigacion, Politicas y Contacto son) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 576.42543307086612 Td
+(publicos. Necesitas cuenta para guardar espacios, generar reportes \(Supabase\) y acceder a Admin.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 556.4411811023621794 Td
+(¿Por que no veo el menu Administracion?   Solo aparece con sesion de Autoridad. Investigadores y ciudadanos no lo ven por) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 544.9608661417322537 Td
+(diseno.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 524.9766141732284268 Td
+(¿Por que los numeros del Dashboard no cambian al filtrar?   En modo demo algunos indicadores son estaticos. Con Supabase,) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 513.4962992125983874 Td
+(verifica el badge verde y que existan metricas para el 'anioCorte' seleccionado.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 493.5120472440945036 Td
+(¿Como comparto un espacio especifico del mapa?   Copia la URL del navegador tras seleccionar el espacio; incluira) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 482.0317322834645779 Td
+('?espacio=ID' o coordenadas.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 462.0474803149606373 Td
+(¿Que significa «Sin datos de participacion para los filtros actuales»?   La combinacion alcaldia + disciplina + genero + edad no) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 450.5671653543307116 Td
+(tiene filas en la tabla de estadisticas. Prueba ampliar filtros a «Todas» / «Todos».) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 430.5829133858267141 Td
+(¿Como actualizo las capas del mapa tras una migracion?   Como Autoridad: Admin -> Capas del mapa -> Sincronizar. Consulta) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 419.1025984251967884 Td
+(tambien la documentacion tecnica del mapa.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 399.118346456692791 Td
+(¿Puedo cambiar mi rol despues del registro?   No desde la interfaz publica. Una Autoridad puede reasignar roles en Admin ->) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 387.6380314960628652 Td
+(Usuarios.) Tj
+ET
+0.78 G
+39.6850393700787407 359.149842519684853 m
+555.5949606299211609 359.149842519684853 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 327.9687401574801697 Td
+(Documentacion relacionada) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 300.0474803149604668 Td
+(- [Arquitectura MVC y operacion del mapa territorial]\(ARCHITECTURE.md#mapa-territorial--seeds-y-sincronizacion\) - capas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 288.567165354330541 Td
+(Supabase, seeds y sincronizacion.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 277.0868503937005016 Td
+(- [README del proyecto]\(../README.md\) - instalacion y arranque en desarrollo.) Tj
+ET
+0.78 G
+39.6850393700787407 248.5986614173225462 m
+555.5949606299211609 248.5986614173225462 l
+S
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 228.7561417322831403 Td
+(GEO ARTE CDMX  -  Gobierno de la Ciudad de Mexico  -  Manual de usuario v1.1) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Panel de Administracion  |  Pagina 16 de 16) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R ]
+/Count 16
+>>
+endobj
+35 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+36 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+37 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+38 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+39 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+40 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+41 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+42 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+43 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+44 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+45 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+46 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+47 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+48 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 35 0 R
+/F2 36 0 R
+/F3 37 0 R
+/F4 38 0 R
+/F5 39 0 R
+/F6 40 0 R
+/F7 41 0 R
+/F8 42 0 R
+/F9 43 0 R
+/F10 44 0 R
+/F11 45 0 R
+/F12 46 0 R
+/F13 47 0 R
+/F14 48 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+49 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260622151507-06'00')
+>>
+endobj
+50 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 51
+0000000000 65535 f 
+0000098679 00000 n 
+0000100604 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000006894 00000 n 
+0000007031 00000 n 
+0000012416 00000 n 
+0000012553 00000 n 
+0000019298 00000 n 
+0000019436 00000 n 
+0000025274 00000 n 
+0000025413 00000 n 
+0000031237 00000 n 
+0000031376 00000 n 
+0000038647 00000 n 
+0000038786 00000 n 
+0000044760 00000 n 
+0000044899 00000 n 
+0000050618 00000 n 
+0000050757 00000 n 
+0000056246 00000 n 
+0000056385 00000 n 
+0000061703 00000 n 
+0000061842 00000 n 
+0000067757 00000 n 
+0000067896 00000 n 
+0000072897 00000 n 
+0000073036 00000 n 
+0000078440 00000 n 
+0000078579 00000 n 
+0000085680 00000 n 
+0000085819 00000 n 
+0000093066 00000 n 
+0000093205 00000 n 
+0000098839 00000 n 
+0000098965 00000 n 
+0000099096 00000 n 
+0000099230 00000 n 
+0000099368 00000 n 
+0000099492 00000 n 
+0000099621 00000 n 
+0000099753 00000 n 
+0000099889 00000 n 
+0000100017 00000 n 
+0000100144 00000 n 
+0000100273 00000 n 
+0000100406 00000 n 
+0000100508 00000 n 
+0000100857 00000 n 
+0000100943 00000 n 
+trailer
+<<
+/Size 51
+/Root 50 0 R
+/Info 49 0 R
+/ID [ <23CC42143DF95FBEA1DC1060806D8E10> <23CC42143DF95FBEA1DC1060806D8E10> ]
+>>
+startxref
+101047
+%%EOF

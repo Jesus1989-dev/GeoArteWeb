@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --geo-navy: #1f3a5f;
+  --geo-navy-dark: #152a45;
+  --geo-pink: #e10599;
+  --geo-pink-hover: #b3047a;
+  --geo-muted: #64748b;
+  --geo-border: #e2e8f0;
+  --geo-surface: #f8fafc;
+  --geo-card: #ffffff;
+  --geo-input: #ffffff;
+  --geo-hover: #f1f5f9;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  /* Marca institucional: conservar navy en fondos/bordes (bg-geo-navy + text-white). */
+  --geo-navy: #1f3a5f;
+  --geo-navy-dark: #152a45;
+  --geo-muted: #94a3b8;
+  --geo-border: #334155;
+  --geo-surface: #1e293b;
+  --geo-card: #1e293b;
+  --geo-input: #0f172a;
+  --geo-hover: #334155;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-geo-navy: var(--geo-navy);
+  --color-geo-navy-dark: var(--geo-navy-dark);
+  --color-geo-pink: var(--geo-pink);
+  --color-geo-pink-hover: var(--geo-pink-hover);
+  --color-geo-muted: var(--geo-muted);
+  --color-geo-border: var(--geo-border);
+  --color-geo-surface: var(--geo-surface);
+  --color-geo-card: var(--geo-card);
+  --color-geo-input: var(--geo-input);
+  --color-geo-hover: var(--geo-hover);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: clip;
+  min-height: 100%;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+main {
+  min-width: 0;
+}
+
+/* text-geo-navy en oscuro: texto legible sin aclarar el token de marca */
+html.dark :where(.text-geo-navy) {
+  color: var(--foreground);
+}
+
+/* Compatibilidad con utilidades fijas en pantallas principales */
+html.dark :where(.bg-white) {
+  background-color: var(--geo-card);
+}
+
+html.dark :where(.bg-gray-50) {
+  background-color: var(--geo-surface);
+}
+
+html.dark :where(.bg-gray-100) {
+  background-color: var(--geo-hover);
+}
+
+html.dark :where(.bg-slate-100) {
+  background-color: var(--geo-surface);
+}
+
+html.dark :where(.bg-slate-100\/80) {
+  background-color: color-mix(in srgb, var(--geo-surface) 80%, transparent);
+}
+
+html.dark :where(.text-gray-600) {
+  color: var(--geo-muted);
+}
+
+html.dark :where(.text-gray-500) {
+  color: var(--geo-muted);
+}
+
+html.dark :where(.border-gray-200) {
+  border-color: var(--geo-border);
+}
+
+html.dark :where(.hover\:bg-gray-50:hover) {
+  background-color: var(--geo-hover);
+}
+
+html.dark :where(.hover\:bg-red-50:hover) {
+  background-color: color-mix(in srgb, #ef4444 15%, var(--geo-surface));
+}
+
+html.dark :where(.shadow-sm) {
+  --tw-shadow-color: rgb(0 0 0 / 0.35);
+}
+
+html.dark :where(.shadow-lg),
+html.dark :where(.shadow-xl) {
+  --tw-shadow-color: rgb(0 0 0 / 0.45);
+}
+
+html.dark :where(.bg-white\/95),
+html.dark :where(.bg-geo-card\/95) {
+  background-color: color-mix(in srgb, var(--geo-card) 95%, transparent);
+}
+
+html.dark :where(.bg-white\/80) {
+  background-color: color-mix(in srgb, var(--geo-card) 80%, transparent);
+}
+
+html.dark :where(.bg-white\/15) {
+  background-color: color-mix(in srgb, var(--foreground) 12%, transparent);
+}
+
+html.dark :where(.hover\:bg-white\/80:hover) {
+  background-color: color-mix(in srgb, var(--geo-card) 80%, transparent);
+}
+
+html.dark :where(.hover\:bg-white:hover) {
+  background-color: var(--geo-hover);
+}
+
+html.dark :where(.text-gray-700) {
+  color: var(--geo-muted);
+}
+
+html.dark :where(.text-gray-900) {
+  color: var(--foreground);
+}
+
+html.dark :where(.text-slate-700) {
+  color: var(--geo-muted);
+}
+
+html.dark :where(.ring-gray-200) {
+  --tw-ring-color: var(--geo-border);
+}
+
+html.dark :where(.divide-gray-200) > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--geo-border);
+}
+
+html.dark :where(.bg-emerald-50) {
+  background-color: color-mix(in srgb, #10b981 18%, var(--geo-surface));
+}
+
+html.dark :where(.bg-emerald-100) {
+  background-color: color-mix(in srgb, #10b981 22%, var(--geo-surface));
+}
+
+html.dark :where(.text-emerald-800),
+html.dark :where(.text-emerald-700),
+html.dark :where(.text-emerald-900) {
+  color: #6ee7b7;
+}
+
+html.dark :where(.border-emerald-200) {
+  border-color: color-mix(in srgb, #10b981 40%, var(--geo-border));
+}
+
+html.dark :where(.bg-amber-50) {
+  background-color: color-mix(in srgb, #f59e0b 18%, var(--geo-surface));
+}
+
+html.dark :where(.bg-amber-100) {
+  background-color: color-mix(in srgb, #f59e0b 22%, var(--geo-surface));
+}
+
+html.dark :where(.text-amber-800),
+html.dark :where(.text-amber-900) {
+  color: #fcd34d;
+}
+
+html.dark :where(.bg-amber-100\/80) {
+  background-color: color-mix(in srgb, #f59e0b 20%, var(--geo-surface));
+}
+
+html.dark :where(.from-slate-100) {
+  --tw-gradient-from: var(--geo-surface);
+}
+
+html.dark :where(.via-white) {
+  --tw-gradient-via: var(--background);
+}
+
+html.dark :where(.to-white) {
+  --tw-gradient-to: var(--background);
+}
+
+html.dark :where(.border-geo-border\/80) {
+  border-color: color-mix(in srgb, var(--geo-border) 80%, transparent);
+}
+
+html.dark .leaflet-control-zoom a,
+html.dark .leaflet-bar a {
+  background-color: var(--geo-card);
+  color: var(--foreground);
+  border-color: var(--geo-border);
+}
+
+html.dark .leaflet-control-zoom a:hover,
+html.dark .leaflet-bar a:hover {
+  background-color: var(--geo-hover);
+}
+
+html.dark .leaflet-control-attribution {
+  background-color: color-mix(in srgb, var(--geo-card) 90%, transparent);
+  color: var(--geo-muted);
+}
+
+html.dark :where(select),
+html.dark :where(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])),
+html.dark :where(textarea) {
+  background-color: var(--geo-input);
+  color: var(--foreground);
+}
+
+html.dark :where(select option) {
+  background-color: var(--geo-card);
+  color: var(--foreground);
+}
+
+html.dark :where(.bg-gray-50\/80) {
+  background-color: color-mix(in srgb, var(--geo-surface) 80%, transparent);
+}
+
+html.dark :where(.bg-gray-50\/50) {
+  background-color: color-mix(in srgb, var(--geo-surface) 50%, transparent);
+}
+
+html.dark :where(.border-gray-100) {
+  border-color: var(--geo-border);
+}
+
+html.dark :where(.hover\:bg-gray-50\/50:hover),
+html.dark :where(.hover\:bg-gray-50\/80:hover) {
+  background-color: color-mix(in srgb, var(--geo-hover) 55%, transparent);
+}
+
+html.dark :where(.disabled\:bg-gray-50:disabled) {
+  background-color: var(--geo-surface);
+}
+
+html.dark :where(.bg-sky-100) {
+  background-color: color-mix(in srgb, #0ea5e9 22%, var(--geo-surface));
+}
+
+html.dark :where(.text-sky-800) {
+  color: #7dd3fc;
+}
+
+html.dark :where(.bg-white\/70) {
+  background-color: color-mix(in srgb, var(--geo-card) 70%, transparent);
+}
+
+html.dark table thead tr {
+  color: var(--geo-muted);
+}
+
+html.dark table tbody tr {
+  border-color: var(--geo-border);
+}
+
+html.dark table tbody td {
+  color: var(--foreground);
+}
+
+html.dark :where(.bg-sky-50) {
+  background-color: color-mix(in srgb, #0ea5e9 16%, var(--geo-surface));
+}
+
+html.dark :where(.bg-sky-50\/80) {
+  background-color: color-mix(in srgb, #0ea5e9 20%, var(--geo-surface));
+}
+
+html.dark :where(.bg-sky-50\/70) {
+  background-color: color-mix(in srgb, #0ea5e9 14%, var(--geo-surface));
+}
+
+html.dark :where(.border-sky-200) {
+  border-color: color-mix(in srgb, #38bdf8 35%, var(--geo-border));
+}
+
+html.dark :where(.border-sky-300) {
+  border-color: color-mix(in srgb, #38bdf8 40%, var(--geo-border));
+}
+
+html.dark :where(.text-sky-600) {
+  color: #7dd3fc;
+}
+
+html.dark :where(.text-gray-900) {
+  color: var(--foreground);
+}
+
+html.dark :where(.bg-slate-100) {
+  background-color: var(--geo-hover);
+}
+
+html.dark :where(.text-slate-600) {
+  color: var(--geo-muted);
+}

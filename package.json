@@ -1,0 +1,44 @@
+{
+  "name": "geoarte-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "seed:territorio": "node scripts/ops/seed-territorio-geometrias.mjs",
+    "seed:transporte": "node scripts/ops/seed-transporte.mjs",
+    "seed:mapa": "npm run seed:territorio && npm run seed:transporte",
+    "sync:mapa": "node scripts/ops/sync-mapa-capas.mjs",
+    "diagnostico:padron": "node scripts/ops/diagnostico-padron-espacios.mjs",
+    "docs:pdf": "node scripts/docs/generate-manual-usuario-pdf.mjs && node scripts/docs/generate-panel-admin-pdf.mjs && node scripts/docs/generate-control-capas-pdf.mjs && node scripts/docs/generate-arquitectura-aplicacion-pdf.mjs",
+    "build:entrega": "node scripts/ops/build-entrega.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.106.2",
+    "@tanstack/react-query": "^5.101.0",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "jszip": "^3.10.1",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.16.0",
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

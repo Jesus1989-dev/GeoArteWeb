@@ -1,0 +1,2403 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 6185
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+39.6850393700787407 796.5356692913385359 Td
+(Arquitectura y stack tecnologico - GEO ARTE CDMX) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 764.7876377952756002 Td
+(Version: 1.0  -  Fecha: junio 2026   Proyecto: 'geoarte-web'  -  Plataforma: aplicacion web para inteligencia territorial cultural en) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 753.3073228346456744 Td
+(CDMX) Tj
+ET
+0.78 G
+39.6850393700787407 724.8191338582676053 m
+555.5949606299211609 724.8191338582676053 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 693.6380314960629221 Td
+(1. Resumen ejecutivo) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 665.7167716535432191 Td
+(GEO ARTE CDMX es una plataforma web para visualizar, analizar y gestionar la infraestructura cultural de las 16 alcaldias de la) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 654.2364566929134071 Td
+(Ciudad de Mexico. Permite consultar un mapa territorial interactivo, KPIs y graficos estadisticos, generacion de reportes,) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 642.7561417322833677 Td
+(repositorio de investigacion cualitativa, recomendaciones de politicas publicas y un panel de administracion para perfiles con rol) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 631.2758267716535556 Td
+(Autoridad.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 611.291574803149615 Td
+(La aplicacion esta construida como un monolito full-stack con Next.js 16 \(App Router\), React 19, TypeScript y Supabase como) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 599.8112598425196893 Td
+(backend \(autenticacion, base de datos PostgreSQL y almacenamiento\). El mapa usa Leaflet con capas GeoJSON y datos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 588.3309448818897636 Td
+(sincronizados desde Supabase.) Tj
+ET
+0.78 G
+39.6850393700787407 559.8427559055118081 m
+555.5949606299211609 559.8427559055118081 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 528.6616535433070112 Td
+(2. Stack tecnologico) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 489.4018110236220309 Td
+(2.1 Frontend y framework) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 458.3624409448818824 Td
+(Herramienta  |  Version  |  Uso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 448.1577165354330532 Td
+(**Next.js**  |  16.2.6  |  Framework full-stack: rutas, SSR, API Routes, Server Actions) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 437.9529921259842808 Td
+(**React**  |  19.2.4  |  Biblioteca de interfaz de usuario) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 427.7482677165354517 Td
+(**TypeScript**  |  5.x  |  Tipado estatico en todo el codigo fuente) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 417.5435433070866793 Td
+(**Tailwind CSS**  |  4.x  |  Estilos utilitarios y diseno responsivo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 407.3388188976378501 Td
+(**PostCSS**  |  -  |  Procesamiento de CSS \('@tailwindcss/postcss'\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 397.1340944881890778 Td
+(**Inter** \(Google Fonts\)  |  -  |  Tipografia principal via 'next/font') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 386.9293700787402486 Td
+(**Lucide React**  |  1.16  |  Iconografia del sistema) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 354.047480314960751 Td
+(2.2 Backend y datos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 323.0081102362206593 Td
+(Herramienta  |  Version  |  Uso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 312.8033858267717733 Td
+(**Supabase**  |  -  |  Backend as a Service: PostgreSQL, Auth, Storage, RLS) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 302.5986614173230009 Td
+(**@supabase/supabase-js**  |  2.106  |  Cliente JavaScript para consultas y mutaciones) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 292.3939370078742286 Td
+(**@supabase/ssr**  |  0.10  |  Sesiones SSR en middleware y servidor Next.js) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 259.5120472440946742 Td
+(2.3 Visualizacion y exportacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 228.4726771653545256 Td
+(Herramienta  |  Version  |  Uso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 218.2679527559057533 Td
+(**Leaflet**  |  1.9.4  |  Mapa interactivo \(alcaldias, macrozonas, transporte, espacios\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 208.0632283464569809 Td
+(**Recharts**  |  3.8  |  Graficos del dashboard y secciones analiticas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 197.8585039370080949 Td
+(**jsPDF**  |  4.2  |  Generacion de PDF en cliente y scripts de documentacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 187.6537795275593226 Td
+(**JSZip**  |  3.10  |  Empaquetado de archivos en exportaciones) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 177.4490551181105502 Td
+(**xlsx**  |  0.18  |  Exportacion de datos a Excel) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 144.5671653543309958 Td
+(2.4 Herramientas de desarrollo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 113.527795275590961 Td
+(Herramienta  |  Uso) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 103.3230708661420749 Td
+(**ESLint**  |  Linting con 'eslint-config-next') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 93.1183464566931889 Td
+(**Node.js**  |  Scripts de seed, sincronizacion y utilidades \('scripts/'\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 82.9136220472443028 Td
+(**npm**  |  Gestor de paquetes y scripts del proyecto) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 1 de 7) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 4617
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(2.5 Fuentes de datos geograficos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 776.8348818897637784 Td
+(- src/data/geo/cdmx-alcaldias.geojson - poligonos de las 16 alcaldias) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 765.3545669291338527 Td
+(- src/data/geo/cdmx-metro-lineas.geojson - lineas del Metro) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 753.8742519685039269 Td
+(- src/data/geo/cdmx-metrobus-lineas.geojson - lineas del Metrobus) Tj
+ET
+0.78 G
+39.6850393700787407 725.3860629921259715 m
+555.5949606299211609 725.3860629921259715 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 694.2049606299212883 Td
+(3. Arquitectura de software) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 666.2837007874015853 Td
+(La aplicacion sigue un patron Modelo  -  Vista  -  Controlador \(MVC\) adaptado a Next.js y React.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 634.9608661417322537 Td
+(3.1 Capas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 603.9214960629921052 Td
+(Capa  |  Ubicacion  |  Responsabilidad) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 593.7167716535432191 Td
+(**Modelo**  |  'src/lib/domain/', 'src/lib/data/'  |  Tipos de dominio, repositorios Supabase y datos mock) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 583.5120472440944468 Td
+(**Controlador**  |  'src/lib/services/', 'src/hooks/', 'src/actions/', '*Controller.tsx'  |  Orquestacion de datos, reglas de negocio y estado) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 573.3073228346456744 Td
+(**Vista**  |  'src/components/features/*/*View.tsx', 'shared/', 'layout/'  |  Presentacion JSX; recibe datos por props) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 540.42543307086612 Td
+(3.2 Flujo por pantalla) Tj
+ET
+0.96 g
+39.6850393700787407 517.8899999999999864 515.9099212598424629 -49.6062992125984294 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 509.3860629921259715 Td
+(app/[ruta]/page.tsx  ->  *Controller.tsx  ->  *.service.ts  ->  lib/data/supabase | mock) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 499.819133858267719 Td
+(                                                            !“) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 490.2522047244094665 Td
+(                         *View.tsx \(+ hooks si hay estado cliente\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 466.5120472440945036 Td
+(- Las rutas en src/app/ solo enrutan y definen metadata SEO.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 455.0317322834645211 Td
+(- Los servicios \(src/lib/services/\) son el punto unico para alternar entre datos mock y Supabase.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 443.5514173228345953 Td
+(- Los hooks \(src/hooks/\) concentran estado interactivo \(filtros, pestanas, formularios\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 432.0711023622046127 Td
+(- Las Server Actions \(src/actions/\) gestionan mutaciones en servidor cuando aplica.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 400.7482677165352811 Td
+(3.3 Modo demo vs. produccion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 375.3781889763778281 Td
+(La aplicacion puede operar en dos modos:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 349.724645669291192 Td
+(Modo  |  Condicion  |  Comportamiento) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 339.5199212598423628 Td
+(**Demo**  |  Sin variables 'NEXT_PUBLIC_SUPABASE_*'  |  Datos de ejemplo desde 'src/lib/data/mock/') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 329.3151968503935905 Td
+(**Supabase**  |  Credenciales configuradas en '.env.local'  |  Datos reales del padron SECTEI, metricas y repositorio) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 307.7718897637794271 Td
+(Si Supabase esta configurado pero falla una consulta, muchas secciones degradan a modo demo con un aviso visual.) Tj
+ET
+0.78 G
+39.6850393700787407 279.2837007874014148 m
+555.5949606299211609 279.2837007874014148 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 248.1025984251966747 Td
+(4. Estructura del proyecto) Tj
+ET
+0.96 g
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 2 de 7) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 10895
+>>
+stream
+0.5670000000000001 w
+0.78 G
+39.6850393700787407 810.7088976377953031 515.9099212598424629 -585.3543307086614504 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 802.2049606299212883 Td
+(geoarte-web/) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 792.6380314960629221 Td
+(%% %    s r c /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 783.0711023622046696 Td
+(%      %% %    a p p /                                         #   R u t a s   N e x t . j s   \( A p p   R o u t e r \)) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 773.5041732283464171 Td
+(%      %      %% %    a p i /                                 #   A P I   R o u t e s   \( R E S T   i n t e r n o   y   p u b l i c a   v 1 \)) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 763.9372440944881646 Td
+(%      %      %% %    a d m i n /                             #   P a n e l   d e   a d m i n i s t r a c i o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 754.3703149606299121 Td
+(%      %      %% %    d a s h b o a r d /                     #   E s t a d i s t i c a s   y   K P I s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 744.8033858267716596 Td
+(%      %      %% %    m a p a /                               #   E x p l o r a d o r   e s p a c i a l) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 735.2364566929134071 Td
+(%      %      %% %    r e p o r t e s /                       #   C e n t r o   d e   r e p o r t e s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 725.6695275590550409 Td
+(%      %      %% %    i n v e s t i g a c i o n /             #   R e p o s i t o r i o   c u a l i t a t i v o) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 716.1025984251967884 Td
+(%      %      %% %    p o l i t i c a s /                     #   R e c o m e n d a c i o n e s   d e   p o l i t i c a) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 706.5356692913385359 Td
+(%      %      %% %    c o n t a c t o /                       #   S o p o r t e   y   A P I   p u b l i c a) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 696.9687401574802834 Td
+(%      %      %% %    l o g i n ,   r e g i s t r o . . .     #   A u t e n t i c a c i o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 687.4018110236220309 Td
+(%      %      %% %    l a y o u t . t s x                     #   L a y o u t   r a i z) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 677.8348818897637784 Td
+(%      %      %% %    g l o b a l s . c s s                   #   E s t i l o s   g l o b a l e s   y   t o k e n s   d e   m a r c a) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 668.2679527559055259 Td
+(%      %% %    c o m p o n e n t s /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 658.7010236220471597 Td
+(%      %      %% %    f e a t u r e s /                       #   M o d u l o s   p o r   p a n t a l l a   \( V i e w   +   C o n t r o l l e r \)) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 649.1340944881889072 Td
+(%      %      %% %    l a y o u t /                           #   H e a d e r ,   F o o t e r ,   n a v e g a c i o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 639.5671653543306547 Td
+(%      %      %% %    s h a r e d /                           #   C o m p o n e n t e s   r e u t i l i z a b l e s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 630.0002362204724022 Td
+(%      %% %    c o n t e x t s /                               #   A u t h P r o v i d e r ,   T h e m e P r o v i d e r) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 620.4333070866141497 Td
+(%      %% %    h o o k s /                                     #   H o o k s   d e   e s t a d o   d e   U I) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 610.8663779527558972 Td
+(%      %% %    l i b /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 601.2994488188976447 Td
+(%      %      %% %    d o m a i n /                           #   T i p o s   e   i n t e r f a c e s   d e   d o m i n i o) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 591.7325196850392786 Td
+(%      %      %% %    d a t a /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 582.1655905511811397 Td
+(%      %      %      %% %    m o c k /                       #   D a t o s   d e   d e m o s t r a c i o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 572.5986614173227736 Td
+(%      %      %      %% %    s u p a b a s e /               #   R e p o s i t o r i o s   y   c l i e n t e s   S u p a b a s e) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 563.0317322834645211 Td
+(%      %      %% %    s e r v i c e s /                       #   C a p a   d e   s e r v i c i o s   \( o r q u e s t a c i o n \)) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 553.4648031496062686 Td
+(%      %      %% %    d a s h b o a r d /                     #   L o g i c a   d e   f i l t r o s ,   e x p o r t a c i o n ,   K P I s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 543.8978740157479024 Td
+(%      %      %% %    m a p a /                               #   P r e s e t s ,   e s t i l o s   y   g e o m e t r i a s   d e l   m a p a) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 534.3309448818897636 Td
+(%      %      %% %    r e p o r t e s /                       #   P l a n t i l l a s   y   g e n e r a c i o n   d e   a r c h i v o s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 524.7640157480313974 Td
+(%      %      %% %    a u t h /                               #   C o n t r o l   d e   a c c e s o   y   s e s i o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 515.1970866141732586 Td
+(%      %      %% %    a p i - v 1 /                           #   U t i l i d a d e s   d e   l a   A P I   p u b l i c a) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 505.6301574803148924 Td
+(%      %% %    d a t a / g e o /                               #   G e o J S O N   d e   a l c a l d i a s   y   t r a n s p o r t e) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 496.0632283464566399 Td
+(%      %% %    m i d d l e w a r e . t s                       #   P r o t e c c i o n   d e   r u t a s   y   s e s i o n   S u p a b a s e) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 486.4962992125983874 Td
+(%% %    s u p a b a s e /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 476.929370078740078 Td
+(%      %% %    m i g r a t i o n s /                           #   E s q u e m a   S Q L   v e r s i o n a d o   \( 1 7   m i g r a c i o n e s \)) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 467.3624409448818255 Td
+(%% %    s c r i p t s /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 457.795511811023573 Td
+(%      %% %    o p s /                                         #   S e e d s ,   s y n c   d e l   m a p a ,   m i g r a c i o n e s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 448.2285826771653205 Td
+(%      %% %    d o c s /                                       #   G e n e r a c i o n   d e   P D F s   d e   d o c u m e n t a c i o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 438.6616535433070112 Td
+(%% %    d o c s /) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 429.0947244094487587 Td
+(%      %% %    c l i e n t e /                                 #   M a n u a l e s   y   g u i a s   p a r a   e l   c l i e n t e) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 419.5277952755905062 Td
+(%      %% %    t e c n i c o /                                 #   A r q u i t e c t u r a ,   i n s t a l a c i o n   y   d e s p l i e g u e) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 409.9608661417321969 Td
+(%% %    p a c k a g e . j s o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 400.3939370078739444 Td
+(%% %    n e x t . c o n f i g . t s) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 390.8270078740156919 Td
+(%% %    t s c o n f i g . j s o n) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 381.2600787401574394 Td
+(%% %    . e n v . e x a m p l e) Tj
+ET
+0.78 G
+39.6850393700787407 349.0159842519684048 m
+555.5949606299211609 349.0159842519684048 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 317.8348818897636647 Td
+(5. Modulos funcionales) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 278.5750393700786844 Td
+(5.1 Pantallas principales) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 247.5356692913385359 Td
+(Ruta  |  Modulo  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 237.3309448818897636 Td
+('/'  |  Inicio  |  KPIs, acceso rapido, explorador espacial) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 227.1262204724409912 Td
+('/sobre-el-proyecto'  |  Proyecto  |  Metodologia, fuentes y contexto institucional) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 216.9214960629921052 Td
+('/mapa'  |  Mapa territorial  |  Visualizacion GIS con capas y filtros) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 206.7167716535433328 Td
+('/dashboard'  |  Dashboard  |  Graficos, comparadores y exportacion del padron) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 196.5120472440945605 Td
+('/reportes'  |  Reportes  |  Plantillas configurables y descarga de informes) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 186.3073228346457881 Td
+('/investigacion'  |  Investigacion  |  Recursos cualitativos \(entrevistas, estudios, etc.\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 176.1025984251969021 Td
+('/politicas'  |  Politicas  |  Recomendaciones y evidencia para politica publica) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 165.8978740157481298 Td
+('/contacto'  |  Soporte  |  Formulario, datasets y documentacion de API) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 155.6931496062993574 Td
+('/admin'  |  Administracion  |  Gestion de espacios, usuarios, capas y configuracion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 145.4884251968504714 Td
+('/perfil'  |  Mi perfil  |  Datos personales, historial y recursos guardados) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 112.6065354330710306 Td
+(5.2 Autenticacion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 87.2364566929135208 Td
+(Rutas de autenticacion gestionadas con Supabase Auth:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 67.2522047244095802 Td
+(- /login - inicio de sesion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 55.7718897637796545 Td
+(- /registro - alta de cuenta) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 3 de 7) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 6375
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 802.2049606299212883 Td
+(- /verificar-email - confirmacion de correo) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 790.7246456692913625 Td
+(- /recuperar-contrasena - solicitud de restablecimiento) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 779.2443307086614368 Td
+(- /restablecer-contrasena - nueva contrasena) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 767.7640157480315111 Td
+(- /email-verificado - confirmacion post-verificacion) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 747.7797637795275705 Td
+(El middleware \('src/middleware.ts'\) renueva la sesion Supabase, redirige usuarios no autenticados y valida verificacion de correo) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 736.2994488188976447 Td
+(antes de acceder a la aplicacion.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 704.9766141732283131 Td
+(5.3 Perfiles de usuario \(roles\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 673.9372440944881646 Td
+(Rol en Supabase  |  Rol en app  |  Permisos destacados) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 663.7325196850392786 Td
+(Ciudadano  |  'ciudadano'  |  Consulta publica, perfil personal) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 653.5277952755905062 Td
+(Investigador  |  'investigador'  |  Igual que ciudadano + acceso a recursos de investigacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 643.3230708661417339 Td
+(Autoridad  |  'autoridad'  |  Panel Admin, sincronizacion de mapa, gestion de usuarios) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 621.7797637795275705 Td
+(La navegacion filtra el item Administracion para roles distintos de Autoridad.) Tj
+ET
+0.78 G
+39.6850393700787407 593.291574803149615 m
+555.5949606299211609 593.291574803149615 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 562.1104724409449318 Td
+(6. API y endpoints) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 534.1892125984252289 Td
+(La aplicacion expone 48 rutas API organizadas en tres grupos:) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 502.8663779527558972 Td
+(6.1 API de datos interna \('/api/data/'\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 477.4962992125984442 Td
+(Alimenta las pantallas del frontend con JSON:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 457.5120472440944468 Td
+(- /api/data/home - KPIs de inicio) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 446.0317322834645211 Td
+(- /api/data/dashboard - metricas y series del dashboard) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 434.5514173228345385 Td
+(- /api/data/mapa - capas y geometrias territoriales) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 423.0711023622046127 Td
+(- /api/data/mapa/transporte - lineas de transporte masivo) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 411.5907874015746302 Td
+(- /api/data/investigacion - listado de recursos cualitativos) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 400.1104724409447044 Td
+(- /api/data/politicas - recomendaciones y metricas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 388.6301574803147219 Td
+(- /api/data/contacto - configuracion del centro de contacto) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 377.1498425196847961 Td
+(- /api/data/admin - datos agregados del panel admin) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 345.8270078740154645 Td
+(6.2 API de administracion \('/api/admin/'\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 320.4569291338580115 Td
+(Requiere sesion con rol Autoridad:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 300.4726771653540709 Td
+(- Gestion de espacios culturales \(espacios, flujo de publicacion\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 288.9923622047240315 Td
+(- Usuarios y roles \(usuarios\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 277.5120472440941057 Td
+(- Capas del mapa y sincronizacion \(mapa-capas, capas\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 266.03173228346418 Td
+(- Plantillas de reportes \(reportes-plantillas, reportes-config\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 254.5514173228342543 Td
+(- Recursos cualitativos \(recursos-cualitativos\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 243.0711023622042148 Td
+(- Politicas y recomendaciones \(politicas-recomendaciones, politicas-config\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 231.5907874015742891 Td
+(- Consultas de contacto \(consultas-contacto\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 220.1104724409443634 Td
+(- Fuentes de informacion \(fuentes\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 208.6301574803144376 Td
+(- Logs de operacion \(logs\)) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 177.307322834645106 Td
+(6.3 API publica v1 \('/api/v1/'\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 151.9372440944875962 Td
+(Expuesta en la seccion de contacto para integraciones externas:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 131.9529921259836556 Td
+(- GET /api/v1/search - busqueda de espacios culturales) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 120.4726771653537298 Td
+(- GET /api/v1/espacios/geojson - espacios en formato GeoJSON) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 108.9923622047238041 Td
+(- GET /api/v1/layers/transporte - capa de transporte) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 97.5120472440938784 Td
+(- GET /api/v1/alcaldias/[id]/stats - estadisticas por alcaldia) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 77.5277952755898241 Td
+(Autenticacion opcional mediante token \('GEOARTE_API_TOKEN'\).) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 4 de 7) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 5576
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(6.4 Exportaciones y reportes) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 776.8348818897637784 Td
+(- /api/reportes/generar - generacion de informes) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 765.3545669291338527 Td
+(- /api/reportes/descargar - descarga de archivos generados) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 753.8742519685039269 Td
+(- /api/politicas/export/brief y /informe - exportacion de politicas) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 742.3939370078740012 Td
+(- /api/investigacion/export/recurso - exportacion de recursos) Tj
+ET
+0.78 G
+39.6850393700787407 713.9057480314960458 m
+555.5949606299211609 713.9057480314960458 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 682.7246456692912489 Td
+(7. Base de datos \(Supabase / PostgreSQL\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 654.8033858267716596 Td
+(El esquema se versiona en 'supabase/migrations/' con tablas principales para:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 629.1498425196850803 Td
+(Area  |  Tablas / objetos) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 618.9451181102361943 Td
+(Usuarios  |  'profiles' \(rol, nombre, avatar\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 608.7403937007874219 Td
+(Padron cultural  |  Espacios georreferenciados, tipos, estados de publicacion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 598.5356692913385359 Td
+(Mapa territorial  |  'territorio_geometria', 'metricas_alcaldia', 'capa_transporte_linea') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 588.3309448818897636 Td
+(Sincronizacion  |  'mapa_sync_log', funciones de recalculo de macrozonas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 578.1262204724409912 Td
+(Reportes  |  Plantillas, configuracion, descargas \('export_downloads'\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 567.9214960629922189 Td
+(Investigacion  |  'recursos_cualitativos' con indices de busqueda) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 557.7167716535434465 Td
+(Politicas  |  Recomendaciones, metricas y configuracion del centro) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 547.5120472440945605 Td
+(Contacto  |  'consultas_contacto', configuracion del centro) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 537.3073228346457881 Td
+(Almacenamiento  |  Bucket 'avatars' para fotos de perfil) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 515.7640157480316248 Td
+(Las politicas RLS \(Row Level Security\) de Supabase controlan el acceso segun el rol del usuario autenticado.) Tj
+ET
+0.78 G
+39.6850393700787407 487.2758267716536693 m
+555.5949606299211609 487.2758267716536693 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 456.0947244094489292 Td
+(8. Mapa territorial - operacion) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 416.8348818897638921 Td
+(8.1 Carga inicial \(seed\)) Tj
+ET
+0.96 g
+39.6850393700787407 394.2994488188978153 515.9099212598424629 -24.0944881889763813 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 385.7955118110238004 Td
+(npm run seed:mapa) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 362.0553543307088376 Td
+(Carga poligonos de alcaldias y lineas de transporte desde GeoJSON hacia Supabase. Comandos individuales:) Tj
+ET
+0.96 g
+39.6850393700787407 344.9057480314961595 515.9099212598424629 -36.8503937007874072 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 336.4018110236222014 Td
+(npm run seed:territorio) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 326.8348818897638921 Td
+(npm run seed:transporte) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 291.756141732283595 Td
+(8.2 Sincronizacion de metricas) Tj
+ET
+0.96 g
+39.6850393700787407 269.2207086614174614 515.9099212598424629 -24.0944881889763813 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 260.7167716535434465 Td
+(npm run sync:mapa) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 236.9766141732285405 Td
+(Recalcula 'metricas_alcaldia' desde el padron y regenera macrozonas. Tambien disponible desde Admin -> Capas del mapa ->) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 225.4962992125985011 Td
+(Sincronizar ahora.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+39.6850393700787407 194.1734645669291695 Td
+(8.3 Fuente de capa de transporte) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 168.8033858267717733 Td
+(Variable 'TRANSPORTE_CAPA_SOURCE':) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 148.8191338582678327 Td
+(- auto \(por defecto\) - GeoJSON empaquetado o Supabase segun disponibilidad) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 137.3388188976377933 Td
+(- geojson - solo archivos locales) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 125.8585039370078675 Td
+(- supabase - solo base de datos) Tj
+ET
+0.78 G
+39.6850393700787407 97.3703149606298837 m
+555.5949606299211609 97.3703149606298837 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 66.1892125984251152 Td
+(9. Variables de entorno) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 5 de 7) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 6282
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(Copiar '.env.example' a '.env.local':) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 776.5514173228345953 Td
+(Variable  |  Obligatoria  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 766.346692913385823 Td
+('NEXT_PUBLIC_SUPABASE_URL'  |  Si \(prod\)  |  URL del proyecto Supabase) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 756.1419685039369369 Td
+('NEXT_PUBLIC_SUPABASE_ANON_KEY'  |  Si \(prod\)  |  Clave publica anonima) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 745.9372440944881646 Td
+('NEXT_PUBLIC_SITE_URL'  |  Recomendada  |  URL del sitio \(auth redirects\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 735.7325196850392786 Td
+('SUPABASE_SERVICE_ROLE_KEY'  |  Scripts/admin  |  Clave de servicio para seeds y panel) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 725.5277952755905062 Td
+('NEXT_PUBLIC_ANIO_CORTE_METRICAS'  |  Opcional  |  Ano de corte de metricas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 715.3230708661417339 Td
+('TRANSPORTE_CAPA_SOURCE'  |  Opcional  |  Fuente de capa de transporte) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 705.1183464566928478 Td
+('GEOARTE_API_TOKEN'  |  Opcional  |  Token de API publica v1) Tj
+ET
+0.78 G
+39.6850393700787407 675.0711023622046696 m
+555.5949606299211609 675.0711023622046696 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 643.8899999999998727 Td
+(10. Scripts npm disponibles) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 610.2994488188976447 Td
+(Comando  |  Descripcion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 600.0947244094487587 Td
+('npm run dev'  |  Servidor de desarrollo en 'http://localhost:3000') Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 589.8899999999999864 Td
+('npm run build'  |  Compilacion de produccion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 579.6852755905511003 Td
+('npm run start'  |  Servidor de produccion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 569.480551181102328 Td
+('npm run lint'  |  Analisis estatico con ESLint) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 559.2758267716535556 Td
+('npm run seed:mapa'  |  Carga geometrias y transporte a Supabase) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 549.0711023622047833 Td
+('npm run sync:mapa'  |  Sincroniza metricas y macrozonas) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 538.8663779527560109 Td
+('npm run diagnostico:padron'  |  Diagnostico del padron de espacios) Tj
+ET
+0.78 G
+39.6850393700787407 508.8191338582678327 m
+555.5949606299211609 508.8191338582678327 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 477.6380314960630926 Td
+(11. Diseno y experiencia de usuario) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 449.7167716535434465 Td
+(- Tema claro/oscuro gestionado por ThemeProvider y ThemeScript \(sin flash en carga\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 438.2364566929134639 Td
+(- Tokens de marca en CSS: navy institucional \(--geo-navy\), acento rosa \(--geo-pink\).) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 426.7561417322835382 Td
+(- Layout responsivo con barra superior, busqueda cultural y pie de pagina.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 415.2758267716535556 Td
+(- Componentes compartidos: tarjetas KPI, tablas admin, modales de formulario, campos de busqueda.) Tj
+ET
+0.78 G
+39.6850393700787407 386.7876377952755433 m
+555.5949606299211609 386.7876377952755433 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 355.6065354330708601 Td
+(12. Integracion con el ecosistema SECTEI) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 327.685275590551214 Td
+(GEO ARTE Web comparte convenciones con la aplicacion movil Flutter del proyecto SECTEI:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 307.7010236220471597 Td
+(- Mismos roles de perfil \(Ciudadano, Investigador, Autoridad\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 296.220708661417234 Td
+(- Mismas credenciales Supabase) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 284.7403937007873083 Td
+(- Ano de corte de metricas alineado \(ANIO_CORTE_METRICAS\)) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 273.2600787401573825 Td
+(- Padron georreferenciado de espacios culturales como fuente principal) Tj
+ET
+0.78 G
+39.6850393700787407 244.7718897637793418 m
+555.5949606299211609 244.7718897637793418 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 213.5907874015746302 Td
+(13. Despliegue) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 185.6695275590549272 Td
+(La aplicacion es compatible con despliegue en Vercel \(recomendado para Next.js\) o cualquier hosting Node.js que soporte 'next) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 174.1892125984250015 Td
+(start'.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 154.2049606299210609 Td
+(Requisitos para produccion:) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 134.2207086614170066 Td
+(1. Aplicar migraciones SQL en Supabase) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 122.7403937007870809 Td
+(2. Configurar variables de entorno) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 111.2600787401572688 Td
+(3. Ejecutar npm run seed:mapa en el primer despliegue) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 99.7797637795272294 Td
+(4. Configurar URLs de redireccion en Supabase Auth) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+45.354330708661422 88.2994488188973037 Td
+(5. Ejecutar npm run build y desplegar el artefacto) Tj
+ET
+0.78 G
+39.6850393700787407 59.8112598425193198 m
+555.5949606299211609 59.8112598425193198 l
+S
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 6 de 7) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 6886
+>>
+stream
+0.5670000000000001 w
+0.78 G
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 802.2049606299212883 Td
+(14. Documentacion relacionada) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 768.614409448818833 Td
+(Documento  |  Contenido) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 758.4096850393700606 Td
+('docs/cliente/MANUAL-USUARIO.md'  |  Guia funcional para ciudadanos, investigadores y autoridades) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 748.2049606299212883 Td
+('docs/tecnico/ARQUITECTURA-DESARROLLO.md'  |  Patron MVC y convenciones de codigo) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 738.0002362204724022 Td
+('docs/tecnico/OPERACION-MAPA.md'  |  Seeds, sincronizacion y capas del mapa) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 727.7955118110235162 Td
+('docs/cliente/PANEL-ADMINISTRACION.md'  |  Panel de administracion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 717.5907874015747439 Td
+('docs/cliente/CONTROL-DE-CAPAS-MAPA.md'  |  Gestion de capas del mapa territorial) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 707.3860629921259715 Td
+('docs/tecnico/INSTALACION.md'  |  Requisitos e instalacion local) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 697.1813385826770855 Td
+('docs/tecnico/DESPLIEGUE.md'  |  Despliegue en produccion) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+39.6850393700787407 686.9766141732283131 Td
+('README.md'  |  Inicio rapido del proyecto) Tj
+ET
+0.78 G
+39.6850393700787407 656.9293700787401349 m
+555.5949606299211609 656.9293700787401349 l
+S
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+39.6850393700787407 625.748267716535338 Td
+(15. Diagrama de arquitectura) Tj
+ET
+0.96 g
+39.6850393700787407 600.6616535433070112 515.9099212598424629 -304.7244094488189035 re
+f
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 592.1577165354329964 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 582.5907874015747439 Td
+(%                                           N a v e g a d o r   \( c l i e n t e \)                                            %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 573.0238582677164914 Td
+(%     R e a c t   1 9   +   T a i l w i n d   +   L e a f l e t   +   R e c h a r t s   +   j s P D F                      %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 563.4569291338582389 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % %,% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 553.8899999999998727 Td
+(                                                      %   H T T P) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 544.3230708661417339 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % %¼% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 534.7561417322833677 Td
+(%                                         N e x t . j s   1 6   \( s e r v i d o r \)                                          %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 525.1892125984251152 Td
+(%    %% % % % % % % % % % % % % %    %% % % % % % % % % % % % % % %    %% % % % % % % % % % % % % % % % % % % % % %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 515.6222834645668627 Td
+(%    %   A p p   R o u t e r    %    %   A P I   R o u t e s      %    %   M i d d l e w a r e   \( a u t h \)      %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 506.0553543307086102 Td
+(%    %   p a g e . t s x        %    %   / a p i / d a t a        %    %   s e s i o n   S u p a b a s e          %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 496.4884251968503008 Td
+(%    %   C o n t r o l l e r    %    %   / a p i / a d m i n      %    %% % % % % % % % % % % % % % % % % % % % % %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 486.9214960629920483 Td
+(%    %   V i e w                %    %   / a p i / v 1            %                                                    %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 477.354566929133739 Td
+(%    %% % % % % % %,% % % % % % %    %% % % % % % %,% % % % % % % %                                                    %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 467.7876377952754865 Td
+(%                  %                                %                                                                      %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 458.2207086614171772 Td
+(%    %% % % % % % %¼% % % % % % % % % % % % % % % % %¼% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 448.6537795275589247 Td
+(%    %                             S e r v i c e s   +   R e p o s i t o r i e s                                        %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 439.0868503937006722 Td
+(%    %% % % % % % % % % % % % % % % % % % % % % % % % % % %,% % % % % % % % % % % % % % % % % % % % % % % % % % % %  %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 429.5199212598424197 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %<% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 419.9529921259841103 Td
+(                                                            %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 410.3860629921258578 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %¼% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 400.8191338582676053 Td
+(%                                             S u p a b a s e                                                            %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 391.252204724409296 Td
+(%     P o s t g r e S Q L     -     A u t h     -     S t o r a g e     -     R L S     -     E d g e   F u n c t i o n s                %) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0 g
+45.354330708661422 381.6852755905510435 Td
+(%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %) Tj
+ET
+0.78 G
+39.6850393700787407 349.4411811023620658 m
+555.5949606299211609 349.4411811023620658 l
+S
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0 g
+39.6850393700787407 329.5986614173226599 Td
+(Documento generado para el equipo de desarrollo e integracion de GEO ARTE CDMX.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.471 g
+39.6850393700787407 22.6771653543306684 Td
+(GEO ARTE CDMX - Arquitectura de la aplicacion  |  Pagina 7 de 7) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R ]
+/Count 7
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+23 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+24 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+25 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+26 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+27 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+28 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+29 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+30 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 17 0 R
+/F2 18 0 R
+/F3 19 0 R
+/F4 20 0 R
+/F5 21 0 R
+/F6 22 0 R
+/F7 23 0 R
+/F8 24 0 R
+/F9 25 0 R
+/F10 26 0 R
+/F11 27 0 R
+/F12 28 0 R
+/F13 29 0 R
+/F14 30 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+31 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260622151507-06'00')
+>>
+endobj
+32 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 33
+0000000000 65535 f 
+0000048166 00000 n 
+0000050027 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000006389 00000 n 
+0000006526 00000 n 
+0000011195 00000 n 
+0000011332 00000 n 
+0000022280 00000 n 
+0000022418 00000 n 
+0000028846 00000 n 
+0000028985 00000 n 
+0000034614 00000 n 
+0000034753 00000 n 
+0000041088 00000 n 
+0000041227 00000 n 
+0000048262 00000 n 
+0000048388 00000 n 
+0000048519 00000 n 
+0000048653 00000 n 
+0000048791 00000 n 
+0000048915 00000 n 
+0000049044 00000 n 
+0000049176 00000 n 
+0000049312 00000 n 
+0000049440 00000 n 
+0000049567 00000 n 
+0000049696 00000 n 
+0000049829 00000 n 
+0000049931 00000 n 
+0000050280 00000 n 
+0000050366 00000 n 
+trailer
+<<
+/Size 33
+/Root 32 0 R
+/Info 31 0 R
+/ID [ <FD36CAFCDB56F772B41C82327659F4D6> <FD36CAFCDB56F772B41C82327659F4D6> ]
+>>
+startxref
+50470
+%%EOF
