@@ -441,14 +441,8 @@ export function DashboardView({
   dashboardData,
   alcaldia,
   setAlcaldia,
-  disciplina,
-  setDisciplina,
   periodo,
   setPeriodo,
-  edad,
-  setEdad,
-  genero,
-  setGenero,
   borA,
   setBorA,
   borB,
@@ -513,28 +507,10 @@ export function DashboardView({
         onChange={setAlcaldia}
       />
       <FilterSelect
-        label="Disciplina"
-        options={filtroOpciones.disciplina}
-        value={disciplina}
-        onChange={setDisciplina}
-      />
-      <FilterSelect
         label="Periodo"
         options={filtroOpciones.periodo}
         value={periodo}
         onChange={setPeriodo}
-      />
-      <FilterSelect
-        label="Rango de edad"
-        options={filtroOpciones.rangoEdad}
-        value={edad}
-        onChange={setEdad}
-      />
-      <FilterSelect
-        label="Género"
-        options={filtroOpciones.genero}
-        value={genero}
-        onChange={setGenero}
       />
     </>
   );
@@ -565,7 +541,7 @@ export function DashboardView({
                 />
               </button>
             </div>
-            <div className="hidden flex-1 grid-cols-2 gap-3 sm:grid-cols-3 lg:grid xl:grid-cols-5">
+            <div className="hidden flex-1 grid-cols-2 gap-3 lg:grid">
               {filterFields}
             </div>
             {filtersOpen && (
