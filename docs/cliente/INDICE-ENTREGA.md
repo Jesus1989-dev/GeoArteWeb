@@ -18,7 +18,30 @@
 
 | Documento | Descripción |
 |-----------|-------------|
-| [Manual de usuario](MANUAL-USUARIO.md) ([PDF](MANUAL-USUARIO.pdf)) | Guía de funcionalidades para ciudadanos, investigadores y autoridades |
+| [Manual de usuario](MANUAL-USUARIO.md) | Fuente en Markdown (edición técnica; **no compatible con Google Docs**) |
+| [PDF con imágenes](MANUAL-USUARIO.pdf) | Exportación institucional para impresión |
+| [HTML autocontenido](MANUAL-USUARIO.html) | Manual navegable offline (imágenes embebidas) |
+| [Word / DOCX](MANUAL-USUARIO.docx) | Editable en Microsoft Word |
+| [**Para Google Docs**](MANUAL-USUARIO-GOOGLE-DOCS.docx) | **Sube este archivo** a Google Drive y ábrelo con Google Docs |
+
+### Subir el manual a Google Docs
+
+Google Docs **no importa archivos `.md` (Markdown)**. Si intentas subir `MANUAL-USUARIO.md`, Drive lo guarda como texto plano o rechaza abrirlo en el editor.
+
+**Usa este procedimiento:**
+
+1. Sube **`MANUAL-USUARIO-GOOGLE-DOCS.docx`** (o `MANUAL-USUARIO.docx`) a [Google Drive](https://drive.google.com).
+2. Clic derecho en el archivo → **Abrir con** → **Documentos de Google**.
+3. Google Docs convertirá el Word a un documento editable con imágenes y tablas.
+
+**Alternativas si el DOCX da problemas:**
+
+| Archivo | Uso en Google |
+|---------|----------------|
+| `MANUAL-USUARIO.pdf` | Solo lectura (subir y visualizar) |
+| `MANUAL-USUARIO.html` | Abrir en el navegador, copiar secciones y pegar en un Doc nuevo |
+
+Para regenerar todos los formatos: `npm run docs:manual`
 | [Panel de administración](PANEL-ADMINISTRACION.md) ([PDF](PANEL-ADMINISTRACION.pdf)) | Operación del panel admin |
 | [Control de capas del mapa](CONTROL-DE-CAPAS-MAPA.md) ([PDF](CONTROL-DE-CAPAS-MAPA.pdf)) | Gestión de capas del mapa |
 

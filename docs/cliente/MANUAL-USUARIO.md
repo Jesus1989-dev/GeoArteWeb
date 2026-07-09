@@ -1,66 +1,114 @@
 # Manual de usuario — GEO ARTE CDMX
 
-**Versión:** 1.2 · **Audiencia:** ciudadanos, investigadores y autoridades  
+**Versión:** 2.0 · **Fecha:** julio 2026  
+**Audiencia:** Ciudadano · Investigador · Autoridad  
 **Plataforma:** aplicación web Next.js · **Datos:** padrón SECTEI, métricas territoriales y repositorio cualitativo
 
-GEO ARTE CDMX es una plataforma de **inteligencia territorial** para consultar, analizar y —según el perfil— gestionar la infraestructura cultural de las 16 alcaldías de la Ciudad de México.
+---
 
-Este manual explica:
+## Introducción
 
-1. Cómo funciona la interfaz global.
-2. Los **tres tipos de inicio de sesión** y sus diferencias.
-3. Cada pantalla, control y flujo de trabajo.
-4. Qué miden los **KPIs, gráficos y exportaciones** y de qué fuentes provienen los datos ([capítulo 9](#9-referencia-de-kpis-y-gráficos), §9.1–9.8), incluidas las [columnas del padrón en Excel/CSV/JSON (§9.8)](#98-exportación-del-padrón--columnas-y-hojas).
+**GEO ARTE CDMX** es una plataforma de **inteligencia territorial** para consultar, analizar y —según el perfil— gestionar la infraestructura cultural de las **16 alcaldías** de la Ciudad de México.
+
+Este manual está organizado en **tres guías por rol** más una sección común. Cada módulo incluye capturas de pantalla reales de la aplicación (carpeta `imagenes/`) para facilitar la consulta visual.
+
+### ¿Qué encontrarás en este documento?
+
+| Sección | Contenido |
+|---------|-----------|
+| [Parte I — Información común](#parte-i--información-común) | Interfaz, acceso, perfiles y matriz de permisos |
+| [Parte II — Ciudadano](#parte-ii--manual-del-ciudadano) | Explorar mapa, guardar espacios, consultar datos públicos |
+| [Parte III — Investigador](#parte-iii--manual-del-investigador) | Análisis, reportes, exportaciones e investigación cualitativa |
+| [Parte IV — Autoridad](#parte-iv--manual-de-la-autoridad) | Administración del padrón, usuarios, capas y validaciones |
+| [Anexos](#anexos) | KPIs, glosario, FAQ y documentación relacionada |
+
+### Convención de imágenes
+
+Las capturas se almacenan en `docs/cliente/imagenes/`. En este manual se referencian así:
+
+```markdown
+![Descripción breve](imagenes/nombre-archivo.png)
+```
+
+Puedes **agregar o sustituir imágenes** copiando nuevos archivos PNG a esa carpeta y actualizando la ruta en el texto correspondiente.
 
 ---
 
 ## Tabla de contenidos
 
+### Parte I — Información común
 1. [Convenciones y modos de operación](#1-convenciones-y-modos-de-operación)
 2. [Interfaz global](#2-interfaz-global)
-3. [Autenticación y perfiles](#3-autenticación-y-perfiles)
-4. [Navegación por tipo de usuario](#4-navegación-por-tipo-de-usuario)
-5. [Módulos públicos](#5-módulos-públicos)
-6. [Mi Perfil](#6-mi-perfil)
-7. [Centro de reportes](#7-centro-de-reportes)
-8. [Panel de administración](#8-panel-de-administración)
-9. [Referencia de KPIs y gráficos](#9-referencia-de-kpis-y-gráficos)
-10. [Glosario y estados](#10-glosario-y-estados)
-11. [Preguntas frecuentes operativas](#11-preguntas-frecuentes-operativas)
+3. [Autenticación y los tres perfiles](#3-autenticación-y-los-tres-perfiles)
+4. [Matriz de acceso por rol](#4-matriz-de-acceso-por-rol)
+
+### Parte II — Manual del Ciudadano
+5. [Resumen del perfil Ciudadano](#5-resumen-del-perfil-ciudadano)
+6. [Inicio](#6-inicio)
+7. [Proyecto](#7-proyecto)
+8. [Mapa interactivo](#8-mapa-interactivo)
+9. [Dashboard (consulta)](#9-dashboard-consulta)
+10. [Cuestionario (consulta)](#10-cuestionario-consulta)
+11. [Políticas públicas](#11-políticas-públicas)
+12. [Soporte y contacto](#12-soporte-y-contacto)
+13. [Mi perfil (Ciudadano)](#13-mi-perfil-ciudadano)
+
+### Parte III — Manual del Investigador
+14. [Resumen del perfil Investigador](#14-resumen-del-perfil-investigador)
+15. [Dashboard avanzado y exportaciones](#15-dashboard-avanzado-y-exportaciones)
+16. [Centro de reportes](#16-centro-de-reportes)
+17. [Investigación y repositorio cualitativo](#17-investigación-y-repositorio-cualitativo)
+18. [Mi perfil (Investigador)](#18-mi-perfil-investigador)
+
+### Parte IV — Manual de la Autoridad
+19. [Resumen del perfil Autoridad](#19-resumen-del-perfil-autoridad)
+20. [Panel de administración](#20-panel-de-administración)
+21. [Gestión del padrón y publicación](#21-gestión-del-padrón-y-publicación)
+22. [Capas SIG y sincronización del mapa](#22-capas-sig-y-sincronización-del-mapa)
+23. [Políticas, investigación y reportes (admin)](#23-políticas-investigación-y-reportes-admin)
+24. [Usuarios, consultas y auditoría](#24-usuarios-consultas-y-auditoría)
+
+### Anexos
+- [A. Referencia de KPIs y gráficos](#anexo-a-referencia-de-kpis-y-gráficos)
+- [B. Glosario](#anexo-b-glosario)
+- [C. Preguntas frecuentes](#anexo-c-preguntas-frecuentes)
+- [D. Documentación relacionada](#anexo-d-documentación-relacionada)
 
 ---
+
+# Parte I — Información común
 
 ## 1. Convenciones y modos de operación
 
 ### 1.1 Modo demo vs. Supabase
 
-La aplicación puede mostrar datos de dos formas:
-
 | Indicador en pantalla | Significado |
 |----------------------|-------------|
 | **Modo demo** / badge ámbar | Datos de ejemplo locales; no requiere base de datos |
 | **Métricas Supabase** / badge verde | Datos reales desde Supabase (padrón, métricas, exportaciones) |
+| **Padrón Supabase** (mapa) | Conexión en vivo al padrón georreferenciado |
 
-Cuando Supabase está configurado (`NEXT_PUBLIC_SUPABASE_*` en el entorno), las pantallas intentan cargar datos en vivo. Si falla la conexión, muchas secciones vuelven a modo demo con un aviso.
+Cuando Supabase está configurado, las pantallas cargan datos en vivo. Si falla la conexión, muchas secciones vuelven a modo demo con un aviso.
 
 ### 1.2 Rutas principales
 
-| Ruta | Nombre en menú |
-|------|----------------|
-| `/` | Inicio |
-| `/sobre-el-proyecto` | Proyecto |
-| `/mapa` | Mapa |
-| `/dashboard` | Dashboard |
-| `/reportes` | Reportes |
-| `/investigacion` | Investigación |
-| `/politicas` | Políticas |
-| `/contacto` | Soporte |
-| `/admin` | Administración *(solo Autoridad)* |
-| `/perfil` | Mi perfil *(sesión)* |
-| `/login` | Iniciar sesión |
-| `/registro` | Crear cuenta |
+| Ruta | Nombre en menú | Acceso |
+|------|----------------|--------|
+| `/` | Inicio | Público |
+| `/sobre-el-proyecto` | Proyecto | Público |
+| `/mapa` | Mapa | Público |
+| `/dashboard` | Dashboard | Público |
+| `/cuestionario` | Cuestionario | Público |
+| `/reportes` | Reportes | Sesión + Supabase |
+| `/investigacion` | Investigación | Público |
+| `/politicas` | Políticas | Público |
+| `/contacto` | Soporte | Público |
+| `/admin` | Administración | Solo Autoridad |
+| `/perfil` | Mi perfil | Sesión |
+| `/login` | Iniciar sesión | Público |
+| `/registro` | Crear cuenta | Público |
 
-### 1.3 Alcaldías de la CDMX
+### 1.3 Las 16 alcaldías
 
 La plataforma trabaja con las **16 demarcaciones territoriales** de Ciudad de México. Aparecen en filtros, búsquedas, comparadores y métricas de brecha/cobertura.
 
@@ -70,75 +118,57 @@ La plataforma trabaja con las **16 demarcaciones territoriales** de Ciudad de M�
 
 ### 2.1 Barra superior (Header)
 
-**Logo GEO ARTE CDMX** → enlace a Inicio.
+La barra de navegación es común a todos los módulos. Contiene:
 
-**Menú principal** (scroll horizontal en pantallas pequeñas):
+- **Logo GEO ARTE CDMX** → enlace a Inicio.
+- **Menú principal** (scroll horizontal en móvil):
 
-- Orden: Inicio · Proyecto · Mapa · Admin *(solo Autoridad)* · Dashboard · Reportes · Investigación · Políticas · Soporte.
-- El ítem activo se resalta según la ruta actual.
+  `Inicio · Proyecto · Mapa · Administración* · Dashboard · Cuestionario · Reportes · Investigación · Políticas · Soporte`
 
-**Búsqueda cultural** (visible en pantallas `xl` y superiores):
+  \* *Administración* solo visible con sesión de **Autoridad**.
 
-- Campo compacto: *«Buscar alcaldía o espacio…»*.
-- Autocompletado de **alcaldías** y **espacios culturales** (consulta remota cuando hay Supabase).
-- Al seleccionar un resultado, navega al mapa con parámetros URL (`q`, `alcaldia`, `espacio`).
+- **Búsqueda cultural** (*«Buscar alcaldía o espacio…»*): autocompletado de alcaldías y espacios; al seleccionar, navega al mapa.
+- **Menú de usuario** (avatar): Mi perfil, nombre, rol, Cerrar sesión — o enlace a Iniciar sesión.
 
-**Menú de usuario** (avatar o iniciales):
+![Barra de navegación y menú principal](imagenes/inicio-hero.png)
 
-- Con sesión: enlace a **Mi perfil**, nombre, rol y **Cerrar sesión**.
-- Sin sesión: enlace a **Iniciar sesión**.
+*Figura 1 — Barra superior con los módulos principales de la plataforma.*
 
 ### 2.2 Pie de página (Footer)
 
-Enlaces rápidos a Mapa, Estadísticas (Dashboard), Investigación, Recomendaciones (Políticas), Proyecto y Soporte. Incluye aviso de copyright institucional.
+Cuatro columnas con enlaces rápidos:
 
-### 2.3 Búsqueda cultural — uso detallado
-
-La búsqueda aparece en tres variantes:
-
-| Ubicación | Variante | Comportamiento |
-|-----------|----------|----------------|
-| Barra superior | `compact` | Navega al mapa al elegir sugerencia |
-| Inicio (hero) | `hero` | Botón «Explorar Datos»; lista ampliada de alcaldías |
-| Mapa | `map` | Filtra el visor sin salir de la página |
-
-**Sugerencias mostradas:**
-
-- **Alcaldía:** nombre de demarcación + subtítulo «Alcaldía · CDMX».
-- **Espacio:** nombre del espacio cultural del padrón; al elegirlo, centra el mapa en ese pin.
-
-**Atajos de teclado** en el desplegable: flechas arriba/abajo para navegar, Enter para confirmar, Escape para cerrar.
+| Columna | Enlaces |
+|---------|---------|
+| **Explorar** | Mapa GIS, Estadísticas, Cuestionario, Investigación, Recomendaciones |
+| **Recursos** | Proyecto, Datos Abiertos (API), Documentación, FAQ |
+| **Contacto** | Redes sociales, Buzón de Sugerencias |
+| **Legal** | Aviso de Privacidad, Términos de Uso, Accesibilidad |
 
 ---
 
-## 3. Autenticación y perfiles
+## 3. Autenticación y los tres perfiles
 
-### 3.1 Los tres perfiles
+### 3.1 Descripción de cada perfil
 
-| Perfil | Icono | Descripción en pantalla | Campos extra en registro |
-|--------|-------|-------------------------|------------------------|
-| **Ciudadano** | Usuario | Consulta mapas, guarda recursos y participa | Ninguno |
-| **Investigador** | Microscopio | Datos, reportes y análisis territorial | Institución, área de investigación |
-| **Autoridad** | Escudo | Administra espacios, capas SIG y validaciones | Institución, cargo o área |
+| Perfil | Icono | Para quién es | Descripción |
+|--------|-------|---------------|-------------|
+| **Ciudadano** | Usuario | Público general | Consulta mapas, guarda espacios favoritos y participa en la plataforma |
+| **Investigador** | Microscopio | Académicos y analistas | Accede a datos, reportes, exportaciones y repositorio cualitativo |
+| **Autoridad** | Escudo | Funcionarios públicos | Administra espacios, capas SIG, validaciones y usuarios |
 
-> **Importante:** al iniciar sesión debes seleccionar el **mismo perfil** con el que te registraste. Si no coincide, verás un error del tipo: *«Esta cuenta está registrada como investigador, no como ciudadano»*.
+> **Importante:** al iniciar sesión debes elegir el **mismo perfil** con el que te registraste. Si no coincide, verás un error como: *«Esta cuenta está registrada como investigador, no como ciudadano»*.
 
 ### 3.2 Iniciar sesión (`/login`)
 
 **Pasos:**
 
-1. Abre **Iniciar sesión** desde el menú de usuario o `/login`.
+1. Abre **Iniciar sesión** desde el menú de usuario o visita `/login`.
 2. En **Tipo de perfil**, elige Ciudadano, Investigador o Autoridad.
 3. Ingresa **correo** y **contraseña** (mínimo 6 caracteres).
 4. Pulsa **Entrar**.
 
-**Opciones adicionales:**
-
-- **¿Olvidaste tu contraseña?** → `/recuperar-contrasena`.
-- **¿No tienes cuenta?** → `/registro`.
-- Parámetro `?next=/ruta` — tras login exitoso, te lleva a esa ruta (si es segura).
-
-**Redirección automática tras login:**
+**Redirección tras login:**
 
 | Perfil | Destino por defecto |
 |--------|---------------------|
@@ -146,7 +176,7 @@ La búsqueda aparece en tres variantes:
 | Investigador | `/perfil` |
 | Autoridad | `/admin` |
 
-**Modo demo (sin Supabase):** aparece un bloque «Cuentas de demostración» con usuarios precargados (contraseña `demo123` para todos):
+**Cuentas de demostración** (modo sin Supabase, contraseña `demo123`):
 
 | Correo | Perfil |
 |--------|--------|
@@ -154,752 +184,675 @@ La búsqueda aparece en tres variantes:
 | `investigador@geoarte.mx` | Investigador |
 | `autoridad@geoarte.mx` | Autoridad |
 
-**Con Supabase:** si existen credenciales `TEST_LOGIN_*` en `.env`, se autocompletan al cambiar de perfil.
-
 ### 3.3 Crear cuenta (`/registro`)
 
-**Campos comunes:**
+**Campos comunes:** nombre, correo, contraseña, confirmación, aceptación de términos.
 
-- Nombre completo.
-- Correo electrónico.
-- Contraseña y confirmación.
-- Aceptación de términos del servicio y política de privacidad CDMX.
+**Campos adicionales:**
 
-**Campos condicionales:**
+| Perfil | Campos extra |
+|--------|--------------|
+| Investigador | Institución u organización · Área de investigación |
+| Autoridad | Institución u organización · Cargo o área |
 
-- **Investigador:** Institución u organización · Área de investigación (texto en mayúsculas).
-- **Autoridad:** Institución u organización · Cargo o área (texto en mayúsculas).
-
-Tras registrarse con Supabase, el correo debe **verificarse** antes de usar funciones completas.
-
-### 3.4 Verificación y recuperación de contraseña
-
-| Ruta | Función |
-|------|---------|
-| `/verificar-email` | Reenviar correo de verificación; simular verificación en demo |
-| `/email-verificado` | Confirmación de cuenta activada |
-| `/recuperar-contrasena` | Solicitar enlace de restablecimiento |
-| `/restablecer-contrasena` | Definir nueva contraseña (requiere token válido del correo) |
-
-Si inicias sesión con correo no verificado, se redirige automáticamente a **Verificar email**.
+Con Supabase activo, el correo debe **verificarse** antes de usar funciones completas (`/verificar-email`).
 
 ---
 
-## 4. Navegación por tipo de usuario
-
-### 4.1 Matriz de acceso
+## 4. Matriz de acceso por rol
 
 | Funcionalidad | Visitante | Ciudadano | Investigador | Autoridad |
 |---------------|:---------:|:---------:|:------------:|:---------:|
-| Inicio, Proyecto, Mapa, Dashboard, Investigación, Políticas, Contacto | ✅ | ✅ | ✅ | ✅ |
+| Inicio, Proyecto, Mapa, Dashboard, Cuestionario, Investigación, Políticas, Contacto | ✅ | ✅ | ✅ | ✅ |
 | Ver menú **Administración** | ❌ | ❌ | ❌ | ✅ |
 | Entrar a `/admin` | ❌ | ❌ | ❌ | ✅ |
 | **Mi Perfil** | ❌ | ✅ | ✅ | ✅ |
 | Guardar espacios en mapa | ❌ | ✅ | ✅ | ✅ |
-| **Reportes** (Supabase) | ❌ | ✅* | ✅ | ✅ |
-| Generar exportaciones remotas | ❌ | ✅* | ✅ | ✅ |
-| Gestionar padrón y usuarios | ❌ | ❌ | ❌ | ✅ |
+| **Reportes** y exportaciones remotas | ❌ | ✅* | ✅ | ✅ |
+| Exportar PDF/Excel del Dashboard | ❌ | ✅* | ✅ | ✅ |
+| Gestionar padrón, usuarios y capas | ❌ | ❌ | ❌ | ✅ |
 
 \* Requiere cuenta Supabase verificada.
 
-### 4.2 Rutas de trabajo recomendadas
+### Flujos de trabajo recomendados
 
 **Ciudadano**
-
 ```
 Inicio → Mapa (explorar y guardar) → Políticas (contexto) → Perfil (recursos guardados)
 ```
 
 **Investigador**
-
 ```
 Dashboard (filtros) → Investigación (cualitativo) → Reportes (exportar) → Perfil (historial)
 ```
 
 **Autoridad**
-
 ```
 Admin (mantenimiento) → Mapa (validar georreferencia) → Dashboard (supervisión) → Logs (auditoría)
 ```
 
 ---
 
-## 5. Módulos públicos
+# Parte II — Manual del Ciudadano
 
-### 5.1 Inicio (`/`)
+## 5. Resumen del perfil Ciudadano
 
-#### Propósito
+Como **Ciudadano** puedes:
+
+- Explorar el mapa de infraestructura cultural sin necesidad de cuenta.
+- Buscar alcaldías y espacios culturales cercanos.
+- Consultar indicadores de brecha territorial y recomendaciones de política.
+- **Con sesión:** guardar espacios favoritos, generar reportes y mantener historial de descargas.
+
+**No puedes:** acceder al panel de Administración ni modificar el padrón oficial.
+
+---
+
+## 6. Inicio
+
+**Ruta:** `/` · **Acceso:** público
+
+### Propósito
 
 Panorama ejecutivo de la infraestructura cultural: indicadores clave, vista previa del mapa y alertas de brecha territorial.
 
-#### Secciones de la pantalla
+### Secciones de la pantalla
 
-**A. Hero**
+#### A. Hero — Plataforma de inteligencia territorial
 
 - Título: *Visualización y Análisis de la Infraestructura Cultural en CDMX*.
-- **Búsqueda por alcaldía** con autocompletado (misma lógica que la barra superior).
-- Botón **Explorar Datos** → navega al mapa con la alcaldía o consulta seleccionada.
+- Búsqueda por alcaldía o espacio cultural.
+- Botón **Explorar Datos** → navega al mapa.
 
-**B. Tarjetas de indicadores (4 KPIs)**
+![Página de inicio — sección hero](imagenes/inicio-hero.png)
+
+*Figura 2 — Pantalla principal con búsqueda y acceso rápido al mapa.*
+
+#### B. Indicadores clave (4 KPIs)
 
 | KPI | Qué muestra |
 |-----|-------------|
-| Total Espacios | Conteo del padrón georreferenciado |
-| Alcaldías | Cobertura territorial (p. ej. `16 / 16`) |
-| Cobertura Prom. | Índice promedio de accesibilidad |
-| Periodo | Corte de datos (año o semestre) |
+| **Total Espacios** | Conteo del padrón georreferenciado |
+| **Alcaldías** | Cobertura territorial (ej. `16 / 16`) |
+| **Cobertura Prom.** | Índice promedio de accesibilidad |
+| **Periodo** | Corte de datos (año o semestre) |
 
-- Badge **Supabase** y botón **Actualizar** cuando hay datos en vivo.
+![Tarjetas de indicadores en Inicio](imagenes/inicio-kpis.png)
 
-**C. Explorador espacial**
+*Figura 3 — KPIs principales del padrón SECTEI.*
 
-- Mini-mapa con pins de muestra del padrón.
-- Contador de espacios georreferenciados visibles.
-- Enlace **Abrir mapa completo**.
+#### C. Explorador espacial
 
-**D. Accesos directos**
+- Mini-mapa con distribución de espacios por tipología (auditorios, bibliotecas, museos, etc.).
+- Contador de espacios georreferenciados.
+- Botón **Pantalla Completa** / **Abrir mapa completo**.
 
-| Tarjeta | Destino | Uso |
-|---------|---------|-----|
-| Visor Geográfico | `/mapa` | Capas y vacíos territoriales |
-| Tablero Estadístico | `/dashboard` | Gráficas comparativas |
-| Generador de Reportes | `/reportes` | Informes sectoriales *(destacado)* |
-| Gestión de Datos | `/admin` | Solo útil para Autoridad |
+![Explorador espacial en Inicio](imagenes/inicio-explorador.png)
 
-**E. Monitoreo de infraestructura**
+*Figura 4 — Vista previa del mapa con leyenda de tipologías.*
 
-Dos paneles analíticos:
+#### D. Accesos directos
 
-1. **Crecimiento del padrón** (gráfico de área): evolución anual del número de espacios (eje X: años; eje Y: total de espacios).
-2. **Brecha territorial** (barras horizontales): déficit por alcaldía, dividido en:
-   - *Mayor déficit* — alcaldías con brecha más alta.
-   - *Menor déficit* — alcaldías con mejor cobertura relativa.
+| Tarjeta | Destino | Uso para el ciudadano |
+|---------|---------|----------------------|
+| Visor Geográfico | `/mapa` | Encontrar espacios cerca de ti |
+| Tablero Estadístico | `/dashboard` | Ver estadísticas por alcaldía |
+| Generador de Reportes | `/reportes` | Informes personalizados *(requiere sesión)* |
+| Gestión de Datos | `/admin` | No disponible para tu perfil |
 
-Cada barra muestra el **% de brecha** y el número de espacios. Las prioridades son:
+![Accesos directos a módulos](imagenes/inicio-accesos.png)
 
-| Prioridad | Significado |
-|-----------|-------------|
-| **Crítico** | Brecha muy alta; intervención urgente |
-| **Atención** | Brecha moderada |
-| **Estable** | Situación relativamente equilibrada |
+*Figura 5 — Atajos a los módulos principales.*
 
-Enlace **Ver Dashboard Completo** al final de la sección.
+#### E. Monitoreo de infraestructura
+
+Vista previa del dashboard con:
+
+- **Crecimiento histórico** del padrón (1991–2026).
+- **Zonas de mayor brecha** — alcaldías con déficit crítico.
+- Enlace **Ver Dashboard Completo**.
+
+![Monitoreo de infraestructura en Inicio](imagenes/inicio-monitoreo.png)
+
+*Figura 6 — Resumen de crecimiento y brechas territoriales.*
+
+### Pasos rápidos — Ciudadano
+
+1. Abre **Inicio** y revisa los KPIs de tu ciudad.
+2. Escribe el nombre de tu alcaldía en la búsqueda.
+3. Pulsa **Explorar Datos** para ver espacios en el mapa.
 
 ---
 
-### 5.2 Proyecto (`/sobre-el-proyecto`)
+## 7. Proyecto
 
-#### Propósito
+**Ruta:** `/sobre-el-proyecto` · **Acceso:** público
 
-Documentación institucional: por qué existe la plataforma, cómo se construyeron los datos y quién participa.
+### Propósito
 
-#### Contenido
+Conocer la misión, metodología, equipo y colaboradores del proyecto GEO ARTE CDMX.
+
+### Contenido principal
 
 | Bloque | Descripción |
 |--------|-------------|
-| **Hero** | Presentación del proyecto GEO ARTE CDMX |
-| **Objetivos estratégicos** | Metas de visualización, análisis y política pública |
-| **Metodología** | Pasos: recolección → georreferenciación → validación → publicación |
-| **Fuentes de información** | SECTEI, padrón cultural, fuentes abiertas; badge de origen de datos |
-| **Barra lateral** | Equipo core, colaboradores, licencia de datos |
-| **CTA datos crudos** | Enlace al centro de contacto / datasets |
+| **Hero** | *Cartografiando el ADN Cultural de la Ciudad de México* |
+| **Objetivos estratégicos** | Visibilidad territorial, análisis de brechas, datos abiertos, impacto en políticas |
+| **Metodología** | Recolección → georreferenciación → validación → publicación |
+| **Equipo y colaboradores** | UNAM-PUEC, Sec. Cultura CDMX, ADIP, UNESCO México |
+| **Licencia de datos** | Condiciones de reutilización |
 
-No requiere sesión. Ideal para citar la plataforma en informes académicos o memorias técnicas.
+![Objetivos estratégicos del proyecto](imagenes/proyecto-objetivos.png)
+
+*Figura 7 — Los cuatro pilares estratégicos de la plataforma.*
+
+![Metodología y rigor técnico](imagenes/proyecto-metodologia.png)
+
+*Figura 8 — Proceso de curación y validación de datos.*
+
+![Coordinación del proyecto y equipo](imagenes/proyecto-equipo.png)
+
+*Figura 9 — Equipo directivo y enlace de contacto.*
+
+### Uso recomendado
+
+- Consulta **Ver Metodología** antes de citar datos en trabajos escolares o comunitarios.
+- Revisa la **licencia de datos** si planeas reutilizar información.
 
 ---
 
-### 5.3 Mapa interactivo (`/mapa`)
+## 8. Mapa interactivo
 
-#### Propósito
+**Ruta:** `/mapa` · **Acceso:** público
 
-Visor GIS principal: espacios del padrón SIC, capas territoriales, recursos cualitativos y herramientas de filtrado.
+### Propósito
 
-#### Layout de la pantalla
+Visor GIS principal para localizar espacios culturales, consultar fichas y —con sesión— guardar favoritos.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  Búsqueda  │  Preset capas  │  Capas  │  Filtros  │ ⛶  │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│                    MAPA (Leaflet)                       │
-│                                                         │
-│              [Panel flotante de espacio/recurso]        │
-└─────────────────────────────────────────────────────────┘
-```
+### Vista general
 
-#### Controles superiores
+![Mapa interactivo — vista general](imagenes/mapa-vista-general.png)
+
+*Figura 10 — Visor geográfico con búsqueda, capas y mapa de CDMX.*
+
+### Controles superiores
 
 | Control | Función |
 |---------|---------|
+| **Vista: Puntos culturales** | Cambia el modo de visualización |
 | **Búsqueda** | Filtra por alcaldía o nombre de espacio |
-| **Preset Infraestructura** | Muestra las 12 tipologías SIC del padrón |
-| **Preset Territorial** | Oculta pins; activa capas de densidad, cobertura y NSE |
-| **Capas** | Panel lateral: visibilidad y opacidad por tipología |
-| **Filtros avanzados** | Tipos, brecha mínima, solo vacíos culturales |
-| **Pantalla completa** | Expande el mapa a todo el viewport |
+| **Padrón Supabase** | Indicador de conexión en vivo |
+| **Filtros avanzados** | Tipología, brecha mínima, vacíos culturales |
+| **Pantalla completa** | Expande el mapa |
 
-#### Las 12 tipologías SIC (capas de infraestructura)
+### Panel de capas (izquierda)
 
-Cada tipo tiene color propio en el mapa:
+Activa o desactiva las **12 tipologías SIC**:
 
-1. Auditorios  
-2. Bibliotecas  
-3. Bibliotecas DGB  
-4. Casas de artesanías  
-5. Casas y centros culturales  
-6. Centros coord. de pueblos indígenas  
-7. Complejos cinematográficos  
-8. Galerías  
-9. Librerías y puntos de venta  
-10. Museos  
-11. Teatros  
-12. Universidades  
+1. Auditorios · 2. Bibliotecas · 3. Bibliotecas DGB · 4. Casas de artesanías  
+5. Casas y centros culturales · 6. Centros coord. pueblos indígenas  
+7. Complejos cinematográficos · 8. Galerías · 9. Librerías y puntos de venta  
+10. Museos · 11. Teatros · 12. Universidades
 
-#### Capas territoriales adicionales
+![Control de capas del mapa](imagenes/mapa-capas.png)
+
+*Figura 11 — Panel lateral para activar tipologías de infraestructura.*
+
+### Capas territoriales avanzadas
+
+Para análisis más profundo (también útil si eres investigador):
 
 | Capa | Qué representa |
-|------|------------------|
-| **Transporte** | Red de transporte público (líneas/estaciones) |
-| **Densidad** | Densidad de infraestructura por macrozona |
-| **Nivel socioeconómico** | Segmentación NSE territorial |
-| **Cobertura** | Índice de cobertura cultural por zona |
+|------|----------------|
+| **Transporte masivo** | Metro, Metrobús, Cablebús |
+| **Densidad por macrozona** | Concentración de infraestructura |
+| **Vacíos territoriales** | Zonas con déficit cultural |
+| **Cobertura cultural** | Índice por alcaldía |
+| **Recursos cualitativos** | Entrevistas y encuestas georreferenciadas |
 
-#### Filtros avanzados
+![Variables territoriales y análisis Geo Arte](imagenes/mapa-variables.png)
 
-- **Tipos de espacio:** activar/desactivar cada tipología SIC.
-- **Brecha mínima (%):** slider para mostrar solo zonas con déficit igual o superior.
-- **Solo vacíos culturales:** oculta espacios en zonas ya saturadas.
-- **Alcaldía:** limita el análisis a una demarcación.
-- Botones **Aplicar** y **Restablecer**.
+*Figura 12 — Capas de análisis territorial adicionales.*
 
-#### Interacción con espacios
+### Interacción con un espacio (paso a paso)
 
-1. **Clic en un pin** → panel inferior con:
-   - Fotografía del espacio (si existe en Storage/SIC).
-   - Tipología, nombre, dirección.
-   - **Cómo llegar** → abre Google Maps con coordenadas.
-   - **Guardar espacio** / **Quitar de guardados** *(requiere sesión)*.
-   - **Mi perfil** → acceso directo a recursos guardados.
+1. **Haz clic** en un pin del mapa.
+2. Se abre el **panel inferior** con foto, tipología, dirección y datos de contacto.
+3. Pulsa **Cómo llegar** → abre Google Maps con las coordenadas.
+4. Si tienes sesión: **Guardar espacio** / **Quitar de guardados**.
+5. Sin sesión verás: *«Inicia sesión para guardar»*.
 
-2. Sin sesión, el botón de guardar muestra **Inicia sesión para guardar**.
+### Compartir un espacio
 
-#### Recursos cualitativos en el mapa
-
-Si un recurso de investigación tiene coordenadas, puede abrirse con `?recurso=ID`. Se muestra un panel con snippet, investigador y enlace al detalle en Investigación.
-
-#### Parámetros URL (enlaces profundos)
-
-| Parámetro | Ejemplo | Efecto |
-|-----------|---------|--------|
-| `q` | `?q=Iztapalapa` | Búsqueda de texto |
-| `alcaldia` | `?alcaldia=Coyoacán` | Filtra por demarcación |
-| `espacio` | `?espacio=UUID` | Centra y abre ficha del espacio |
-| `recurso` | `?recurso=c1` | Abre recurso cualitativo |
-| `lat` + `lng` | `?lat=19.43&lng=-99.14` | Centra el mapa en coordenadas |
-
-#### Fuente de datos
-
-- **Espacios:** tabla `espacios_culturales` (Supabase) o mock local.
-- **Territorial:** métricas por alcaldía, polígonos, densidad macrozonal, transporte.
-- Badge inferior indica si las capas vienen de Supabase o estimación local.
+Copia la URL del navegador; incluirá parámetros como `?espacio=ID` o coordenadas (`lat`, `lng`).
 
 ---
 
-### 5.4 Dashboard estadístico (`/dashboard`)
+## 9. Dashboard (consulta)
 
-#### Propósito
+**Ruta:** `/dashboard` · **Acceso:** público (exportaciones requieren sesión)
 
-Análisis cuantitativo del padrón con filtros cruzados, gráficos interactivos, comparador entre alcaldías y exportación masiva.
+### Propósito
 
-#### Barra de filtros avanzados
+Análisis cuantitativo del padrón: gráficos, brechas por alcaldía y comparación territorial.
 
-Seis selectores que recalculan **todos** los KPIs, gráficos y la tabla:
+### Vista de monitoreo
 
-| Filtro | Opciones típicas | Efecto |
-|--------|------------------|--------|
-| **Alcaldía** | Todas + 16 demarcaciones | Cambia KPIs a vista local; recarga densidad por macrozona |
-| **Disciplina** | Todas, Música, Teatro, Artes visuales, Danza… | Filtra espacios y participación |
-| **Periodo** | Años académicos (p. ej. 2023-2024) | Puede recargar métricas de otro `anioCorte` vía API |
-| **NSE** | Todos, Bajo, Medio, Alto | Segmenta estadísticas socioeconómicas |
-| **Rango de edad** | Todos, 18-29, 30-44, 45-59, 60+ | Activa serie «Participación Edad» si existe en Supabase |
-| **Género** | Todos, Mujer, Hombre, No binario/otro | Filtra visualización del gráfico de participación |
+![Dashboard — monitoreo de infraestructura](imagenes/dashboard-monitoreo.png)
 
-Debajo de los filtros aparece un **resumen textual** del corte activo (p. ej. *«Toda la CDMX · corte 2024»*).
+*Figura 13 — Vista general del tablero estadístico.*
 
-**Avisos (badge ámbar):** si no hay datos para la combinación de filtros (p. ej. participación por género vacía), se muestra un mensaje explicativo.
+### Gráficos principales
 
-#### Cabecera del tablero
+**Crecimiento histórico** — evolución del padrón SECTEI por año:
 
-- Título **Dashboard Estadístico** + año de corte.
-- Badge **Métricas Supabase** o **Modo demo**.
-- **Exportar Datos** → PDF del snapshot actual.
-- **Generar Reporte** → `/reportes`.
+![Crecimiento histórico del padrón](imagenes/dashboard-crecimiento.png)
 
-#### KPIs (4 tarjetas superiores)
+*Figura 14 — Gráfico de barras con acumulado de espacios (1991–2026).*
 
-Ver [sección 9.2](#92-dashboard--kpis) para el detalle completo según filtro de alcaldía.
+**Brecha territorial por alcaldía** — las 16 demarcaciones en dos paneles (mayor y menor déficit):
 
-#### Gráficos principales
+![Brecha territorial por alcaldía](imagenes/dashboard-brecha.png)
 
-Ver [sección 9.3](#93-dashboard--gráficos).
+*Figura 15 — Barras horizontales con % de brecha SECTEI y leyenda de prioridad.*
 
-**Interacción:**
+| Prioridad | Color | Significado |
+|-----------|-------|-------------|
+| **Crítico** | Rosa | Brecha muy alta; intervención urgente |
+| **Atención** | Naranja | Brecha media-alta |
+| **Estable** | Azul | Situación relativamente equilibrada |
 
-- **Participación por género:** desplazamiento horizontal en móvil (muchas tipologías SIC).
-- **Tooltips:** al pasar el cursor sobre barras, líneas o sectores del donut.
-- Leyenda scrollable en distribución por tipología.
+### Tabla detallada
 
-#### Tabla «Detalle de espacios culturales»
+Despliega **Ver tabla detallada (16 filas)** para ver alcaldía, número de espacios, brecha y prioridad.
 
-| Columna | Descripción |
-|---------|-------------|
-| ID | Identificador abreviado del registro |
-| Nombre | Denominación oficial |
-| Alcaldía | Demarcación |
-| Completitud | % de campos llenos en el padrón (0–100) |
-| Estado | Publicado · Revisión · Borrador |
+![Tabla detallada de alcaldías](imagenes/dashboard-tabla.png)
 
-- Paginación: **20 registros por página**.
-- Exportar página o conjunto completo: **CSV** o **JSON**.
+*Figura 16 — Detalle por demarcación con badge de prioridad.*
 
-#### Panel lateral — Comparador territorial
+### Cómo leer los datos — Ciudadano
 
-1. Selecciona **Alcaldía A** (indicador azul marino).
-2. Pulsa el botón central ⇅ para **intercambiar** A y B.
-3. Selecciona **Alcaldía B** (indicador rosa).
-
-**Métricas comparadas (Supabase):**
-
-- Espacios culturales (conteo).
-- Cobertura (%).
-- Brecha territorial (%).
-
-**Hallazgo automático:** texto del tipo *«Alcaldía X y Y difieren N pp en brecha territorial»*.
-
-**Ver Recomendaciones** → `/politicas`.
-
-#### Exportación rápida (panel inferior derecho)
-
-| Formato | Contenido |
-|---------|-----------|
-| **GeoJSON** | Geometrías de espacios filtrados |
-| **XLSX** | Libro Excel multi-hoja (KPIs, participación, tendencia y hoja **Espacios** con el padrón completo — [9.8](#98-exportación-del-padrón--columnas-y-hojas)) |
-| **CSV / JSON** | Padrón filtrado desde botones de la tabla (mismas columnas que [9.8](#98-exportación-del-padrón--columnas-y-hojas)) |
-| **PDF** | Informe visual del tablero con filtros aplicados |
+- Busca **tu alcaldía** en la tabla o en el gráfico de brechas.
+- Si aparece en **Crítico**, significa que hay un déficit importante de infraestructura cultural respecto a la demanda estimada.
+- Usa el enlace **Mapa de brechas** para ver la distribución geográfica.
 
 ---
 
-### 5.5 Investigación (`/investigacion`)
+## 10. Cuestionario (consulta)
 
-#### Propósito
+**Ruta:** `/cuestionario` · **Acceso:** público
 
-Repositorio de **datos cualitativos** geolocalizados: entrevistas, encuestas, grupos focales y otros materiales de campo.
+### Propósito
 
-#### KPIs de cabecera
+Consultar el resumen de la **captura semestral SECTEI** de espacios culturales. La captura se realiza en la **app móvil GeoArteCDMX**; la web muestra los datos sincronizados.
 
-| KPI | Cálculo |
-|-----|---------|
-| Recursos totales | Conteo de entradas activas en catálogo |
-| Digitalizados | % con flag `digitalizado = true` |
-| Alcaldías | Demarcaciones distintas con al menos un recurso |
+![Cuestionario SECTEI — resumen](imagenes/cuestionario-resumen.png)
 
-#### Panel izquierdo — catálogo
+*Figura 17 — Panel de cuestionario con KPIs y filtros.*
 
-- **Búsqueda** por texto en título/snippet.
-- **Filtros** desplegables: tipo de recurso, alcaldía.
-- **Limpiar filtros** restablece la vista.
-- Lista paginada; cada tarjeta muestra tipo, fecha, título, snippet y badge de verificación.
+### Indicadores del periodo
 
-**Tipos de recurso:** p. ej. Entrevista, Encuesta, Grupo focal *(según catálogo activo)*.
+| KPI | Descripción |
+|-----|-------------|
+| **Respuestas capturadas** | Cuestionarios completados en el semestre |
+| **Espacios con respuesta** | Espacios culturales distintos |
+| **Usuarios inscritos** | Suma de participantes reportados |
+| **Empleo reportado** | Personal remunerado declarado |
 
-#### Panel derecho — detalle
+### Filtros
 
-**Pestaña Ficha:**
+- **Periodo semestral** (ej. `2026-S2`).
+- **Alcaldía** (Todas o una demarcación específica).
 
-- Título, investigador, fecha, alcaldía.
-- Resumen ejecutivo.
-- Transcripción por turnos (Investigador / Informante).
-- Badge **Verificado** si pasó validación institucional.
+### Tablas de datos
 
-**Pestaña Herramientas:**
+1. **Resumen por alcaldía** — respuestas, espacios, usuarios, aforo, empleo, convenios, % mujeres.
+2. **Detalle por espacio** — ficha individual con aforo, costo, demografía y fecha de actualización.
 
-| Acción | Resultado |
-|--------|-----------|
-| Generar informe | PDF del recurso vía API |
-| Exportar JSON | Archivo estructurado del recurso |
-| Exportar CSV | Tabla resumida |
-| Ver en mapa | `/mapa?recurso=ID&lat=…&lng=…` |
+![Tablas del cuestionario](imagenes/cuestionario-tablas.png)
 
-Si el recurso no tiene coordenadas, el enlace al mapa muestra aviso.
+*Figura 18 — Resumen territorial y detalle por espacio cultural.*
 
-#### Estado vacío
-
-Si no hay recursos publicados, se invita a crear contenido desde **Admin → Investigación cualitativa**.
+> **Nota:** La captura de datos nuevos se hace desde la app móvil. En la web solo consultas y, con sesión de Investigador o Autoridad, exportas (PDF/Excel).
 
 ---
 
-### 5.6 Políticas públicas (`/politicas`)
+## 11. Políticas públicas
 
-#### Propósito
+**Ruta:** `/politicas` · **Acceso:** público
 
-Traducir el diagnóstico territorial en **recomendaciones accionables** para inversión cultural y equidad de género.
+### Propósito
 
-#### Hero
+Conocer las **recomendaciones de política pública** derivadas del diagnóstico territorial: intervenciones planificadas, presupuesto e impacto social.
 
-- Badge de fase de implementación.
-- KPIs: intervenciones planificadas, impacto social estimado, presupuesto MXN, alcance (16 municipios).
-- Botón **Descargar informe completo** (PDF).
+### Hero — Recomendaciones de política pública
 
-#### Evidencia del diagnóstico
+![Políticas — cabecera y KPIs](imagenes/politicas-hero.png)
 
-- Texto narrativo con cifras destacadas (p. ej. déficit > 70%).
-- **Gráfico de brecha de inversión** por alcaldía: barras comparativas para priorizar zonas.
+*Figura 19 — Indicadores de intervenciones, impacto social, presupuesto y cobertura municipal.*
 
-#### Recomendaciones estratégicas
+| KPI | Contenido |
+|-----|-----------|
+| Intervenciones | Acciones planificadas |
+| Impacto social | Ciudadanos estimados beneficiados |
+| Presupuesto | MXN registrados |
+| Municipios | Alcaldías cubiertas y brecha promedio |
 
-- **Filtro por objetivo:** Todos · Equidad de género · Cobertura territorial · Infraestructura · etc.
-- Tarjetas de acción con:
-  - Prioridad (Alta / Media / Baja).
-  - Indicador de costo ($ a $$$).
-  - Alcaldía objetivo.
-  - Descripción e impacto estimado en ciudadanos.
-  - Enlaces a Dashboard o Mapa cuando aplica.
-  - **Descargar brief** (PDF individual por acción).
+### Evidencia del diagnóstico
 
----
+Texto narrativo + gráfico comparativo de brecha vs. cobertura por alcaldía.
 
-### 5.7 Soporte / Contacto (`/contacto`)
+![Evidencia del diagnóstico](imagenes/politicas-evidencia.png)
 
-#### Propósito
+*Figura 20 — Gráfico de barras: déficit de infraestructura vs. cobertura cultural.*
 
-Canal de ayuda, documentación técnica y acceso a datos abiertos.
+### Recomendaciones estratégicas
 
-#### Secciones
+Filtra por objetivo: *Todos · Cerrar brecha de género · Infraestructura en periferias · Digitalización · Economía creativa*.
 
-**A. Buzón de consultas**
+Cada tarjeta incluye:
 
-Formulario con nombre, correo, asunto y mensaje. Las consultas llegan al panel **Admin → Consultas de contacto** (Autoridad).
+- **Prioridad** (Alta / Media / Baja).
+- **Costo estimado** ($ a $$$).
+- **Alcaldía objetivo**.
+- **Impacto estimado** en ciudadanos.
+- Botón **Descargar Brief de Acción** (PDF).
 
-**B. Preguntas frecuentes**
+![Recomendaciones estratégicas por objetivo](imagenes/politicas-recomendaciones.png)
 
-Acordeón con temas: actualización de datos, uso del mapa, API, licencias, etc.
+*Figura 21 — Tarjetas de acción con prioridad, ubicación e impacto.*
 
-**C. API de datos abiertos**
+### Generar reporte por alcaldía
 
-- URL base del API.
-- Listado de endpoints (`/api/data/home`, `/api/data/mapa`, `/api/data/dashboard`, etc.).
-- Ejemplo **cURL** listo para copiar.
-- Token de acceso *(si está configurado en el entorno)*.
+Al final de la página, el bloque **¿Necesitas una propuesta personalizada?** permite obtener un diagnóstico específico de tu demarcación.
 
-**D. Datasets**
+![Generar reporte por alcaldía](imagenes/politicas-reporte-alcaldia.png)
 
-Catálogo de conjuntos descargables (GeoJSON del padrón, CSV de métricas, etc.) con descripción y enlace.
-
-**E. Políticas de uso**
-
-Términos de reutilización de datos abiertos CDMX.
+*Figura 22 — CTA para reporte territorial personalizado.*
 
 ---
 
-## 6. Mi Perfil
+## 12. Soporte y contacto
 
-**Ruta:** `/perfil` · **Requisito:** sesión activa.
+**Ruta:** `/contacto` · **Acceso:** público
 
-### 6.1 Cabecera
+### Secciones
 
-- Avatar (foto subida o iniciales del nombre).
-- Nombre, subtítulo según rol e institución.
-- Badge de rol (Ciudadano / Investigador / Autoridad).
-- Estadísticas personales: recursos guardados, reportes generados.
+**A. Buzón de consultas** — formulario con nombre, correo, asunto y mensaje.
 
-### 6.2 Pestaña «Mis Recursos»
+![Buzón de consultas](imagenes/soporte-buzon.png)
+
+*Figura 23 — Formulario de contacto y envío de consultas.*
+
+**B. Preguntas frecuentes** — acordeón con temas operativos.
+
+![Preguntas frecuentes](imagenes/soporte-faq.png)
+
+*Figura 24 — FAQ sobre uso del mapa, datos y licencias.*
+
+**C. API de datos abiertos** — endpoints, ejemplo cURL y token de acceso.
+
+![API de datos abiertos](imagenes/soporte-api.png)
+
+*Figura 25 — Documentación de la API pública.*
+
+**D. Datasets** — catálogo de conjuntos descargables (GeoJSON, CSV).
+
+![Catálogo de datasets](imagenes/soporte-datasets.png)
+
+*Figura 26 — Conjuntos de datos disponibles para descarga.*
+
+---
+
+## 13. Mi perfil (Ciudadano)
+
+**Ruta:** `/perfil` · **Requisito:** sesión activa
+
+### Cabecera
+
+- Avatar, nombre, badge de rol **Ciudadano**.
+- Estadísticas: recursos guardados, reportes generados.
+
+### Pestaña «Mis Recursos»
 
 Lista de **espacios culturales guardados** desde el mapa.
 
 | Acción | Descripción |
 |--------|-------------|
-| Filtrar por tipo | Desplegable con tipologías presentes en tu lista |
+| Filtrar por tipo | Desplegable con tipologías |
 | Abrir | Enlace al mapa centrado en el espacio |
-| Eliminar | Quita el espacio de favoritos *(Supabase)* |
-| Explorar mapa | Botón para descubrir más espacios |
+| Eliminar | Quita de favoritos |
+| Explorar mapa | Descubrir más espacios |
 
-Estado vacío: mensaje invitando a guardar desde el visor geográfico.
+### Pestaña «Historial»
 
-### 6.3 Pestaña «Historial»
+Registro de exportaciones y descargas (PDF, Excel) con opción de volver a descargar.
 
-Registro de **exportaciones y descargas**:
+### Pestaña «Configuración»
 
-- Título del informe o dataset.
-- Formato (PDF, Excel, o CSV si es una exportación anterior).
-- Fecha de generación.
-- Volver a descargar o eliminar del historial.
-
-### 6.4 Pestaña «Configuración»
-
-- **Nombre para mostrar:** editable con Supabase.
-- **Correo:** solo lectura.
-- **Avatar:** subida de imagen al bucket `avatars` *(Supabase)*.
+- Editar nombre para mostrar.
+- Subir avatar.
+- Correo (solo lectura).
 
 ---
 
-## 7. Centro de reportes
+# Parte III — Manual del Investigador
 
-**Ruta:** `/reportes` · **Requisito:** sesión con Supabase (cualquier perfil verificado).
+## 14. Resumen del perfil Investigador
 
-### 7.1 Vista general
+Como **Investigador** tienes acceso a **todo lo del Ciudadano**, más:
 
-- 4 KPIs personales de exportación (ver [9.4](#94-reportes--kpis)).
-- Enlace **Explorar métricas** → Dashboard.
+- Filtros avanzados y exportaciones masivas en el Dashboard.
+- Centro de **Reportes** con plantillas institucionales (PDF y Excel).
+- Repositorio de **Investigación cualitativa** (entrevistas, encuestas, grupos focales).
+- Exportación de recursos individuales (JSON, CSV, PDF).
+- Acceso a la **API de datos abiertos** para integración con herramientas externas.
 
-### 7.2 Generar un reporte — paso a paso
+**No puedes:** administrar el padrón, cambiar roles de usuario ni publicar espacios.
 
-1. **Elegir plantilla** en la cuadrícula de plantillas:
+### Registro
 
-   | Plantilla | Contenido típico | Formatos |
-   |-----------|------------------|----------|
-   | Diagnóstico Territorial | Brechas y cobertura por demarcación | PDF, Excel (.xlsx) |
-   | Impacto Social | Participación por género, NSE y edad | PDF, Excel (.xlsx) |
-   | Resumen Ejecutivo | Panorama CDMX para autoridades | PDF, Excel (.xlsx) |
+Al crear cuenta debes indicar **Institución u organización** y **Área de investigación**.
 
-2. **Ajustar filtros** (mismos ejes que Dashboard): alcaldía, disciplina, periodo, NSE, edad, género.
+---
 
-3. **Vista previa** del resumen de filtros antes de generar.
+## 15. Dashboard avanzado y exportaciones
 
-4. Pulsar el botón del formato deseado: **PDF** o **Excel**.
+Además de la consulta pública (ver [sección 9](#9-dashboard-consulta)), como investigador usarás:
 
-5. El archivo se descarga y queda registrado en **Historial de exportaciones**.
+### Barra de filtros avanzados
 
-> **Nota:** El Centro de reportes **no ofrece CSV** como informe (un solo archivo plano). Para datos tabulares del padrón con muchas columnas, usa **Excel** o la exportación **CSV / JSON** desde el [Dashboard](#54-dashboard-estadístico-dashboard).
+Seis selectores que recalculan KPIs, gráficos y tabla:
 
-### 7.3 Contenido del Excel (.xlsx)
+| Filtro | Opciones | Efecto |
+|--------|----------|--------|
+| Alcaldía | Todas + 16 demarcaciones | Vista local o nacional |
+| Disciplina | Música, Teatro, Artes visuales, Danza… | Filtra espacios y participación |
+| Periodo | Años académicos | Cambia el corte de métricas |
+| NSE | Bajo, Medio, Alto | Segmentación socioeconómica |
+| Rango de edad | 18-29, 30-44, 45-59, 60+ | Participación por edad |
+| Género | Mujer, Hombre, No binario/otro | Equidad de participación |
 
-El libro generado en reportes incluye varias hojas (misma lógica que el informe completo del Dashboard):
+### Comparador territorial
+
+Selecciona **Alcaldía A** y **Alcaldía B** para comparar espacios, cobertura y brecha. El sistema genera un hallazgo automático con la diferencia en puntos porcentuales.
+
+![Comparador territorial A vs B](imagenes/dashboard-comparador.png)
+
+*Figura 27 — Panel lateral para comparar dos demarcaciones.*
+
+### Exportaciones disponibles
+
+| Formato | Contenido | Dónde |
+|---------|-----------|-------|
+| **PDF** | Informe visual del tablero | Botón «Exportar Datos» |
+| **XLSX** | Libro multi-hoja (KPIs, participación, tendencia, espacios) | Panel inferior |
+| **CSV / JSON** | Padrón filtrado | Tabla de espacios |
+| **GeoJSON** | Geometrías con propiedades | Panel inferior |
+
+Ver [Anexo A](#anexo-a-referencia-de-kpis-y-gráficos) para detalle de columnas exportadas.
+
+---
+
+## 16. Centro de reportes
+
+**Ruta:** `/reportes` · **Requisito:** sesión con Supabase verificada
+
+### Vista general
+
+![Centro de reportes](imagenes/reportes-centro.png)
+
+*Figura 28 — KPIs personales de exportación y acceso al generador.*
+
+### Generar un reporte — paso a paso
+
+1. **Elige una plantilla:**
+
+   | Plantilla | Contenido | Formatos |
+   |-----------|-----------|----------|
+   | Diagnóstico Territorial | Brechas y cobertura por demarcación | PDF, Excel |
+   | Impacto Social | Participación por género, NSE y edad | PDF, Excel |
+   | Resumen Ejecutivo | Panorama CDMX para autoridades | PDF, Excel |
+
+![Plantillas de reporte](imagenes/reportes-plantillas.png)
+
+*Figura 29 — Selección de plantilla y filtros.*
+
+2. **Ajusta filtros** (mismos ejes que Dashboard): alcaldía, disciplina, periodo, NSE, edad, género.
+3. Revisa la **vista previa** del resumen de filtros.
+4. Pulsa **PDF** o **Excel** para generar y descargar.
+5. El archivo queda en tu **Historial de exportaciones**.
+
+![Historial de exportaciones](imagenes/reportes-historial.png)
+
+*Figura 30 — Registro de informes generados con opción de re-descarga.*
+
+### Contenido del Excel (.xlsx)
 
 | Hoja | Contenido |
 |------|-----------|
-| **Resumen** | Filtros aplicados, avisos y total de espacios filtrados |
-| **KPIs** | Indicadores del tablero con los filtros actuales |
-| **Participación** | Porcentajes por género (tipologías agregadas) |
-| **Tendencia** | Serie de existencia anual del padrón (según territorio) |
-| **Espacios** | Padrón filtrado — ver [columnas en 9.8](#98-exportación-del-padrón--columnas-y-hojas) |
-
-### 7.4 Historial
-
-Tabla con título, categoría, estado (Publicado / Generado / Borrador), fecha y autor.
-
-- Menú de acciones: **Descargar de nuevo**, **Eliminar**.
-- Los reportes generados en esta sesión/web quedan vinculados a tu `userId`.
-- El historial puede incluir exportaciones **CSV antiguas**; las nuevas generaciones en web son **PDF** y **Excel**.
-
-### 7.5 Panel de ayuda
-
-Texto contextual sobre interpretación de filtros, formatos y tiempos de generación.
+| Resumen | Filtros aplicados y total de espacios |
+| KPIs | Indicadores del tablero |
+| Participación | Porcentajes por género |
+| Tendencia | Serie anual del padrón |
+| Espacios | Padrón filtrado con columnas completas |
 
 ---
 
-## 8. Panel de administración
+## 17. Investigación y repositorio cualitativo
 
-**Ruta:** `/admin` · **Requisito:** rol **Autoridad** con Supabase.
+**Ruta:** `/investigacion` · **Acceso:** público (exportaciones requieren sesión)
 
-Si no cumples el requisito, verás un mensaje con enlace a login (`?next=/admin`).
+### Propósito
 
-### 8.1 Vista general
+Consultar **datos cualitativos geolocalizados**: entrevistas, encuestas, grupos focales y materiales de campo.
 
-- **Menú lateral** (desktop) o selector desplegable (móvil).
-- **Cabecera:** título, botón **Nuevo Espacio**, acceso rápido a **Logs del Sistema**.
-- **4 KPIs administrativos** (ver [9.7](#97-administración--kpis)).
+### Vista del repositorio
 
-### 8.2 Espacios culturales
+![Investigación — repositorio](imagenes/investigacion-repositorio.png)
 
-Tres sub-pestañas:
+*Figura 31 — Catálogo de recursos con KPIs y panel de detalle.*
 
-#### Listado maestro
+### KPIs de cabecera
 
-- Búsqueda por ID o nombre.
-- Tabla: ID, nombre, alcaldía, tipo, estado, acciones (editar / eliminar).
-- Paginación server-side con Supabase.
-- **Nuevo espacio** abre modal de alta.
-
-#### Flujo de revisión
-
-Kanban del ciclo de vida:
-
-```
-Borrador → Revisión → Publicado
-```
-
-- Arrastrar o botón **Publicar** mueve espacios entre columnas.
-- Solo espacios **Publicados** aparecen en el mapa público.
-
-#### Editor cartográfico
-
-- Seleccionar espacio sin coordenadas válidas.
-- Introducir **latitud** y **longitud** manualmente.
-- **Guardar coordenadas** actualiza el padrón y el pin en mapa.
-
-### 8.3 Capas SIG
-
-CRUD del catálogo de capas vectoriales/raster:
-
-- Nombre, tipo, URL de servicio, estado activo/inactivo.
-- Las capas activas alimentan el visor y el contador de KPI «Capas SIG».
-
-### 8.4 Capas del mapa
-
-Panel operativo para sincronización territorial:
-
-- Estado de capas: métricas, densidad, geometrías, transporte.
-- Botón **Sincronizar** ejecuta el pipeline admin (`sync:mapa`).
-- Registro en `mapa_sync_log` *(visible en logs)*.
-
-### 8.5 Fuentes de información
-
-Metadatos de procedencia: institución, URL, fecha de corte, notas de calidad.
-
-### 8.6 Políticas públicas
-
-Editor de recomendaciones mostradas en `/politicas`:
-
-- Secciones por objetivo estratégico.
-- Acciones con prioridad, costo, alcaldía, impacto.
-- Publicar/desactivar entradas.
-
-### 8.7 Investigación cualitativa
-
-Alta/edición de recursos del repositorio público:
-
-- Tipo, título, alcaldía, investigador, resumen, transcripción JSON.
-- Coordenadas opcionales para geolocalización en mapa.
-- Flags: verificado, digitalizado, activo.
-
-### 8.8 Centro de reportes (admin)
-
-Gestión de **plantillas** disponibles en `/reportes`:
-
-- Título, descripción, categoría, formatos permitidos.
-- Filtros por defecto al seleccionar la plantilla.
-
-### 8.9 Consultas de contacto
-
-Bandeja de mensajes del buzón `/contacto`:
-
-- Listado con fecha, correo, asunto.
-- Modal de detalle; marcar como atendida.
-
-### 8.9 Usuarios
-
-- Listado de cuentas registradas.
-- **Crear usuario** (correo, nombre, rol inicial).
-- **Cambiar rol** (Ciudadano / Investigador / Autoridad).
-- Solo accesible vía API protegida `require-autoridad`.
-
-### 8.10 Historial / logs
-
-Auditoría consolidada:
-
-- Altas y cambios de espacios, capas, usuarios.
-- Sincronizaciones de mapa.
-- Exportaciones relevantes.
-- Filtro por fecha y tipo de evento.
-
-### 8.11 Pendientes
-
-Cola de **validaciones institucionales** (contenido en revisión, consultas sin responder, espacios incompletos). El badge numérico en el menú indica cuántos ítems requieren atención.
-
----
-
-## 9. Referencia de KPIs y gráficos
-
-Índice del capítulo:
-
-1. [9.1 Inicio](#91-inicio)
-2. [9.2 Dashboard — KPIs](#92-dashboard--kpis)
-3. [9.3 Dashboard — gráficos](#93-dashboard--gráficos)
-4. [9.4 Reportes — KPIs](#94-reportes--kpis)
-5. [9.5 Investigación — KPIs](#95-investigación--kpis)
-6. [9.6 Políticas — KPIs del hero](#96-políticas--kpis-del-hero)
-7. [9.7 Administración — KPIs](#97-administración--kpis)
-8. [9.8 Exportación del padrón — columnas y hojas](#98-exportación-del-padrón--columnas-y-hojas)
-
-### 9.1 Inicio
-
-| Elemento | Tipo | Qué mide | Fuente |
-|----------|------|----------|--------|
-| Total Espacios | KPI | Registros georreferenciados | RPC / conteo padrón |
-| Alcaldías | KPI | Demarcaciones con cobertura | Métricas territoriales |
-| Cobertura Prom. | KPI | Media de índice de accesibilidad | `metricas_alcaldia` |
-| Periodo | KPI | Año-semestre del corte | Config `anioCorte` |
-| Crecimiento padrón | Área | Espacios por año | Serie existencia anual |
-| Brecha por alcaldía | Barras H | % déficit + nº espacios + prioridad | Brecha territorial SECTEI |
-
-### 9.2 Dashboard — KPIs
-
-**Alcaldía = «Todas»**
-
-| KPI | Valor | Nota bajo el número |
-|-----|-------|-------------------|
-| Total Espacios | Conteo nacional | «Padrón SECTEI» |
-| Alcaldías | Normalmente 16 | «Demarcaciones» |
-| Cobertura Territorial | % promedio CDMX | «Ciudad completa» |
-| Brecha Promedio | Media de brechas | «Por demarcación» |
-
-**Alcaldía específica**
-
-| KPI | Significado |
-|-----|-------------|
-| Espacios en demarcación | Conteo local |
-| Cobertura local | % en esa alcaldía |
-| Brecha territorial | % déficit SECTEI |
-| Tipologías activas | Tipos SIC distintos en el filtro |
-
-### 9.3 Dashboard — gráficos
-
-| Gráfico | Ejes / series | Interpretación |
-|---------|---------------|----------------|
-| **Participación por Género** | X: tipología SIC · Y: % · Series: Masculino, Femenino, Otros | Equidad de participación por tipo de espacio |
-| **Existencia anual del padrón** | X: año · Y: espacios · Serie 2: variación anual | Crecimiento del padrón en el tiempo |
-| **Indicadores de movilidad** | X: mes · Y: minutos promedio | Tiempo de acceso cuando no hay serie de existencia |
-| **Densidad de infraestructura** | X: macrozona · Y: índice 0–100 | Concentración relativa Centro/Sur/Oriente/Poniente/Norte |
-| **Distribución por tipología** | Sectores: tipo SIC · Valor: conteo | Composición del padrón filtrado |
-| **Comparador A vs B** | Barras proporcionales por métrica | Brecha entre dos demarcaciones elegidas |
-
-**Estados de espacio en tabla**
-
-| Estado | Color | Significado |
-|--------|-------|-------------|
-| Publicado | Verde | Visible en mapa y estadísticas públicas |
-| Revisión | Ámbar | En validación institucional |
-| Borrador | Gris | Solo visible en admin |
-
-### 9.4 Reportes — KPIs
-
-*(Con Supabase — datos de tu cuenta)*
-
-| KPI | Significado |
-|-----|-------------|
-| Total exportaciones | Registros en historial personal |
-| Informes PDF | Conteo de PDFs generados |
-| Datos tabulares | Archivos **Excel (.xlsx)** generados |
-| Generador web | Exportaciones en el **mes en curso**; si no hay ninguna, texto *PDF · Excel disponibles*; si hay, fecha de la última exportación |
-
-### 9.5 Investigación — KPIs
-
-| KPI | Fórmula |
+| KPI | Cálculo |
 |-----|---------|
-| Recursos totales | `COUNT(recursos activos)` |
-| Digitalizados | `ROUND(digitalizados / total × 100)%` |
-| Alcaldías | `COUNT(DISTINCT alcaldia)` |
+| Recursos totales | Entradas activas en catálogo |
+| Digitalizados | % con flag `digitalizado = true` |
+| Alcaldías | Demarcaciones con al menos un recurso |
 
-### 9.6 Políticas — KPIs del hero
+### Panel izquierdo — catálogo
 
-| KPI | Contenido |
-|-----|-----------|
-| Intervenciones | Acciones planificadas en el documento |
-| Impacto social | Ciudadanos estimados beneficiados |
-| Presupuesto | MXN estimados de inversión |
-| Municipios | Alcaldías cubiertas (16) |
+- **Búsqueda** por texto en título o resumen.
+- **Filtros:** tipo de recurso, alcaldía.
+- Lista paginada con tipo, fecha, título y badge de verificación.
 
-### 9.7 Administración — KPIs
+**Tipos:** Entrevista · Encuesta · Grupo focal.
+
+### Panel derecho — detalle
+
+**Pestaña Ficha del recurso:**
+
+- Título, investigador, fecha, alcaldía, duración.
+- Resumen ejecutivo.
+- Transcripción por turnos (Investigador / Informante).
+- Badge **Verificado** si pasó validación institucional.
+
+![Transcripción de entrevista](imagenes/investigacion-transcripcion.png)
+
+*Figura 32 — Diálogo estructurado entre investigador e informante.*
+
+**Pestaña Herramientas analíticas:**
+
+| Acción | Resultado |
+|--------|-----------|
+| Generar reporte | PDF del recurso |
+| Exportar JSON | Archivo estructurado |
+| Exportar CSV | Tabla resumida |
+| Ver en mapa | `/mapa?recurso=ID&lat=…&lng=…` |
+
+### Flujo de trabajo — Investigador
+
+```
+1. Filtrar recursos por alcaldía o tipo
+2. Leer ficha y transcripción
+3. Exportar JSON/CSV para análisis externo (NVivo, Atlas.ti, etc.)
+4. Ver en mapa para contexto territorial
+5. Cruzar con datos cuantitativos del Dashboard
+```
+
+---
+
+## 18. Mi perfil (Investigador)
+
+Igual estructura que el Ciudadano ([sección 13](#13-mi-perfil-ciudadano)), con énfasis en:
+
+- **Historial** de exportaciones PDF/Excel generadas en Reportes y Dashboard.
+- **Recursos guardados** de mapas y datasets para seguimiento de investigación.
+- Badge de rol **Investigador** con institución y área de investigación en el subtítulo.
+
+---
+
+# Parte IV — Manual de la Autoridad
+
+## 19. Resumen del perfil Autoridad
+
+Como **Autoridad** tienes acceso **completo** a la plataforma, incluyendo el **Panel de Administración** (`/admin`).
+
+### Responsabilidades principales
+
+| Área | Acciones |
+|------|----------|
+| **Padrón** | Crear, editar, publicar y georreferenciar espacios culturales |
+| **Capas SIG** | Gestionar capas cartográficas y sincronizar el mapa territorial |
+| **Políticas** | Editar recomendaciones mostradas en `/politicas` |
+| **Investigación** | Alta y validación de recursos cualitativos |
+| **Reportes** | Gestionar plantillas del centro de reportes |
+| **Usuarios** | Crear cuentas y cambiar roles (Ciudadano / Investigador / Autoridad) |
+| **Consultas** | Atender mensajes del buzón de contacto |
+| **Auditoría** | Revisar logs del sistema |
+
+### Registro
+
+Al crear cuenta debes indicar **Institución u organización** y **Cargo o área**.
+
+### Acceso al panel
+
+Tras iniciar sesión como Autoridad, la aplicación te redirige automáticamente a `/admin`.
+
+---
+
+## 20. Panel de administración
+
+**Ruta:** `/admin` · **Requisito:** rol Autoridad + Supabase
+
+### Vista general
+
+![Panel de administración — KPIs](imagenes/admin-panel.png)
+
+*Figura 33 — Cabecera del panel con indicadores y acceso a logs.*
+
+### KPIs administrativos
 
 | KPI | Origen |
 |-----|--------|
@@ -908,35 +861,226 @@ Cola de **validaciones institucionales** (contenido en revisión, consultas sin 
 | Capas SIG | Capas con `activo = true` |
 | Usuarios activos | Perfiles con sesión reciente |
 
-### 9.8 Exportación del padrón — columnas y hojas
+### Menú lateral (secciones)
 
-Aplica a la hoja **Espacios** del Excel generado en **Centro de reportes** y **Dashboard**, y a las descargas **CSV / JSON / GeoJSON** del padrón en Dashboard (con Supabase activo).
+| Sección | Función |
+|---------|---------|
+| Espacios culturales | CRUD del padrón SECTEI |
+| Capas SIG | Catálogo de capas vectoriales/raster |
+| Capas del mapa | Sincronización territorial |
+| Fuentes de información | Metadatos de procedencia |
+| Políticas públicas | Editor de recomendaciones |
+| Investigación cualitativa | Alta/edición de recursos |
+| Centro de reportes | Plantillas de exportación |
+| Cuestionario | Revisión de respuestas SECTEI |
+| Consultas de contacto | Bandeja del buzón |
+| Usuarios | Gestión de cuentas y roles |
+| Historial / Logs | Auditoría del sistema |
+| Pendientes | Cola de validaciones |
 
-| Columna | Descripción |
-|---------|-------------|
-| ID del espacio | UUID o identificador en `espacios_culturales` |
-| ID corto (vista tabla) | Primeros 8 caracteres del ID (mayúsculas) |
-| Nombre | Denominación del espacio |
-| Tipología SIC | Tipo oficial del registro |
-| Alcaldía | Demarcación territorial |
-| Dirección | Domicilio o referencia de ubicación *(si está capturada en el padrón)* |
-| Descripción | Texto descriptivo del espacio *(si está capturada)* |
-| Horario | Horario de servicio |
-| Teléfono | Contacto telefónico |
-| Latitud (WGS84) | Coordenada norte |
-| Longitud (WGS84) | Coordenada este |
-| Completitud (%) | Índice 0–100 según coordenadas, horario y teléfono |
-| Estado editorial | Publicado · Revisión · Borrador |
-
-**Origen de datos:** tabla `espacios_culturales` en Supabase. Celdas vacías indican que el campo no fue capturado o está pendiente de validación editorial.
-
-**PDF (reportes):** incluye resumen de métricas y, en el anexo, una muestra de espacios con nombre, alcaldía, dirección/teléfono (si existen) y completitud — no replica todas las columnas del Excel.
+> Documentación ampliada: [Panel de administración](PANEL-ADMINISTRACION.md) · [Control de capas del mapa](CONTROL-DE-CAPAS-MAPA.md)
 
 ---
 
-## 10. Glosario y estados
+## 21. Gestión del padrón y publicación
 
-### 10.1 Términos clave
+### Listado maestro de espacios
+
+![Gestión de espacios culturales](imagenes/admin-espacios.png)
+
+*Figura 34 — Tabla maestra con búsqueda, estados y acciones.*
+
+| Columna | Descripción |
+|---------|-------------|
+| ID | Identificador del registro |
+| Nombre | Denominación oficial |
+| Alcaldía | Demarcación territorial |
+| Tipo | Tipología SIC |
+| Estado | Borrador · Revisión · Publicado |
+| Acciones | Editar · Eliminar |
+
+### Ciclo de vida del espacio
+
+```
+Borrador → Revisión → Publicado
+```
+
+- Solo espacios **Publicados** aparecen en el mapa y estadísticas públicas.
+- Usa el **Flujo de revisión** (vista Kanban) para mover espacios entre columnas.
+- El **Editor cartográfico** permite asignar latitud/longitud a espacios sin coordenadas.
+
+### Crear un espacio nuevo
+
+1. Pulsa **+ Nuevo Espacio** en la cabecera del panel.
+2. Completa nombre, tipología, alcaldía, dirección y datos de contacto.
+3. Asigna coordenadas en el editor cartográfico.
+4. Mueve a **Revisión** y, tras validar, a **Publicado**.
+
+---
+
+## 22. Capas SIG y sincronización del mapa
+
+### Capas SIG
+
+CRUD del catálogo de capas:
+
+- Nombre, tipo, URL de servicio, estado activo/inactivo.
+- Las capas activas alimentan el visor público y el KPI «Capas SIG».
+
+### Capas del mapa — sincronización
+
+Panel operativo para actualizar datos territoriales:
+
+| Capa | Contenido |
+|------|-----------|
+| Métricas | Indicadores por alcaldía |
+| Densidad | Macrozonas |
+| Geometrías | Polígonos territoriales |
+| Transporte | Metro, Metrobús, Cablebús |
+
+**Procedimiento tras una migración de base de datos:**
+
+1. Admin → **Capas del mapa**.
+2. Pulsa **Sincronizar** (ejecuta pipeline `sync:mapa`).
+3. Verifica en **Logs** que la sincronización se registró correctamente.
+4. Abre `/mapa` y confirma que las capas se visualizan.
+
+---
+
+## 23. Políticas, investigación y reportes (admin)
+
+### Políticas públicas
+
+Editor de las recomendaciones visibles en `/politicas`:
+
+- Secciones por objetivo estratégico.
+- Acciones con prioridad, costo, alcaldía, impacto estimado.
+- Publicar o desactivar entradas.
+
+### Investigación cualitativa
+
+Alta y edición de recursos del repositorio público:
+
+| Campo | Descripción |
+|-------|-------------|
+| Tipo | Entrevista, encuesta, grupo focal |
+| Título, alcaldía, investigador | Metadatos |
+| Resumen y transcripción | Contenido (JSON estructurado) |
+| Coordenadas | Opcionales para geolocalización en mapa |
+| Flags | Verificado · Digitalizado · Activo |
+
+### Centro de reportes (admin)
+
+Gestión de **plantillas** disponibles en `/reportes`:
+
+- Título, descripción, categoría.
+- Formatos permitidos (PDF, Excel).
+- Filtros por defecto al seleccionar la plantilla.
+
+### Cuestionario (admin)
+
+Revisión de respuestas capturadas desde la app móvil:
+
+- Consulta por periodo semestral y alcaldía.
+- Cambio de estatus de revisión institucional.
+- Exportación PDF/Excel para informes oficiales.
+
+---
+
+## 24. Usuarios, consultas y auditoría
+
+### Gestión de usuarios
+
+| Acción | Descripción |
+|--------|-------------|
+| **Crear usuario** | Correo, nombre, rol inicial |
+| **Cambiar rol** | Ciudadano / Investigador / Autoridad |
+| **Listar cuentas** | Todas las cuentas registradas |
+
+> Solo una **Autoridad** puede reasignar roles. Los usuarios no pueden cambiar su propio rol desde la interfaz pública.
+
+### Consultas de contacto
+
+Bandeja de mensajes del buzón `/contacto`:
+
+- Listado con fecha, correo, asunto.
+- Modal de detalle.
+- Marcar como atendida.
+
+### Historial / Logs
+
+Auditoría consolidada:
+
+- Altas y cambios de espacios, capas, usuarios.
+- Sincronizaciones de mapa.
+- Exportaciones relevantes.
+- Filtro por fecha y tipo de evento.
+
+### Pendientes
+
+Cola de **validaciones institucionales**: contenido en revisión, consultas sin responder, espacios incompletos. El badge numérico en el menú indica ítems que requieren atención.
+
+### Flujo diario recomendado — Autoridad
+
+```
+1. Revisar badge de Pendientes
+2. Atender consultas de contacto
+3. Publicar espacios en revisión
+4. Sincronizar mapa si hubo cambios en BD
+5. Supervisar Dashboard (brechas críticas)
+6. Revisar logs al cierre del día
+```
+
+---
+
+# Anexos
+
+## Anexo A. Referencia de KPIs y gráficos
+
+### A.1 Inicio
+
+| Elemento | Qué mide | Fuente |
+|----------|----------|--------|
+| Total Espacios | Registros georreferenciados | Padrón SECTEI |
+| Alcaldías | Demarcaciones con cobertura | Métricas territoriales |
+| Cobertura Prom. | Media de índice de accesibilidad | `metricas_alcaldia` |
+| Crecimiento padrón | Espacios por año | Serie existencia anual |
+| Brecha por alcaldía | % déficit + prioridad | Brecha territorial SECTEI |
+
+### A.2 Dashboard — KPIs
+
+**Vista nacional (Alcaldía = Todas):** Total Espacios · 16 Alcaldías · Cobertura Territorial · Brecha Promedio.
+
+**Vista local:** Espacios en demarcación · Cobertura local · Brecha territorial · Tipologías activas.
+
+### A.3 Dashboard — Gráficos
+
+| Gráfico | Interpretación |
+|---------|----------------|
+| Participación por Género | Equidad por tipología SIC |
+| Existencia anual del padrón | Crecimiento histórico |
+| Densidad de infraestructura | Concentración por macrozona |
+| Distribución por tipología | Composición del padrón |
+| Comparador A vs B | Diferencia entre dos alcaldías |
+
+### A.4 Exportación del padrón — columnas
+
+Aplica a Excel, CSV, JSON y GeoJSON:
+
+| Columna | Descripción |
+|---------|-------------|
+| ID del espacio | UUID en `espacios_culturales` |
+| Nombre | Denominación oficial |
+| Tipología SIC | Tipo oficial |
+| Alcaldía | Demarcación territorial |
+| Dirección | Domicilio |
+| Latitud / Longitud | Coordenadas WGS84 |
+| Completitud (%) | Índice 0–100 |
+| Estado editorial | Publicado · Revisión · Borrador |
+
+---
+
+## Anexo B. Glosario
 
 | Término | Definición |
 |---------|------------|
@@ -946,52 +1090,84 @@ Aplica a la hoja **Espacios** del Excel generado en **Centro de reportes** y **D
 | **Cobertura** | % de satisfacción del índice de accesibilidad cultural |
 | **Completitud** | % de campos obligatorios llenos en un registro |
 | **Recurso cualitativo** | Entrevista, encuesta u otro material de investigación de campo |
-| **Macrozona** | Agrupación territorial: Centro, Sur, Oriente, Poniente, Norte |
+| **Macrozona** | Agrupación: Centro, Sur, Oriente, Poniente, Norte |
 | **NSE** | Nivel socioeconómico (Bajo, Medio, Alto) |
 | **Corte / anioCorte** | Año de referencia de las métricas mostradas |
 
-### 10.2 Formatos de exportación
-
-| Formato | Dónde se genera | Contenido |
-|---------|-----------------|-----------|
-| PDF | Dashboard, Reportes, Políticas, Investigación | Informe visual o brief |
-| CSV | Dashboard, Investigación | Padrón o transcripciones en texto plano (coma + UTF-8 en padrón; ver [9.8](#98-exportación-del-padrón--columnas-y-hojas)) |
-| XLSX | Dashboard, Reportes | Libro Excel multi-hoja; padrón en hoja **Espacios** ([9.8](#98-exportación-del-padrón--columnas-y-hojas)) |
-| GeoJSON | Dashboard | Features con propiedades del padrón ([9.8](#98-exportación-del-padrón--columnas-y-hojas)) |
-| JSON | Dashboard, Investigación | Snapshot estructurado (padrón o recurso cualitativo) |
-
 ---
 
-## 11. Preguntas frecuentes operativas
+## Anexo C. Preguntas frecuentes
 
 **¿Puedo usar la plataforma sin registrarme?**  
-Sí. Inicio, Proyecto, Mapa, Dashboard, Investigación, Políticas y Contacto son públicos. Necesitas cuenta para guardar espacios, generar reportes (Supabase) y acceder a Admin.
+Sí. Inicio, Proyecto, Mapa, Dashboard, Cuestionario, Investigación, Políticas y Contacto son públicos. Necesitas cuenta para guardar espacios, generar reportes y acceder a Admin.
 
 **¿Por qué no veo el menú Administración?**  
-Solo aparece con sesión de **Autoridad**. Investigadores y ciudadanos no lo ven por diseño.
+Solo aparece con sesión de **Autoridad**.
 
 **¿Por qué los números del Dashboard no cambian al filtrar?**  
-En modo demo algunos indicadores son estáticos. Con Supabase, verifica el badge verde y que existan métricas para el `anioCorte` seleccionado.
+En modo demo algunos indicadores son estáticos. Con Supabase, verifica el badge verde.
 
-**¿Cómo comparto un espacio específico del mapa?**  
-Copia la URL del navegador tras seleccionar el espacio; incluirá `?espacio=ID` o coordenadas.
-
-**¿Qué significa «Sin datos de participación para los filtros actuales»?**  
-La combinación alcaldía + disciplina + género + edad no tiene filas en la tabla de estadísticas. Prueba ampliar filtros a «Todas» / «Todos».
-
-**¿Cómo actualizo las capas del mapa tras una migración?**  
-Como Autoridad: Admin → Capas del mapa → **Sincronizar**. Consulta también la [documentación técnica del mapa](ARCHITECTURE.md#mapa-territorial--seeds-y-sincronización).
+**¿Cómo comparto un espacio del mapa?**  
+Copia la URL del navegador tras seleccionar el espacio; incluirá `?espacio=ID`.
 
 **¿Puedo cambiar mi rol después del registro?**  
 No desde la interfaz pública. Una **Autoridad** puede reasignar roles en Admin → Usuarios.
 
+**¿Dónde se capturan los datos del cuestionario?**  
+En la **app móvil GeoArteCDMX**. La web muestra el resumen sincronizado en tiempo real.
+
+**¿Cómo actualizo las capas del mapa?**  
+Como Autoridad: Admin → Capas del mapa → **Sincronizar**.
+
 ---
 
-## Documentación relacionada
+## Anexo D. Documentación relacionada
 
-- [Arquitectura MVC y operación del mapa territorial](ARCHITECTURE.md#mapa-territorial--seeds-y-sincronización) — capas Supabase, seeds y sincronización.
-- [README del proyecto](../README.md) — instalación y arranque en desarrollo.
+| Documento | Descripción |
+|-----------|-------------|
+| [Panel de administración](PANEL-ADMINISTRACION.md) | Guía detallada del módulo `/admin` |
+| [Control de capas del mapa](CONTROL-DE-CAPAS-MAPA.md) | Gestión y sincronización de capas GIS |
+| [Índice de entrega](INDICE-ENTREGA.md) | Paquete completo de documentación |
+| [Instalación](../tecnico/INSTALACION.md) | Requisitos técnicos y variables de entorno |
+
+### Índice de imágenes
+
+| Archivo | Módulo | Descripción |
+|---------|--------|-------------|
+| `inicio-hero.png` | Inicio | Hero y navegación |
+| `inicio-kpis.png` | Inicio | Indicadores clave |
+| `inicio-explorador.png` | Inicio | Mini-mapa |
+| `inicio-accesos.png` | Inicio | Accesos directos |
+| `inicio-monitoreo.png` | Inicio | Monitoreo de infraestructura |
+| `proyecto-objetivos.png` | Proyecto | Objetivos estratégicos |
+| `proyecto-metodologia.png` | Proyecto | Metodología |
+| `proyecto-equipo.png` | Proyecto | Equipo directivo |
+| `mapa-vista-general.png` | Mapa | Visor GIS |
+| `mapa-capas.png` | Mapa | Control de capas |
+| `mapa-variables.png` | Mapa | Variables territoriales |
+| `dashboard-monitoreo.png` | Dashboard | Vista general |
+| `dashboard-crecimiento.png` | Dashboard | Crecimiento histórico |
+| `dashboard-brecha.png` | Dashboard | Brecha por alcaldía |
+| `dashboard-tabla.png` | Dashboard | Tabla detallada |
+| `dashboard-comparador.png` | Dashboard | Comparador A vs B |
+| `cuestionario-resumen.png` | Cuestionario | KPIs y filtros |
+| `cuestionario-tablas.png` | Cuestionario | Tablas de datos |
+| `politicas-hero.png` | Políticas | Cabecera y KPIs |
+| `politicas-evidencia.png` | Políticas | Evidencia del diagnóstico |
+| `politicas-recomendaciones.png` | Políticas | Tarjetas de acción |
+| `politicas-reporte-alcaldia.png` | Políticas | Reporte por alcaldía |
+| `reportes-centro.png` | Reportes | Centro de reportes |
+| `reportes-plantillas.png` | Reportes | Plantillas |
+| `reportes-historial.png` | Reportes | Historial |
+| `investigacion-repositorio.png` | Investigación | Repositorio |
+| `investigacion-transcripcion.png` | Investigación | Transcripción |
+| `soporte-buzon.png` | Soporte | Buzón de consultas |
+| `soporte-faq.png` | Soporte | FAQ |
+| `soporte-api.png` | Soporte | API |
+| `soporte-datasets.png` | Soporte | Datasets |
+| `admin-panel.png` | Admin | Panel general |
+| `admin-espacios.png` | Admin | Gestión de espacios |
 
 ---
 
-*GEO ARTE CDMX · Gobierno de la Ciudad de México · Manual de usuario v1.1*
+*GEO ARTE CDMX · Gobierno de la Ciudad de México · Manual de usuario v2.0*

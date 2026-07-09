@@ -12,7 +12,9 @@
     "seed:mapa": "npm run seed:territorio && npm run seed:transporte",
     "sync:mapa": "node scripts/ops/sync-mapa-capas.mjs",
     "diagnostico:padron": "node scripts/ops/diagnostico-padron-espacios.mjs",
+    "fix:padron-coords": "node scripts/ops/fix-espacio-sin-coords.mjs --apply",
     "docs:pdf": "node scripts/docs/generate-manual-usuario-pdf.mjs && node scripts/docs/generate-panel-admin-pdf.mjs && node scripts/docs/generate-control-capas-pdf.mjs && node scripts/docs/generate-arquitectura-aplicacion-pdf.mjs",
+    "docs:manual": "node scripts/docs/generate-manual-exports.mjs",
     "build:entrega": "node scripts/ops/build-entrega.mjs"
   },
   "dependencies": {
@@ -38,6 +40,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "html-to-docx": "^1.8.0",
+    "md-to-pdf": "^5.2.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
