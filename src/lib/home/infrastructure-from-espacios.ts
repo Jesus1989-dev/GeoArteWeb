@@ -1,7 +1,15 @@
 import type { BrechaAlcaldia, GrowthDataPoint, Prioridad } from "@/lib/domain/home";
+import {
+  brechaCoberturaSectei,
+  hasGeorefCoords,
+  nivelBrechaDesdePorcentaje,
+  sumCount,
+} from "@/lib/mapa/brecha-territorial";
 
 export type EspacioInfraRow = {
   alcaldia: string | null;
+  latitud?: number | null;
+  longitud?: number | null;
   created_at: string | null;
   updated_at: string | null;
   fecha_fundacion?: string | null;
@@ -9,13 +17,43 @@ export type EspacioInfraRow = {
 };
 
 function prioridadFromBrecha(brecha: number): Prioridad {
-  if (brecha >= 40) return "Crítico";
-  if (brecha >= 25) return "Atención";
+  const nivel = nivelBrechaDesdePorcentaje(brecha);
+  if (nivel === "Alta") return "Crítico";
+  if (nivel === "Media") return "Atención";
   return "Estable";
 }
 
 function normalizeAlcaldia(value: string | null | undefined): string {
   return value?.trim() || "Sin alcaldía";
+}
+
+function countGeorefByAlcaldia(rows: EspacioInfraRow[]): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    if (!hasGeorefCoords(row.latitud, row.longitud)) continue;
+    const alcaldia = normalizeAlcaldia(row.alcaldia);
+    if (alcaldia === "Sin alcaldía") continue;
+    counts.set(alcaldia, (counts.get(alcaldia) ?? 0) + 1);
+  }
+  return counts;
+}
+
+function buildBrechaRowsFromCounts(counts: Map<string, number>): BrechaAlcaldia[] {
+  if (counts.size === 0) return [];
+
+  const totalCiudad = Math.max(sumCount(counts.values()), 1);
+
+  return [...counts.entries()]
+    .map(([alcaldia, espacios]) => {
+      const brecha = Math.round(brechaCoberturaSectei(espacios, totalCiudad));
+      return {
+        alcaldia,
+        espacios,
+        brecha,
+        prioridad: prioridadFromBrecha(brecha),
+      };
+    })
+    .sort((a, b) => b.brecha - a.brecha || a.alcaldia.localeCompare(b.alcaldia, "es"));
 }
 
 export {
@@ -45,12 +83,10 @@ export function buildGrowthDataFromEspacios(rows: EspacioInfraRow[]): GrowthData
   });
 }
 
-function normalizePercent(n: number): number {
-  if (n > 0 && n <= 1) return Math.round(n * 100);
-  return Math.round(n);
-}
-
-/** Brecha SECTEI desde metricas_alcaldia; espacios del padrón vivo si hay match por alcaldía. */
+/**
+ * Brecha de cobertura alineada con GeoArte móvil (Flutter):
+ * 100 − (espacios de la alcaldía / total CDMX × 100).
+ */
 export function buildBrechaAlcaldiasFromMetricas(
   metricas: Array<{
     alcaldia_nombre?: string | null;
@@ -60,68 +96,33 @@ export function buildBrechaAlcaldiasFromMetricas(
   espaciosRows: EspacioInfraRow[] = [],
   limit?: number,
 ): BrechaAlcaldia[] {
-  const liveCounts = new Map<string, number>();
-  for (const row of espaciosRows) {
-    const alcaldia = normalizeAlcaldia(row.alcaldia);
-    liveCounts.set(alcaldia, (liveCounts.get(alcaldia) ?? 0) + 1);
+  const liveGeoref = countGeorefByAlcaldia(espaciosRows);
+
+  if (liveGeoref.size > 0) {
+    const sorted = buildBrechaRowsFromCounts(liveGeoref);
+    if (limit != null && limit > 0) return sorted.slice(0, limit);
+    return sorted;
   }
 
   if (metricas.length === 0) {
     return buildBrechaAlcaldiasFromEspacios(espaciosRows);
   }
 
-  const sorted = metricas
-    .map((row) => {
-      const alcaldia = normalizeAlcaldia(row.alcaldia_nombre);
-      const espaciosMetricas = Number(row.cantidad_espacios) || 0;
-      const espacios = liveCounts.get(alcaldia) ?? espaciosMetricas;
-      const brecha = normalizePercent(Number(row.porcentaje_brecha) || 0);
-      return {
-        alcaldia,
-        espacios,
-        brecha,
-        prioridad: prioridadFromBrecha(brecha),
-      };
-    })
-    .filter((row) => row.alcaldia && row.alcaldia !== "Sin alcaldía")
-    .sort((a, b) => b.brecha - a.brecha || a.alcaldia.localeCompare(b.alcaldia, "es"));
+  const counts = new Map<string, number>();
+  for (const row of metricas) {
+    const alcaldia = normalizeAlcaldia(row.alcaldia_nombre);
+    if (alcaldia === "Sin alcaldía") continue;
+    counts.set(alcaldia, Number(row.cantidad_espacios) || 0);
+  }
 
+  const sorted = buildBrechaRowsFromCounts(counts);
   if (limit != null && limit > 0) return sorted.slice(0, limit);
   return sorted;
 }
 
-/**
- * Brecha territorial estimada: déficit relativo frente a la alcaldía con mayor
- * número de espacios en el padrón vivo (espacios_culturales). Fallback sin metricas.
- */
+/** Fallback: padrón georreferenciado sin metricas_alcaldia. */
 export function buildBrechaAlcaldiasFromEspacios(rows: EspacioInfraRow[]): BrechaAlcaldia[] {
-  const counts = new Map<string, number>();
-
-  for (const row of rows) {
-    const alcaldia = normalizeAlcaldia(row.alcaldia);
-    counts.set(alcaldia, (counts.get(alcaldia) ?? 0) + 1);
-  }
-
-  if (counts.size === 0) return [];
-
-  const maxEspacios = Math.max(...counts.values(), 1);
-
-  const sorted = [...counts.entries()]
-    .map(([alcaldia, espacios]) => {
-      const brecha = Math.min(
-        100,
-        Math.max(0, Math.round(100 - (espacios / maxEspacios) * 100)),
-      );
-      return {
-        alcaldia,
-        espacios,
-        brecha,
-        prioridad: prioridadFromBrecha(brecha),
-      };
-    })
-    .sort((a, b) => b.brecha - a.brecha || a.alcaldia.localeCompare(b.alcaldia, "es"));
-
-  return sorted;
+  return buildBrechaRowsFromCounts(countGeorefByAlcaldia(rows));
 }
 
 export function resolveUltimaActualizacionEspacios(

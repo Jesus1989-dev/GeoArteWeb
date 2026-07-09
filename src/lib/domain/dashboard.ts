@@ -16,6 +16,13 @@ export type ParticipacionGeneroRow = {
   otros: number;
 };
 
+export type ParticipacionGeneroAgregado = {
+  etiquetas: string[];
+  valores: number[];
+  maxY: number;
+  tieneDatos: boolean;
+};
+
 /** Tipologías SIC con serie de participación por género en Supabase (padrón SECTEI). */
 export const PARTICIPACION_GENERO_MAX_TIPOLOGIAS = 12;
 
@@ -31,6 +38,35 @@ export type TendenciaAsistenciaRow = {
 export type DensidadInfraRow = {
   zona: string;
   valor: number;
+};
+
+export type ParticipacionNseChart = {
+  etiquetas: string[];
+  valores: number[];
+  maxY: number;
+  tieneDatos: boolean;
+  avisoFallbackGlobal: boolean;
+};
+
+export type MovilidadModoRow = {
+  modoClave: string;
+  modoEtiqueta: string;
+  minutosPromedio: number;
+};
+
+export type MetricasNegocioResumen = {
+  alcaldia: string;
+  cobertura: number | null;
+  brecha: number | null;
+  recintos: number;
+  esAgregadoCdmx: boolean;
+};
+
+export type TendenciaInventarioView = {
+  acumulado: TendenciaAsistenciaRow[];
+  porAnio: TendenciaAsistenciaRow[];
+  territorioLabel: string;
+  tieneDatos: boolean;
 };
 
 export type DistribucionTipologiaRow = {

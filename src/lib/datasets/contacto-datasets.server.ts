@@ -12,6 +12,7 @@ import { getAnioCorteMetricas } from "@/lib/data/supabase/config";
 import { buildFilteredDashboardForReport } from "@/lib/reportes/filter-dashboard-for-report";
 import { buildReporteAnualXlsxBytes } from "@/lib/dashboard/build-dashboard-xlsx";
 import { buildDashboardPdfBytes } from "@/lib/reportes/build-report-file";
+import { metricasAlcaldiaConBrechaSectei } from "@/lib/mapa/brecha-territorial";
 import { getDashboardDataMock } from "@/lib/services/dashboard.service";
 
 type MetricaRow = {
@@ -179,11 +180,11 @@ async function buildApiBackupJsonFile(
     version: "1.0",
     dataSource: metricas.dataSource,
     espacios,
-    metricasAlcaldia: metricas.rows.map((row) => ({
-      alcaldia: row.alcaldia_nombre,
-      cantidadEspacios: Number(row.cantidad_espacios) || 0,
-      porcentajeCobertura: Number(row.porcentaje_cobertura) || 0,
-      porcentajeBrecha: Number(row.porcentaje_brecha) || 0,
+    metricasAlcaldia: metricasAlcaldiaConBrechaSectei(metricas.rows).map((row) => ({
+      alcaldia: row.alcaldia,
+      cantidadEspacios: row.cantidadEspacios,
+      porcentajeCobertura: row.porcentajeCobertura,
+      porcentajeBrecha: row.porcentajeBrecha,
     })),
     capaTransporteReferencia,
     api: {

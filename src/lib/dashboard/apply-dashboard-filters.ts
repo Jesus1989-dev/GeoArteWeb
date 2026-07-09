@@ -6,8 +6,13 @@ import type {
   EspacioTablaRow,
   EstadisticaRow,
   MetricaAlcaldiaResumen,
+  MetricasNegocioResumen,
+  MovilidadModoRow,
   ParticipacionGeneroRow,
+  ParticipacionGeneroAgregado,
+  ParticipacionNseChart,
   TendenciaAsistenciaRow,
+  TendenciaInventarioView,
 } from "@/lib/domain/dashboard";
 import { PARTICIPACION_GENERO_MAX_TIPOLOGIAS } from "@/lib/domain/dashboard";
 import { buildDistribucionFromEspaciosRows } from "@/lib/dashboard/distribucion-tipologia";
@@ -24,8 +29,26 @@ import {
 } from "@/lib/dashboard/participacion-edad";
 import {
   buildTendenciaExistenciaSeries,
+  buildTendenciaInventarioView,
   resolveExistenciaAnualParaTendencia,
 } from "@/lib/dashboard/existencia-anual";
+import { buildMetricasNegocioResumen } from "@/lib/dashboard/metricas-negocio";
+import {
+  agregarMovilidadPorModo,
+  filtrarMovilidadAlPeriodoMasReciente,
+  filtrarMovilidadPorAlcaldia,
+  type MovilidadAccesoRow,
+} from "@/lib/dashboard/movilidad-acceso";
+import {
+  buildParticipacionNseChart,
+  elegirFilasIndicadoresNse,
+  nseIndicadoresUsanFallbackGlobal,
+} from "@/lib/dashboard/participacion-nse";
+import {
+  applyGeneroAgregadoDisplayFilter,
+  buildParticipacionGeneroAgregado,
+  elegirFilasParticipacionGeneroAgregado,
+} from "@/lib/dashboard/participacion-genero-agregado";
 import { filterEspaciosPorPerfilSocio } from "@/lib/dashboard/filter-espacios-perfil";
 import {
   buildEspaciosPadronExportRows,
@@ -68,9 +91,11 @@ export type DashboardRawSnapshot = {
   metricasPorAlcaldia: Record<string, MetricaAlcaldiaResumen>;
   conteoPorAlcaldia: Record<string, number>;
   totalEspaciosRpc: number;
+  totalEspaciosPadron: number;
   densidadCiudad: Array<{ macrozona: string; porcentaje: number }>;
   espacios: EspacioRawRow[];
   existenciaAnual: Array<{ anio: number; valor: number }>;
+  movilidadAcceso: MovilidadAccesoRow[];
   alcaldiaIdPorNombre: Record<string, string>;
   alcaldias: string[];
   disciplinas: string[];
@@ -80,12 +105,17 @@ export type DashboardRawSnapshot = {
 export type FilteredDashboardView = {
   dashboardKpis: DashboardKpi[];
   participacionGenero: ParticipacionGeneroRow[];
+  participacionGeneroAgregado: ParticipacionGeneroAgregado;
   participacionMaxY: number;
   tendenciaAsistencia: TendenciaAsistenciaRow[];
   tendenciaTitulo: string;
   tendenciaLeyendaPrincipal: string;
   /** Segunda serie del gráfico; null oculta la línea secundaria. */
   tendenciaLeyendaSecundaria: string | null;
+  tendenciaInventario: TendenciaInventarioView;
+  participacionNse: ParticipacionNseChart;
+  movilidadPorModo: MovilidadModoRow[];
+  metricasNegocio: MetricasNegocioResumen | null;
   densidadInfra: DensidadInfraRow[];
   distribucionTipologia: DistribucionTipologiaRow[];
   espaciosTablaRows: EspacioTablaRow[];
@@ -102,8 +132,6 @@ const MACROZONA_LABELS: Record<string, string> = {
   PONIENTE: "Poniente",
   ORIENTE: "Oriente",
 };
-
-const MESES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
 function norm(s: string): string {
   return s.trim().toLowerCase();
@@ -276,7 +304,7 @@ function buildKpisFiltered(
   filters: DashboardFilterState,
   espaciosFiltrados: EspacioRawRow[],
 ): DashboardKpi[] {
-  const { metricasPorAlcaldia, conteoPorAlcaldia, totalEspaciosRpc, estadisticas } = raw;
+  const { metricasPorAlcaldia, conteoPorAlcaldia, totalEspaciosPadron, estadisticas } = raw;
 
   if (filters.alcaldia !== "Todas") {
     const metrica = findByAlcaldiaName(metricasPorAlcaldia, filters.alcaldia);
@@ -337,7 +365,7 @@ function buildKpisFiltered(
   return [
     {
       label: "Total Espacios",
-      value: formatNumber(Number(resumen("Espacios Totales", totalEspaciosRpc))),
+      value: formatNumber(totalEspaciosPadron),
       delta: "Padrón SECTEI",
       deltaPositive: true,
       accent: "navy",
@@ -372,16 +400,6 @@ function buildKpisFiltered(
 
 function buildDistribucionFromEspacios(espacios: EspacioRawRow[]): DistribucionTipologiaRow[] {
   return buildDistribucionFromEspaciosRows(espacios);
-}
-
-function buildTendenciaMovilidad(estadisticas: EstadisticaRow[]): TendenciaAsistenciaRow[] {
-  const rows = estadisticas.filter((r) => r.categoria === "Movilidad Tiempo Promedio");
-  if (rows.length === 0) return [];
-  return rows.slice(0, 6).map((r, i) => ({
-    mes: MESES[i % MESES.length],
-    visitas: Math.round(Number(r.valor) || 0),
-    eventos: 0,
-  }));
 }
 
 export function buildDensidadInfraFromMacrozonas(
@@ -458,6 +476,11 @@ export function applyDashboardFilters(
     filters,
     raw.alcaldiaIdPorNombre,
   );
+  const participacionRowsAgregado = elegirFilasParticipacionGeneroAgregado(
+    estadisticasFiltradas,
+    filters,
+    raw.alcaldiaIdPorNombre,
+  );
 
   const perfilPadron = filterEspaciosPorPerfilSocio(
     espacios,
@@ -471,24 +494,38 @@ export function applyDashboardFilters(
     notices.push(perfilPadron.notice);
   }
   let participacionGenero = buildParticipacionFromRows(participacionRows);
+  let participacionGeneroAgregado = buildParticipacionGeneroAgregado(
+    participacionRowsAgregado,
+  );
 
   if (filters.edad !== "Todos" && haySerieEdad) {
     const porEdad = buildParticipacionEdadFromRows(estadisticasFiltradas, filters.edad);
     if (porEdad.length > 0) participacionGenero = porEdad;
   }
-  const hasParticipacionDatos = participacionGenero.some(
+
+  const hasParticipacionAgregado =
+    participacionGeneroAgregado.tieneDatos &&
+    participacionGeneroAgregado.valores.some((value) => value > 0);
+  const hasParticipacionTipologia = participacionGenero.some(
     (r) => r.hombres > 0 || r.mujeres > 0 || r.otros > 0,
   );
+  const hasParticipacionDatos = hasParticipacionAgregado || hasParticipacionTipologia;
 
   if (!hasParticipacionDatos) {
     notices.push("Sin datos de participación por género para esta combinación de filtros.");
     participacionGenero = [];
+    participacionGeneroAgregado = buildParticipacionGeneroAgregado([]);
   } else {
     participacionGenero = applyGeneroDisplayFilter(participacionGenero, filters.genero);
+    participacionGeneroAgregado = applyGeneroAgregadoDisplayFilter(
+      participacionGeneroAgregado,
+      filters.genero,
+    );
   }
 
   const participacionMaxY = Math.max(
     100,
+    participacionGeneroAgregado.maxY,
     ...participacionGenero.flatMap((r) => [r.hombres, r.mujeres, r.otros]),
     4,
   );
@@ -507,8 +544,43 @@ export function applyDashboardFilters(
   const tendenciaExistencia = buildTendenciaExistenciaSeries(
     existenciaParaTendencia,
   );
-  const tendenciaMovilidad = buildTendenciaMovilidad(raw.estadisticas);
   const usaExistenciaAnual = tendenciaExistencia.length > 0;
+  const territorioTendenciaLabel =
+    filters.alcaldia === "Todas" ? "Toda la CDMX" : filters.alcaldia;
+  const tendenciaInventario = buildTendenciaInventarioView(
+    existenciaParaTendencia,
+    territorioTendenciaLabel,
+  );
+
+  const nseRows = elegirFilasIndicadoresNse(
+    estadisticasFiltradas,
+    {
+      alcaldia: filters.alcaldia,
+      disciplina: filters.disciplina,
+    },
+    raw.alcaldiaIdPorNombre,
+  );
+  const participacionNse = {
+    ...buildParticipacionNseChart(nseRows),
+    avisoFallbackGlobal: nseIndicadoresUsanFallbackGlobal(nseRows, filters.alcaldia),
+  };
+
+  const movilidadFiltrada = filtrarMovilidadPorAlcaldia(
+    filtrarMovilidadAlPeriodoMasReciente(raw.movilidadAcceso),
+    filters.alcaldia,
+  );
+  const movilidadPorModo = agregarMovilidadPorModo(movilidadFiltrada);
+  const metricasNegocio = buildMetricasNegocioResumen(
+    raw.metricasPorAlcaldia,
+    filters.alcaldia,
+  );
+
+  if (!participacionNse.tieneDatos) {
+    notices.push("Sin datos de indicadores NSE para esta combinación de filtros.");
+  }
+  if (movilidadPorModo.length === 0) {
+    notices.push("Sin datos de movilidad para el territorio seleccionado.");
+  }
 
   if (!vistaGlobalTendencia && !usaExistenciaAnual) {
     notices.push(
@@ -524,17 +596,20 @@ export function applyDashboardFilters(
   return {
     dashboardKpis: buildKpisFiltered(raw, filters, espacios),
     participacionGenero,
+    participacionGeneroAgregado,
     participacionMaxY,
-    tendenciaAsistencia: usaExistenciaAnual ? tendenciaExistencia : tendenciaMovilidad,
+    tendenciaAsistencia: usaExistenciaAnual ? tendenciaExistencia : [],
     tendenciaTitulo: usaExistenciaAnual
-      ? vistaGlobalTendencia
-        ? "Existencia anual del padrón"
-        : `Existencia anual · ${filters.alcaldia}`
-      : "Indicadores de movilidad",
+      ? "Tendencia del inventario cultural"
+      : "Tendencia del inventario cultural",
     tendenciaLeyendaPrincipal: usaExistenciaAnual
       ? "Espacios en padrón"
-      : "Tiempo promedio (min)",
-    tendenciaLeyendaSecundaria: usaExistenciaAnual ? "Variación anual" : null,
+      : "Espacios en padrón",
+    tendenciaLeyendaSecundaria: null,
+    tendenciaInventario,
+    participacionNse,
+    movilidadPorModo,
+    metricasNegocio,
     densidadInfra: buildDensidadInfraFromMacrozonas(densidadMacrozonas),
     distribucionTipologia,
     espaciosTablaRows: buildEspaciosTablaRows(espacios),
@@ -598,22 +673,56 @@ export function applyMockDashboardFilters(
 
   const hasParticipacionDatos = participacionGenero.length > 0;
 
+  const tendenciaInventario = buildTendenciaInventarioView(
+    base.tendenciaAsistencia.map((row) => ({
+      anio: Number.parseInt(row.mes, 10) || 0,
+      valor: row.visitas,
+    })),
+    filters.alcaldia === "Todas" ? "Toda la CDMX" : filters.alcaldia,
+  );
+
   return {
     dashboardKpis: base.dashboardKpis,
     participacionGenero,
+    participacionGeneroAgregado: {
+      etiquetas: ["Mujeres", "Hombres", "Otros"],
+      valores: [84.9, 86.3, 97.3],
+      maxY: 100,
+      tieneDatos: true,
+    },
     participacionMaxY: base.participacionMaxY,
     tendenciaAsistencia: base.tendenciaAsistencia,
-    tendenciaTitulo: base.tendenciaTitulo,
-    tendenciaLeyendaPrincipal:
-      base.tendenciaTitulo.includes("Existencia") ||
-      base.tendenciaTitulo.includes("existencia")
-        ? "Espacios en padrón"
-        : "Serie principal",
-    tendenciaLeyendaSecundaria:
-      base.tendenciaTitulo.includes("Existencia") ||
-      base.tendenciaTitulo.includes("existencia")
-        ? "Variación anual"
-        : null,
+    tendenciaTitulo: "Tendencia del inventario cultural",
+    tendenciaLeyendaPrincipal: "Espacios en padrón",
+    tendenciaLeyendaSecundaria: null,
+    tendenciaInventario,
+    participacionNse: {
+      etiquetas: ["NSE bajo", "NSE medio", "NSE alto"],
+      valores: [26, 45, 29],
+      maxY: 52,
+      tieneDatos: true,
+      avisoFallbackGlobal: false,
+    },
+    movilidadPorModo: [
+      {
+        modoClave: "transporte_publico",
+        modoEtiqueta: "Transporte público",
+        minutosPromedio: 48.8,
+      },
+      {
+        modoClave: "bicicleta",
+        modoEtiqueta: "Bicicleta",
+        minutosPromedio: 15.9,
+      },
+      { modoClave: "auto", modoEtiqueta: "Auto", minutosPromedio: 35 },
+    ],
+    metricasNegocio: {
+      alcaldia: filters.alcaldia === "Todas" ? "Toda la CDMX" : filters.alcaldia,
+      cobertura: 27,
+      brecha: 73,
+      recintos: filters.alcaldia === "Todas" ? 2918 : 777,
+      esAgregadoCdmx: filters.alcaldia === "Todas",
+    },
     densidadInfra: base.densidadInfra,
     distribucionTipologia: base.distribucionTipologia,
     espaciosTablaRows,

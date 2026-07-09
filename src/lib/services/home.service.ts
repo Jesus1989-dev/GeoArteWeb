@@ -144,8 +144,8 @@ export async function getHomePageData(): Promise<HomePageData> {
           : [...busquedaAlcaldias],
       dataSource: "supabase",
       dataSourceNote: payload.monitoreoActualizadoEl
-        ? `Crecimiento: existencia_anual · Brecha: metricas_alcaldia · actualizado ${payload.monitoreoActualizadoEl}`
-        : `Crecimiento: existencia_anual · Brecha: metricas_alcaldia`,
+        ? `Crecimiento: existencia_anual · Brecha: padrón SECTEI (móvil) · actualizado ${payload.monitoreoActualizadoEl}`
+        : `Crecimiento: existencia_anual · Brecha: padrón SECTEI (móvil)`,
     };
   } catch (err) {
     const message =

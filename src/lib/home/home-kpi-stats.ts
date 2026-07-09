@@ -1,4 +1,5 @@
 import type { HomeStatItem } from "@/lib/domain/home";
+import { resolveTotalEspaciosPadron } from "@/lib/espacios/padron-count";
 
 type ConteoRow = { nombre: string; total: number };
 type MetricaRow = {
@@ -69,11 +70,19 @@ export function buildHomeStats(input: {
   metricas: MetricaRow[];
   totalAlcaldias: number;
   anioCorte: number;
+  totalEspaciosPadron: number;
   /** Si se indica, los KPIs reflejan solo esa demarcación. */
   alcaldiaSeleccionada?: string;
 }): HomeStatItem[] {
-  const { estadisticas, conteo, metricas, totalAlcaldias, anioCorte, alcaldiaSeleccionada } =
-    input;
+  const {
+    estadisticas,
+    conteo,
+    metricas,
+    totalAlcaldias,
+    anioCorte,
+    totalEspaciosPadron,
+    alcaldiaSeleccionada,
+  } = input;
   const periodo = `${anioCorte - 1}-${anioCorte}`;
 
   if (alcaldiaSeleccionada) {
@@ -111,8 +120,7 @@ export function buildHomeStats(input: {
     ];
   }
 
-  const totalEspaciosRpc = conteo.reduce((sum, row) => sum + row.total, 0);
-  const totalEspacios = valorResumen(estadisticas, "Espacios Totales", totalEspaciosRpc);
+  const totalEspacios = resolveTotalEspaciosPadron(totalEspaciosPadron);
 
   const alcaldiasConMetricas = new Set(
     metricas
@@ -141,7 +149,7 @@ export function buildHomeStats(input: {
       iconKey: "building",
       value: formatNumber(totalEspacios),
       label: "Total Espacios",
-      description: "Infraestructura cultural georreferenciada",
+      description: "Registros en el padrón SECTEI",
     },
     {
       iconKey: "map",
@@ -171,6 +179,7 @@ export function buildHomeKpiPorAlcaldia(input: {
   alcaldias: string[];
   totalAlcaldias: number;
   anioCorte: number;
+  totalEspaciosPadron: number;
 }): HomeKpiPorAlcaldia[] {
   const { alcaldias, ...rest } = input;
   return alcaldias.map((alcaldia) => ({

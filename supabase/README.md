@@ -51,7 +51,9 @@ Requiere tener la CLI configurada y vinculada al proyecto remoto.
 | `20260530_mapa_metricas_territoriales.sql` | Métricas por alcaldía |
 | `20260530_mapa_sync_log.sql` | Log de sincronización del mapa |
 | `20260530_storage_avatars_bucket.sql` | Bucket de avatares |
+| `20260412120000_listar_movilidad_acceso.sql` | RPC movilidad por modo y alcaldía |
 | `20260604_profiles_name_fields.sql` | Campos de nombre en perfiles |
+| `20260622_sync_metricas_sectei.sql` | Brecha SECTEI en `sync_metricas_alcaldia` (paridad móvil) |
 
 > Las tablas base (`espacios_culturales`, `profiles`, etc.) deben existir previamente en el proyecto Supabase compartido con SECTEI.
 

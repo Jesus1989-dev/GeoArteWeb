@@ -133,6 +133,48 @@ export function windowExistenciaAnualRows(
   return sorted.slice(-EXISTENCIA_ANUAL_MAX_YEARS_IN_CHART);
 }
 
+/** Stock acumulado al cierre de cada año (suma corrida de altas). */
+export function acumularExistenciaAnual(rows: ExistenciaAnualRow[]): ExistenciaAnualRow[] {
+  let acc = 0;
+  return windowExistenciaAnualRows(rows).map((row) => {
+    acc += row.valor;
+    return { anio: row.anio, valor: acc };
+  });
+}
+
+export type TendenciaInventarioModo = "acumulado" | "por_anio";
+
+export function existenciaAnualToTendenciaRows(
+  rows: ExistenciaAnualRow[],
+  modo: TendenciaInventarioModo,
+): TendenciaAsistenciaRow[] {
+  const base = windowExistenciaAnualRows(rows);
+  const serie = modo === "acumulado" ? acumularExistenciaAnual(base) : base;
+  return serie.map((row) => ({
+    mes: String(row.anio),
+    visitas: row.valor,
+    eventos: 0,
+  }));
+}
+
+export function buildTendenciaInventarioView(
+  existencia: ExistenciaAnualRow[],
+  territorioLabel: string,
+): {
+  acumulado: TendenciaAsistenciaRow[];
+  porAnio: TendenciaAsistenciaRow[];
+  territorioLabel: string;
+  tieneDatos: boolean;
+} {
+  const windowed = windowExistenciaAnualRows(existencia);
+  return {
+    acumulado: existenciaAnualToTendenciaRows(windowed, "acumulado"),
+    porAnio: existenciaAnualToTendenciaRows(windowed, "por_anio"),
+    territorioLabel,
+    tieneDatos: windowed.length > 0,
+  };
+}
+
 /** Serie para el gráfico «Existencia anual del padrón» del dashboard. */
 export function buildTendenciaExistenciaSeries(
   existencia: ExistenciaAnualRow[],

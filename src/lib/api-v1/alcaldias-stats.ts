@@ -1,26 +1,33 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { ApiV1AlcaldiaStats } from "@/lib/domain/api-v1";
 import { CDMX_ALCALDIAS } from "@/lib/data/supabase/search.repository";
-import { espaciosMock } from "@/lib/data/mock/mapa";
-import { computeAlcaldiaCentroids } from "@/lib/mapa/alcaldia-centroids";
 import { normalizeSearchText } from "@/lib/mapa/search-utils";
 import { alcaldiaToSlug, resolveAlcaldiaFromApiId } from "@/lib/api-v1/alcaldia-id";
+import { metricasAlcaldiaConBrechaSectei } from "@/lib/mapa/brecha-territorial";
 import { isSupabaseConfigured } from "@/lib/data/supabase/config";
 
 function buildMockStats(alcaldia: string): ApiV1AlcaldiaStats {
-  const centroids = computeAlcaldiaCentroids(espaciosMock);
-  const count = espaciosMock.filter(
-    (e) => e.direccion.toLowerCase().includes(alcaldia.toLowerCase().slice(0, 6)),
-  ).length || 1;
-  const maxCount = Math.max(1, ...centroids.map((_, i) => i + 1));
-  const ratio = count / maxCount;
+  const counts = new Map<string, number>();
+  for (const alc of CDMX_ALCALDIAS) {
+    counts.set(alc, Math.max(1, alc.length % 40 + 10));
+  }
+  const metricas = metricasAlcaldiaConBrechaSectei(
+    [...counts.entries()].map(([nombre, cantidad_espacios]) => ({
+      alcaldia_nombre: nombre,
+      cantidad_espacios,
+    })),
+  );
+  const row =
+    metricas.find(
+      (item) => normalizeSearchText(item.alcaldia) === normalizeSearchText(alcaldia),
+    ) ?? metricas[0];
 
   return {
-    id: alcaldiaToSlug(alcaldia),
-    alcaldia,
-    cantidadEspacios: count,
-    porcentajeCobertura: Math.round(ratio * 85),
-    porcentajeBrecha: Math.round((1 - ratio) * 70),
+    id: alcaldiaToSlug(row.alcaldia),
+    alcaldia: row.alcaldia,
+    cantidadEspacios: row.cantidadEspacios,
+    porcentajeCobertura: row.porcentajeCobertura,
+    porcentajeBrecha: row.porcentajeBrecha,
     dataSource: "mock",
   };
 }
@@ -40,20 +47,19 @@ export async function fetchAlcaldiaStatsV1(
       .select("alcaldia_nombre, cantidad_espacios, porcentaje_cobertura, porcentaje_brecha");
 
     if (!error && data) {
-      const row = data.find(
-        (item) =>
-          normalizeSearchText(String(item.alcaldia_nombre ?? "")) ===
-          normalizeSearchText(alcaldia),
+      const metricas = metricasAlcaldiaConBrechaSectei(data);
+      const row = metricas.find(
+        (item) => normalizeSearchText(item.alcaldia) === normalizeSearchText(alcaldia),
       );
 
       if (row) {
         return {
           stats: {
-            id: alcaldiaToSlug(String(row.alcaldia_nombre ?? alcaldia)),
-            alcaldia: String(row.alcaldia_nombre ?? alcaldia),
-            cantidadEspacios: Number(row.cantidad_espacios) || 0,
-            porcentajeCobertura: Number(row.porcentaje_cobertura) || 0,
-            porcentajeBrecha: Number(row.porcentaje_brecha) || 0,
+            id: alcaldiaToSlug(row.alcaldia),
+            alcaldia: row.alcaldia,
+            cantidadEspacios: row.cantidadEspacios,
+            porcentajeCobertura: row.porcentajeCobertura,
+            porcentajeBrecha: row.porcentajeBrecha,
             dataSource: "supabase",
           },
         };

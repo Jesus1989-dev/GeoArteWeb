@@ -22,6 +22,10 @@ import {
   fetchTransporteCapaBrowser,
 } from "@/lib/data/supabase/mapa-transporte.repository";
 import { buildTransporteReferenciaCollection } from "@/lib/mapa/transporte-referencia-geojson";
+import {
+  metricasAlcaldiaConBrechaSectei,
+  metricasAlcaldiaFromCounts,
+} from "@/lib/mapa/brecha-territorial";
 
 type MetricasRow = {
   alcaldia_nombre?: string | null;
@@ -31,14 +35,12 @@ type MetricasRow = {
 };
 
 function mapMetricasRows(rows: MetricasRow[]): AlcaldiaMetrica[] {
-  return rows
-    .map((row) => ({
-      alcaldia: String(row.alcaldia_nombre ?? "").trim(),
-      cantidadEspacios: Number(row.cantidad_espacios) || 0,
-      porcentajeCobertura: Number(row.porcentaje_cobertura) || 0,
-      porcentajeBrecha: Number(row.porcentaje_brecha) || 0,
-    }))
-    .filter((row) => row.alcaldia);
+  return metricasAlcaldiaConBrechaSectei(rows).map((row) => ({
+    alcaldia: row.alcaldia,
+    cantidadEspacios: row.cantidadEspacios,
+    porcentajeCobertura: row.porcentajeCobertura,
+    porcentajeBrecha: row.porcentajeBrecha,
+  }));
 }
 
 export async function fetchMetricasAlcaldiaWithClient(
@@ -68,16 +70,17 @@ export function buildMockTerritorialData(espacios: Espacio[]): MapaTerritorialDa
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }
 
-  const maxCount = Math.max(1, ...counts.values());
+  const byAlcaldia = new Map(
+    metricasAlcaldiaFromCounts(counts).map((row) => [row.alcaldia, row]),
+  );
 
   const metricas: AlcaldiaMetrica[] = centroids.map((centroid) => {
-    const count = counts.get(centroid.alcaldia) ?? 0;
-    const ratio = count / maxCount;
+    const row = byAlcaldia.get(centroid.alcaldia);
     return {
       alcaldia: centroid.alcaldia,
-      cantidadEspacios: count,
-      porcentajeCobertura: Math.round(ratio * 85),
-      porcentajeBrecha: Math.round((1 - ratio) * 70),
+      cantidadEspacios: row?.cantidadEspacios ?? 0,
+      porcentajeCobertura: row?.porcentajeCobertura ?? 0,
+      porcentajeBrecha: row?.porcentajeBrecha ?? 100,
     };
   });
 

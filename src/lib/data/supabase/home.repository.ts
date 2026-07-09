@@ -6,6 +6,7 @@ import type {
 } from "@/lib/domain/home";
 import { getAnioCorteMetricas } from "@/lib/data/supabase/config";
 import { createSupabasePublicClient } from "@/lib/data/supabase/server-public";
+import { fetchPadronEspaciosCount } from "@/lib/espacios/padron-count";
 import { fetchEspaciosInfraRows } from "@/lib/data/supabase/home-espacios-metrics.repository";
 import { fetchEspaciosSpatialPreviewForHome } from "@/lib/data/supabase/espacios.repository";
 import {
@@ -38,7 +39,7 @@ export async function fetchHomeFromSupabase(): Promise<HomeSupabasePayload> {
   const anioCorte = getAnioCorteMetricas();
   const client = createSupabasePublicClient();
 
-  const [conteoRes, metricasRes, alcaldiasRes, estadisticasRes, existenciaRes, espaciosInfraRes, spatialPreviewRes] =
+  const [conteoRes, metricasRes, alcaldiasRes, estadisticasRes, existenciaRes, espaciosInfraRes, spatialPreviewRes, totalEspaciosPadron] =
     await Promise.all([
       client.rpc("obtener_estadisticas_alcaldias"),
       client
@@ -53,6 +54,7 @@ export async function fetchHomeFromSupabase(): Promise<HomeSupabasePayload> {
       client.from("existencia_anual").select("anio, valor").order("anio", { ascending: true }),
       fetchEspaciosInfraRows(client),
       fetchEspaciosSpatialPreviewForHome(client),
+      fetchPadronEspaciosCount(client),
     ]);
 
   if (conteoRes.error) {
@@ -97,18 +99,8 @@ export async function fetchHomeFromSupabase(): Promise<HomeSupabasePayload> {
     metricas,
     totalAlcaldias,
     anioCorte,
+    totalEspaciosPadron,
   };
-
-  const totalEspaciosRpc = conteo.reduce(
-    (sum: number, row: { total: number }) => sum + row.total,
-    0,
-  );
-  const totalEspaciosKpi =
-    estadisticas.find(
-      (row) => row.categoria === "Resumen" && row.titulo === "Espacios Totales",
-    )?.valor ??
-    estadisticas.find((row) => row.titulo === "Espacios Totales")?.valor ??
-    totalEspaciosRpc;
 
   return {
     homeStats: buildHomeStats(statsInput),
@@ -123,7 +115,7 @@ export async function fetchHomeFromSupabase(): Promise<HomeSupabasePayload> {
       existenciaGlobal: existenciaRes.data ?? [],
       espacios: espaciosInfraRes,
       anioCorte,
-      totalEspacios: totalEspaciosKpi,
+      totalEspacios: totalEspaciosPadron,
     }),
     brechaAlcaldias: buildBrechaAlcaldiasFromMetricas(metricas, espaciosInfraRes),
     monitoreoActualizadoEl: formatMonitoreoActualizado(ultimaActualizacion),

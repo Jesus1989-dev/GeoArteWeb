@@ -588,7 +588,8 @@ export function InfrastructureMonitoringSection({
                       ? `${brechaAlcaldias.length} alcaldías · `
                       : ""}
                     fuente{" "}
-                    <span className="font-medium text-geo-navy">metricas_alcaldia</span>
+                    <span className="font-medium text-geo-navy">padrón SECTEI</span>
+                    {" "}(fórmula móvil)
                   </p>
                 </div>
               </div>
@@ -705,7 +706,7 @@ export function InfrastructureMonitoringSection({
                   </span>
                 </div>
                 <p className="text-xs text-geo-muted">
-                  Fuente: metricas_alcaldia · espacios del padrón vivo
+                  Fuente: padrón georreferenciado · brecha SECTEI (paridad móvil)
                 </p>
               </div>
             </div>

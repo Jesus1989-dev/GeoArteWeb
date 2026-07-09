@@ -9,6 +9,7 @@ import {
   type DashboardFilterState,
   type EspacioRawRow,
 } from "@/lib/dashboard/apply-dashboard-filters";
+import type { ParticipacionGeneroModo } from "@/components/features/dashboard/DashboardParidadCharts";
 import { padronExportFromTablaRows } from "@/lib/dashboard/padron-export";
 import {
   buildComparadorMetricas,
@@ -102,6 +103,9 @@ export function useDashboardController(initialData: DashboardPageData) {
   );
   const [densidadLoading, setDensidadLoading] = useState(false);
   const [tablaPage, setTablaPage] = useState(1);
+  const [tendenciaModo, setTendenciaModo] = useState<"acumulado" | "por_anio">("acumulado");
+  const [participacionGeneroModo, setParticipacionGeneroModo] =
+    useState<ParticipacionGeneroModo>("agregado");
 
   const filters: DashboardFilterState = useMemo(
     () => ({ alcaldia, disciplina, periodo, nse, edad, genero }),
@@ -200,13 +204,34 @@ export function useDashboardController(initialData: DashboardPageData) {
       return {
         dashboardKpis: dashboardData.dashboardKpis,
         participacionGenero: dashboardData.participacionGenero,
+        participacionGeneroAgregado: {
+          etiquetas: ["Mujeres", "Hombres", "Otros"],
+          valores: [0, 0, 0],
+          maxY: 100,
+          tieneDatos: false,
+        },
         participacionMaxY: dashboardData.participacionMaxY,
         tendenciaAsistencia: dashboardData.tendenciaAsistencia,
         tendenciaTitulo: dashboardData.tendenciaTitulo,
         tendenciaLeyendaPrincipal: usaExistencia
           ? "Espacios en padrón"
-          : "Tiempo promedio (min)",
-        tendenciaLeyendaSecundaria: usaExistencia ? "Variación anual" : null,
+          : "Espacios en padrón",
+        tendenciaLeyendaSecundaria: null,
+        tendenciaInventario: {
+          acumulado: dashboardData.tendenciaAsistencia,
+          porAnio: dashboardData.tendenciaAsistencia,
+          territorioLabel: "Toda la CDMX",
+          tieneDatos: dashboardData.tendenciaAsistencia.length > 0,
+        },
+        participacionNse: {
+          etiquetas: ["NSE bajo", "NSE medio", "NSE alto"],
+          valores: [0, 0, 0],
+          maxY: 52,
+          tieneDatos: false,
+          avisoFallbackGlobal: false,
+        },
+        movilidadPorModo: [],
+        metricasNegocio: null,
         densidadInfra: dashboardData.densidadInfra,
         distribucionTipologia: dashboardData.distribucionTipologia,
         espaciosTablaRows: dashboardData.espaciosTablaRows,
@@ -338,6 +363,10 @@ export function useDashboardController(initialData: DashboardPageData) {
     espaciosLoading,
     filterSummary: filtered.filterSummary,
     filterNotice: filtered.filterNotice,
+    tendenciaModo,
+    setTendenciaModo,
+    participacionGeneroModo,
+    setParticipacionGeneroModo,
   };
 }
 

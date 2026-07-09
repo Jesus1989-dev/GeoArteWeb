@@ -17,7 +17,9 @@ export async function fetchEspaciosInfraRows(
     const to = from + CHUNK_SIZE - 1;
     const { data, error } = await client
       .from("espacios_culturales")
-      .select("alcaldia, created_at, updated_at, fecha_fundacion, sic_fecha_modificacion")
+      .select(
+        "alcaldia, latitud, longitud, created_at, updated_at, fecha_fundacion, sic_fecha_modificacion",
+      )
       .order("created_at", { ascending: true })
       .range(from, to);
 

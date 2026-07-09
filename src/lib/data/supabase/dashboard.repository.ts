@@ -21,6 +21,9 @@ import {
   segmentosEdadFromEstadisticas,
 } from "@/lib/dashboard/participacion-edad";
 import { getAnioCorteMetricas } from "@/lib/data/supabase/config";
+import { fetchPadronEspaciosCount, resolveTotalEspaciosPadron } from "@/lib/espacios/padron-count";
+import { fetchMovilidadAccesoWithClient } from "@/lib/dashboard/movilidad-acceso";
+import { metricasAlcaldiaConBrechaSectei } from "@/lib/mapa/brecha-territorial";
 import { getSupabaseBrowserClient } from "@/lib/data/supabase/client";
 import { fetchResumenCuestionarioWithClient } from "@/lib/data/supabase/cuestionario.repository";
 import { periodoSemestralActual } from "@/lib/cuestionario/cuestionario-periodo";
@@ -32,8 +35,6 @@ const MACROZONA_LABELS: Record<string, string> = {
   PONIENTE: "Poniente",
   ORIENTE: "Oriente",
 };
-
-const MESES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
 function formatNumber(n: number): string {
   return n.toLocaleString("es-MX");
@@ -62,9 +63,9 @@ function valorResumen(rows: EstadisticaRow[], titulo: string, fallback = 0): num
 function buildKpis(
   estadisticas: EstadisticaRow[],
   metricas: MetricaAlcaldiaResumen[],
-  totalEspaciosRpc: number,
+  totalEspaciosPadron: number,
 ): DashboardKpi[] {
-  const espacios = valorResumen(estadisticas, "Espacios Totales", totalEspaciosRpc);
+  const espacios = resolveTotalEspaciosPadron(totalEspaciosPadron);
   const alcaldias = valorResumen(estadisticas, "Alcaldias", 16);
   const cobertura = valorResumen(estadisticas, "Cobertura", 0);
   const brechaPromedio =
@@ -145,17 +146,6 @@ function buildParticipacionGenero(estadisticas: EstadisticaRow[]): Participacion
     }))
     .sort((a, b) => a.disciplina.localeCompare(b.disciplina, "es"))
     .slice(0, PARTICIPACION_GENERO_MAX_TIPOLOGIAS);
-}
-
-function buildTendenciaMovilidad(estadisticas: EstadisticaRow[]): TendenciaAsistenciaRow[] {
-  const rows = estadisticas.filter((r) => r.categoria === "Movilidad Tiempo Promedio");
-  if (rows.length === 0) return [];
-
-  return rows.slice(0, 6).map((r, i) => ({
-    mes: MESES[i % MESES.length],
-    visitas: Math.round(Number(r.valor) || 0),
-    eventos: 0,
-  }));
 }
 
 function buildDensidadInfra(
@@ -263,11 +253,11 @@ async function fetchMetricasAlcaldia(
 
   if (error) throw new Error(`Supabase metricas_alcaldia: ${error.message}`);
 
-  return (data ?? []).map((row) => ({
-    cantidadEspacios: Number(row.cantidad_espacios) || 0,
-    porcentajeCobertura: Number(row.porcentaje_cobertura) || 0,
-    porcentajeBrecha: Number(row.porcentaje_brecha) || 0,
-    alcaldiaNombre: String(row.alcaldia_nombre ?? ""),
+  return metricasAlcaldiaConBrechaSectei(data ?? []).map((row) => ({
+    cantidadEspacios: row.cantidadEspacios,
+    porcentajeCobertura: row.porcentajeCobertura,
+    porcentajeBrecha: row.porcentajeBrecha,
+    alcaldiaNombre: row.alcaldia,
   })) as Array<MetricaAlcaldiaResumen & { alcaldiaNombre: string }>;
 }
 
@@ -521,6 +511,8 @@ export async function fetchDashboardWithClient(
     existencia,
     espacios,
     alcaldiaIdPorNombre,
+    totalEspaciosPadron,
+    movilidadAcceso,
   ] = await Promise.all([
     fetchAniosDisponibles(client),
     fetchEstadisticas(client, anioCorte),
@@ -532,6 +524,8 @@ export async function fetchDashboardWithClient(
     fetchExistenciaAnual(client),
     includeEspacios ? fetchEspaciosRaw(client) : Promise.resolve([]),
     fetchAlcaldiaIdPorNombre(client),
+    fetchPadronEspaciosCount(client),
+    fetchMovilidadAccesoWithClient(client),
   ]);
 
   const totalEspaciosRpc = conteoRpc.reduce((s, c) => s + c.total, 0);
@@ -562,9 +556,11 @@ export async function fetchDashboardWithClient(
     metricasPorAlcaldia,
     conteoPorAlcaldia,
     totalEspaciosRpc,
+    totalEspaciosPadron,
     densidadCiudad: densidad,
     espacios,
     existenciaAnual: existencia,
+    movilidadAcceso,
     alcaldiaIdPorNombre,
     alcaldias,
     disciplinas,

@@ -36,6 +36,14 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import { DashboardKpiCard } from "@/components/features/dashboard/DashboardKpiCard";
+import {
+  MetricasNegocioCard,
+  MovilidadModoChartPanel,
+  ParticipacionGeneroAgregadoPanel,
+  ParticipacionNseChartPanel,
+  TendenciaInventarioPanel,
+  type ParticipacionGeneroModo,
+} from "@/components/features/dashboard/DashboardParidadCharts";
 import { Button } from "@/components/shared/Button";
 import { MobileDataCard, MobileDataRow } from "@/components/shared/MobileDataCard";
 import { ResponsiveTable } from "@/components/shared/ResponsiveTable";
@@ -353,7 +361,7 @@ function ParticipacionGeneroChart({
 
   return (
     <div
-      className="overflow-x-auto overscroll-x-contain pb-2 [-webkit-overflow-scrolling:touch]"
+      className="chart-h-scroll w-full"
       tabIndex={0}
       role="region"
       aria-label="Gráfico de participación por género — desplazamiento horizontal"
@@ -459,6 +467,10 @@ export function DashboardView({
   espaciosLoading,
   filterSummary,
   filterNotice,
+  tendenciaModo,
+  setTendenciaModo,
+  participacionGeneroModo,
+  setParticipacionGeneroModo,
   espaciosTabla,
   espaciosTablaTotal,
   tablaPage,
@@ -477,11 +489,16 @@ export function DashboardView({
   const {
     dashboardKpis,
     participacionGenero,
+    participacionGeneroAgregado,
     participacionMaxY,
     tendenciaAsistencia,
     tendenciaTitulo,
     tendenciaLeyendaPrincipal,
     tendenciaLeyendaSecundaria,
+    tendenciaInventario,
+    participacionNse,
+    movilidadPorModo,
+    metricasNegocio,
     densidadInfra,
     distribucionTipologia,
     hasParticipacionDatos,
@@ -642,6 +659,8 @@ export function DashboardView({
               ))}
             </div>
 
+            <MetricasNegocioCard data={metricasNegocio} />
+
             {dashboardData.cuestionarioPeriodo && (
               <div className="rounded-xl border border-geo-border bg-geo-card p-4 shadow-sm sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
@@ -720,61 +739,44 @@ export function DashboardView({
 
             <div className="space-y-6">
             <div className="grid min-w-0 gap-6 lg:grid-cols-2">
-              <div className="min-w-0 rounded-xl border border-geo-border bg-geo-card p-4 shadow-sm sm:p-5">
-                <h3 className="font-semibold text-geo-navy">Participación por Género</h3>
-                <p className="mt-1 text-xs text-geo-muted">
-                  Tipologías SIC · desliza horizontalmente para ver todas
-                </p>
-                {!hasParticipacionDatos ? (
-                  <div className="flex h-[288px] items-center justify-center px-4 text-center text-sm text-geo-muted sm:h-[320px]">
-                    Sin datos de participación para los filtros actuales.
-                  </div>
-                ) : (
-                  <ClientChart
-                    height={PARTICIPACION_CHART_HEIGHT}
-                    className="mt-4 w-full min-w-0"
-                  >
-                    {(width) =>
-                      width > 0 ? (
-                        <ParticipacionGeneroChart
-                          data={[...participacionGenero]}
-                          maxY={participacionMaxY}
-                          containerWidth={width}
-                        />
-                      ) : null
-                    }
-                  </ClientChart>
-                )}
-              </div>
+              <TendenciaInventarioPanel
+                tendencia={tendenciaInventario}
+                modo={tendenciaModo}
+                onModoChange={setTendenciaModo}
+              />
 
-              <div className="min-w-0 rounded-xl border border-geo-border bg-geo-card p-4 shadow-sm sm:p-5">
-                <h3 className="font-semibold text-geo-navy">{tendenciaTitulo}</h3>
-                <p className="mt-1 text-xs text-geo-muted">
-                  Serie temporal del padrón · desliza horizontalmente para ampliar
-                </p>
-                {tendenciaAsistencia.length > 6 ? (
-                  <p className="mt-2 flex items-center justify-end gap-1 text-[10px] font-medium uppercase tracking-wide text-geo-muted">
-                    <ChevronLeft className="h-3 w-3" aria-hidden />
-                    Desliza para ver todos los años
-                    <ChevronRight className="h-3 w-3" aria-hidden />
-                  </p>
-                ) : null}
-                <ClientChart
-                  height={TENDENCIA_CHART_HEIGHT}
-                  className="mt-4 w-full min-w-0"
-                >
-                  {(width) =>
-                    width > 0 ? (
-                      <TendenciaExistenciaChart
-                        data={[...tendenciaAsistencia]}
-                        leyendaPrincipal={tendenciaLeyendaPrincipal}
-                        leyendaSecundaria={tendenciaLeyendaSecundaria}
-                        containerWidth={width}
-                      />
-                    ) : null
-                  }
-                </ClientChart>
-              </div>
+              <ParticipacionGeneroAgregadoPanel
+                data={participacionGeneroAgregado}
+                modo={participacionGeneroModo}
+                onModoChange={setParticipacionGeneroModo}
+                tipologiaSlot={
+                  !hasParticipacionDatos ? (
+                    <div className="flex h-[288px] items-center justify-center px-4 text-center text-sm text-geo-muted sm:h-[320px]">
+                      Sin datos de participación para los filtros actuales.
+                    </div>
+                  ) : (
+                    <ClientChart
+                      height={PARTICIPACION_CHART_HEIGHT}
+                      className="w-full min-w-0"
+                    >
+                      {(width) =>
+                        width > 0 ? (
+                          <ParticipacionGeneroChart
+                            data={[...participacionGenero]}
+                            maxY={participacionMaxY}
+                            containerWidth={width}
+                          />
+                        ) : null
+                      }
+                    </ClientChart>
+                  )
+                }
+              />
+            </div>
+
+            <div className="grid min-w-0 gap-6 lg:grid-cols-2">
+              <ParticipacionNseChartPanel data={participacionNse} />
+              <MovilidadModoChartPanel data={movilidadPorModo} />
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2">

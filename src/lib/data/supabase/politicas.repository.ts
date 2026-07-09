@@ -2,6 +2,8 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { MetricaAlcaldiaResumen } from "@/lib/domain/dashboard";
 import type { EstadisticaRow } from "@/lib/domain/dashboard";
 import { getAnioCorteMetricas } from "@/lib/data/supabase/config";
+import { fetchPadronEspaciosCount, resolveTotalEspaciosPadron } from "@/lib/espacios/padron-count";
+import { metricasAlcaldiaConBrechaSectei } from "@/lib/mapa/brecha-territorial";
 import { fetchPoliticasCentroConfigFromSupabase } from "@/lib/data/supabase/admin-politicas-config-server";
 import { createSupabasePublicClient } from "@/lib/data/supabase/server-public";
 import {
@@ -68,11 +70,11 @@ async function fetchMetricasAlcaldia(
 
   if (error) throw new Error(`Supabase metricas_alcaldia: ${error.message}`);
 
-  return (data ?? []).map((row) => ({
-    cantidadEspacios: Number(row.cantidad_espacios) || 0,
-    porcentajeCobertura: Number(row.porcentaje_cobertura) || 0,
-    porcentajeBrecha: Number(row.porcentaje_brecha) || 0,
-    alcaldiaNombre: String(row.alcaldia_nombre ?? "").trim(),
+  return metricasAlcaldiaConBrechaSectei(data ?? []).map((row) => ({
+    cantidadEspacios: row.cantidadEspacios,
+    porcentajeCobertura: row.porcentajeCobertura,
+    porcentajeBrecha: row.porcentajeBrecha,
+    alcaldiaNombre: row.alcaldia,
   }));
 }
 
@@ -119,13 +121,14 @@ export async function fetchPoliticasWithClient(
 ): Promise<PoliticasSupabasePayload> {
   const anioCorte = getAnioCorteMetricas();
 
-  const [estadisticas, metricas, recomendacionRows, catalogoAlcaldias, centroConfigRaw] =
+  const [estadisticas, metricas, recomendacionRows, catalogoAlcaldias, centroConfigRaw, totalEspaciosPadron] =
     await Promise.all([
       fetchEstadisticas(client, anioCorte),
       fetchMetricasAlcaldia(client, anioCorte),
       fetchRecomendaciones(client),
       fetchAlcaldiasCatalogo(client),
       fetchPoliticasCentroConfigFromSupabase(client),
+      fetchPadronEspaciosCount(client),
     ]);
 
   const centroConfig = resolvePoliticasCentroConfig(
@@ -147,11 +150,7 @@ export async function fetchPoliticasWithClient(
         }));
 
   const todasAcciones = recomendacionesPorObjetivo.flatMap((s) => s.acciones);
-  const totalEspacios = valorResumen(
-    estadisticas,
-    "Espacios Totales",
-    metricas.reduce((s, m) => s + m.cantidadEspacios, 0),
-  );
+  const totalEspacios = resolveTotalEspaciosPadron(totalEspaciosPadron);
   const totalAlcaldias = valorResumen(
     estadisticas,
     "Alcaldias",

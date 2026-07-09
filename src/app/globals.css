@@ -321,3 +321,33 @@ html.dark :where(.bg-slate-100) {
 html.dark :where(.text-slate-600) {
   color: var(--geo-muted);
 }
+
+/* Scroll horizontal en gráficos: barra fina y espacio para que no se recorte */
+.chart-h-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--geo-navy) 28%, var(--geo-muted)) var(--geo-surface);
+}
+
+.chart-h-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.chart-h-scroll::-webkit-scrollbar-track {
+  margin-inline: 2px;
+  border-radius: 9999px;
+  background: var(--geo-surface);
+}
+
+.chart-h-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--geo-navy) 22%, var(--geo-muted));
+}
+
+.chart-h-scroll::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--geo-navy) 35%, var(--geo-muted));
+}
