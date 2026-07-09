@@ -192,12 +192,86 @@ function filterEspaciosByAlcaldia(
   return espacios.filter((e) => matchesLoose(e.alcaldia, alcaldia));
 }
 
+function padronSocioFiltersActive(filters: DashboardFilterState): boolean {
+  return (
+    filters.disciplina !== "Todas" ||
+    filters.nse !== "Todos" ||
+    filters.edad !== "Todos" ||
+    filters.genero !== "Todos"
+  );
+}
+
+/** Tipologías SIC del padrón vinculadas a una disciplina artística vía tabla `estadisticas`. */
+function resolveTipologiasSicForDisciplina(
+  estadisticas: EstadisticaRow[],
+  disciplina: string,
+  filters: DashboardFilterState,
+  alcaldiaIdPorNombre: Record<string, string>,
+): Set<string> {
+  const tipos = new Set<string>();
+  let pool = estadisticas.filter((row) => {
+    const disc = row.disciplina_nombre?.trim();
+    const sic = row.tipo_espacio_sic?.trim();
+    if (!disc && !sic) return false;
+    return matchesLoose(disc ?? "", disciplina) || matchesLoose(sic ?? "", disciplina);
+  });
+
+  const aldId = alcaldiaIdForNombre(filters.alcaldia, alcaldiaIdPorNombre);
+  if (aldId) {
+    const byAld = pool.filter((r) => r.alcaldia_id === aldId);
+    if (byAld.length > 0) pool = byAld;
+  }
+
+  for (const row of pool) {
+    const sic = row.tipo_espacio_sic?.trim();
+    if (sic) tipos.add(sic);
+  }
+  return tipos;
+}
+
 function filterEspaciosByDisciplina(
   espacios: EspacioRawRow[],
   disciplina: string,
-): EspacioRawRow[] {
-  if (disciplina === "Todas") return espacios;
-  return espacios.filter((e) => matchesLoose(e.tipo, disciplina));
+  estadisticas: EstadisticaRow[],
+  filters: DashboardFilterState,
+  alcaldiaIdPorNombre: Record<string, string>,
+): { espacios: EspacioRawRow[]; notice: string | null } {
+  if (disciplina === "Todas") {
+    return { espacios, notice: null };
+  }
+
+  const tipologias = resolveTipologiasSicForDisciplina(
+    estadisticas,
+    disciplina,
+    filters,
+    alcaldiaIdPorNombre,
+  );
+
+  if (tipologias.size > 0) {
+    const filtered = espacios.filter((e) => {
+      for (const t of tipologias) {
+        if (matchesLoose(e.tipo, t)) return true;
+      }
+      return false;
+    });
+    return {
+      espacios: filtered,
+      notice:
+        filtered.length === 0
+          ? `Sin espacios en el padrón para la disciplina «${disciplina}» con los filtros actuales.`
+          : null,
+    };
+  }
+
+  const direct = espacios.filter((e) => matchesLoose(e.tipo, disciplina));
+  if (direct.length > 0) {
+    return { espacios: direct, notice: null };
+  }
+
+  return {
+    espacios,
+    notice: `La disciplina «${disciplina}» no tiene tipologías SIC vinculadas en métricas; el padrón no se acota por disciplina (solo los gráficos).`,
+  };
 }
 
 function elegirFilasParticipacionGenero(
@@ -362,11 +436,15 @@ function buildKpisFiltered(
     return row?.valor ?? fallback;
   };
 
+  const padronAcotado = padronSocioFiltersActive(filters);
+
   return [
     {
       label: "Total Espacios",
-      value: formatNumber(totalEspaciosPadron),
-      delta: "Padrón SECTEI",
+      value: formatNumber(
+        padronAcotado ? espaciosFiltrados.length : totalEspaciosPadron,
+      ),
+      delta: padronAcotado ? "En el filtro" : "Padrón SECTEI",
       deltaPositive: true,
       accent: "navy",
       icon: "layers",
@@ -469,7 +547,17 @@ export function applyDashboardFilters(
   }
 
   let espacios = filterEspaciosByAlcaldia(raw.espacios, filters.alcaldia);
-  espacios = filterEspaciosByDisciplina(espacios, filters.disciplina);
+  const disciplinaPadron = filterEspaciosByDisciplina(
+    espacios,
+    filters.disciplina,
+    raw.estadisticas,
+    filters,
+    raw.alcaldiaIdPorNombre,
+  );
+  espacios = disciplinaPadron.espacios;
+  if (disciplinaPadron.notice) {
+    notices.push(disciplinaPadron.notice);
+  }
 
   const participacionRows = elegirFilasParticipacionGenero(
     estadisticasFiltradas,
@@ -589,7 +677,7 @@ export function applyDashboardFilters(
   }
 
   const distribucionTipologia = buildDistribucionFromEspacios(espacios);
-  if (distribucionTipologia.length === 0) {
+  if (distribucionTipologia.length === 0 && padronSocioFiltersActive(filters)) {
     notices.push("Sin espacios en el padrón para los filtros seleccionados.");
   }
 
