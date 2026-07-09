@@ -27,6 +27,12 @@ import { metricasAlcaldiaConBrechaSectei } from "@/lib/mapa/brecha-territorial";
 import { getSupabaseBrowserClient } from "@/lib/data/supabase/client";
 import { fetchResumenCuestionarioWithClient } from "@/lib/data/supabase/cuestionario.repository";
 import { periodoSemestralActual } from "@/lib/cuestionario/cuestionario-periodo";
+import {
+  buildDisciplinaTipologiaBridge,
+  resolveDisciplinaTipologiaBridge,
+  type CategoriaDisciplinaSugeridaRow,
+  type DisciplinaTipologiaBridge,
+} from "@/lib/dashboard/disciplina-tipologia-bridge";
 
 const MACROZONA_LABELS: Record<string, string> = {
   NORTE: "Norte",
@@ -314,6 +320,36 @@ async function fetchAlcaldias(client: SupabaseClient): Promise<string[]> {
     .filter(Boolean);
 }
 
+async function fetchDisciplinaTipologiaBridge(
+  client: SupabaseClient,
+): Promise<DisciplinaTipologiaBridge> {
+  const { data, error } = await client
+    .from("categoria_disciplinas_sugeridas")
+    .select("disciplina, categorias_espacios ( nombre )");
+
+  if (error) {
+    console.warn("[dashboard] categoria_disciplinas_sugeridas:", error.message);
+    return resolveDisciplinaTipologiaBridge({ tipologiasPorDisciplinaKpi: {} });
+  }
+
+  const rows: CategoriaDisciplinaSugeridaRow[] = [];
+  for (const row of data ?? []) {
+    const disciplinaFina = String(row.disciplina ?? "").trim();
+    const cat = row.categorias_espacios as
+      | { nombre?: string }
+      | Array<{ nombre?: string }>
+      | null;
+    const tipologiaSic = Array.isArray(cat)
+      ? String(cat[0]?.nombre ?? "").trim()
+      : String(cat?.nombre ?? "").trim();
+    if (tipologiaSic && disciplinaFina) {
+      rows.push({ tipologiaSic, disciplinaFina });
+    }
+  }
+
+  return resolveDisciplinaTipologiaBridge(buildDisciplinaTipologiaBridge(rows));
+}
+
 async function fetchDisciplinasKpi(client: SupabaseClient): Promise<string[]> {
   const { data, error } = await client
     .from("disciplinas_participacion_kpi")
@@ -513,6 +549,7 @@ export async function fetchDashboardWithClient(
     alcaldiaIdPorNombre,
     totalEspaciosPadron,
     movilidadAcceso,
+    disciplinaTipologiaBridge,
   ] = await Promise.all([
     fetchAniosDisponibles(client),
     fetchEstadisticas(client, anioCorte),
@@ -526,6 +563,7 @@ export async function fetchDashboardWithClient(
     fetchAlcaldiaIdPorNombre(client),
     fetchPadronEspaciosCount(client),
     fetchMovilidadAccesoWithClient(client),
+    fetchDisciplinaTipologiaBridge(client),
   ]);
 
   const totalEspaciosRpc = conteoRpc.reduce((s, c) => s + c.total, 0);
@@ -565,6 +603,7 @@ export async function fetchDashboardWithClient(
     alcaldias,
     disciplinas,
     segmentosNse: segmentosNseFromEstadisticas(estadisticas),
+    disciplinaTipologiaBridge,
   };
 
   const defaultFilters = {

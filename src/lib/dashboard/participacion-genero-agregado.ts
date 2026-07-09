@@ -1,4 +1,9 @@
 import type { EstadisticaRow, ParticipacionGeneroAgregado } from "@/lib/domain/dashboard";
+import {
+  DEFAULT_DISCIPLINA_TIPOLOGIA_BRIDGE,
+  estadisticaMatchesDisciplinaKpi,
+  type DisciplinaTipologiaBridge,
+} from "@/lib/dashboard/disciplina-tipologia-bridge";
 
 function norm(s: string): string {
   return s.trim().toLowerCase();
@@ -86,6 +91,7 @@ export function elegirFilasParticipacionGeneroAgregado(
     tipoEspacioSic?: string;
   },
   alcaldiaIdPorNombre: Record<string, string>,
+  bridge: DisciplinaTipologiaBridge = DEFAULT_DISCIPLINA_TIPOLOGIA_BRIDGE,
 ): EstadisticaRow[] {
   let pool = rows.filter(esFilaCategoriaParticipacionGenero);
   if (pool.length === 0) return pool;
@@ -124,8 +130,18 @@ export function elegirFilasParticipacionGeneroAgregado(
   const segGeneral = (row: EstadisticaRow) => discTodasRow(row) && tipoSicVacio(row);
   const segDiscExacta = (row: EstadisticaRow) =>
     discMatchRow(row, filters.disciplina) && tipoSicVacio(row);
+  const segDiscPorTipologia = (row: EstadisticaRow) =>
+    estadisticaMatchesDisciplinaKpi(row, filters.disciplina, bridge);
   const segTipoExacto = (row: EstadisticaRow) =>
     tipoSicMatchRow(row, tipoEspacioSic) && discTodasRow(row);
+
+  const pickDisciplina = (
+    okAld: (row: EstadisticaRow) => boolean,
+  ): EstadisticaRow[] => {
+    const exacta = pick(okAld, segDiscExacta);
+    if (exacta.length > 0) return exacta;
+    return pick(okAld, segDiscPorTipologia);
+  };
 
   if (aldId && !todaCdmx) {
     const aldOk = (row: EstadisticaRow) => aldMatchRow(row, aldId!);
@@ -138,7 +154,7 @@ export function elegirFilasParticipacionGeneroAgregado(
       }
     }
     if (!todasDisc) {
-      const r = pick(aldOk, segDiscExacta);
+      const r = pickDisciplina(aldOk);
       if (r.length > 0) return r;
     }
     if (todasDisc && todasTipo) {
@@ -157,7 +173,7 @@ export function elegirFilasParticipacionGeneroAgregado(
     return [];
   }
   if (!todasDisc) {
-    const r = pick(aldGlobalRow, segDiscExacta);
+    const r = pickDisciplina(aldGlobalRow);
     if (r.length > 0) return r;
     return [];
   }

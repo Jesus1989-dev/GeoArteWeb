@@ -1,4 +1,9 @@
 import type { EstadisticaRow, ParticipacionNseChart } from "@/lib/domain/dashboard";
+import {
+  DEFAULT_DISCIPLINA_TIPOLOGIA_BRIDGE,
+  estadisticaMatchesDisciplinaKpi,
+  type DisciplinaTipologiaBridge,
+} from "@/lib/dashboard/disciplina-tipologia-bridge";
 
 const TITULO_NSE_BAJO = "Participación NSE bajo";
 const TITULO_NSE_MEDIO = "Participación NSE medio";
@@ -64,6 +69,7 @@ export function elegirFilasIndicadoresNse(
     tipoEspacioSic?: string;
   },
   alcaldiaIdPorNombre: Record<string, string>,
+  bridge: DisciplinaTipologiaBridge = DEFAULT_DISCIPLINA_TIPOLOGIA_BRIDGE,
 ): EstadisticaRow[] {
   const pool = rows.filter(esFilaCategoriaIndicadoresNse);
   if (pool.length === 0) return pool;
@@ -93,15 +99,26 @@ export function elegirFilasIndicadoresNse(
   const segGeneral = (row: EstadisticaRow) => discTodasRow(row) && tipoSicVacio(row);
   const segDiscExacta = (row: EstadisticaRow) =>
     discMatchRow(row, filters.disciplina) && tipoSicVacio(row);
+  const segDiscPorTipologia = (row: EstadisticaRow) =>
+    estadisticaMatchesDisciplinaKpi(row, filters.disciplina, bridge) &&
+    !(row.disciplina_nombre?.trim() ?? "");
   const segTipoExacto = (row: EstadisticaRow) =>
     tipoSicMatchRow(row, tipoEspacioSic) && discTodasRow(row);
+
+  const pickDisciplina = (
+    okAld: (row: EstadisticaRow) => boolean,
+  ): EstadisticaRow[] => {
+    const exacta = pick(okAld, segDiscExacta);
+    if (exacta.length > 0) return exacta;
+    return pick(okAld, segDiscPorTipologia);
+  };
 
   if (aldId && !todaCdmx) {
     if (!todasTipo) {
       const r = pick((row) => aldMatchRow(row, aldId!), segTipoExacto);
       if (r.length > 0) return r;
     } else if (!todasDisc) {
-      const r = pick((row) => aldMatchRow(row, aldId!), segDiscExacta);
+      const r = pickDisciplina((row) => aldMatchRow(row, aldId!));
       if (r.length > 0) return r;
     }
     const rGen = pick((row) => aldMatchRow(row, aldId!), segGeneral);
@@ -113,7 +130,7 @@ export function elegirFilasIndicadoresNse(
     if (r.length > 0) return r;
   }
   if (!todasDisc) {
-    const r = pick(aldGlobalRow, segDiscExacta);
+    const r = pickDisciplina(aldGlobalRow);
     if (r.length > 0) return r;
   }
   return pick(aldGlobalRow, segGeneral);

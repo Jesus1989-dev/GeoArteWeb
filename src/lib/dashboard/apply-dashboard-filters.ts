@@ -59,6 +59,14 @@ import {
   computeCompletitudRegistro,
   deriveEstadoEspacio,
 } from "@/lib/espacios/espacio-registro";
+import {
+  DEFAULT_DISCIPLINA_TIPOLOGIA_BRIDGE,
+  espacioTipoMatchesDisciplinaKpi,
+  estadisticaMatchesDisciplinaKpi,
+  resolveDisciplinaTipologiaBridge,
+  tipologiasForDisciplinaKpi,
+  type DisciplinaTipologiaBridge,
+} from "@/lib/dashboard/disciplina-tipologia-bridge";
 
 export type DashboardFilterState = {
   alcaldia: string;
@@ -100,6 +108,7 @@ export type DashboardRawSnapshot = {
   alcaldias: string[];
   disciplinas: string[];
   segmentosNse: string[];
+  disciplinaTipologiaBridge?: DisciplinaTipologiaBridge;
 };
 
 export type FilteredDashboardView = {
@@ -201,14 +210,21 @@ function padronSocioFiltersActive(filters: DashboardFilterState): boolean {
   );
 }
 
-/** Tipologías SIC del padrón vinculadas a una disciplina artística vía tabla `estadisticas`. */
+/** Tipologías SIC del padrón vinculadas a una disciplina artística KPI. */
 function resolveTipologiasSicForDisciplina(
-  estadisticas: EstadisticaRow[],
   disciplina: string,
+  bridge: DisciplinaTipologiaBridge,
+  estadisticas: EstadisticaRow[],
   filters: DashboardFilterState,
   alcaldiaIdPorNombre: Record<string, string>,
 ): Set<string> {
   const tipos = new Set<string>();
+
+  for (const t of tipologiasForDisciplinaKpi(disciplina, bridge)) {
+    tipos.add(t);
+  }
+  if (tipos.size > 0) return tipos;
+
   let pool = estadisticas.filter((row) => {
     const disc = row.disciplina_nombre?.trim();
     const sic = row.tipo_espacio_sic?.trim();
@@ -229,9 +245,16 @@ function resolveTipologiasSicForDisciplina(
   return tipos;
 }
 
+function bridgeForRaw(raw: DashboardRawSnapshot): DisciplinaTipologiaBridge {
+  return raw.disciplinaTipologiaBridge
+    ? resolveDisciplinaTipologiaBridge(raw.disciplinaTipologiaBridge)
+    : DEFAULT_DISCIPLINA_TIPOLOGIA_BRIDGE;
+}
+
 function filterEspaciosByDisciplina(
   espacios: EspacioRawRow[],
   disciplina: string,
+  bridge: DisciplinaTipologiaBridge,
   estadisticas: EstadisticaRow[],
   filters: DashboardFilterState,
   alcaldiaIdPorNombre: Record<string, string>,
@@ -241,19 +264,17 @@ function filterEspaciosByDisciplina(
   }
 
   const tipologias = resolveTipologiasSicForDisciplina(
-    estadisticas,
     disciplina,
+    bridge,
+    estadisticas,
     filters,
     alcaldiaIdPorNombre,
   );
 
   if (tipologias.size > 0) {
-    const filtered = espacios.filter((e) => {
-      for (const t of tipologias) {
-        if (matchesLoose(e.tipo, t)) return true;
-      }
-      return false;
-    });
+    const filtered = espacios.filter((e) =>
+      espacioTipoMatchesDisciplinaKpi(e.tipo, disciplina, bridge),
+    );
     return {
       espacios: filtered,
       notice:
@@ -270,7 +291,7 @@ function filterEspaciosByDisciplina(
 
   return {
     espacios,
-    notice: `La disciplina «${disciplina}» no tiene tipologías SIC vinculadas en métricas; el padrón no se acota por disciplina (solo los gráficos).`,
+    notice: `La disciplina «${disciplina}» no tiene tipologías SIC vinculadas; el padrón no se acota por disciplina (solo los gráficos).`,
   };
 }
 
@@ -278,6 +299,7 @@ function elegirFilasParticipacionGenero(
   rows: EstadisticaRow[],
   filters: DashboardFilterState,
   alcaldiaIdPorNombre: Record<string, string>,
+  bridge: DisciplinaTipologiaBridge,
 ): EstadisticaRow[] {
   let pool = rows.filter(isParticipacionGenero);
 
@@ -311,10 +333,8 @@ function elegirFilasParticipacionGenero(
   }
 
   if (filters.disciplina !== "Todas") {
-    const byDisc = pool.filter(
-      (r) =>
-        matchesLoose(r.disciplina_nombre ?? "", filters.disciplina) ||
-        matchesLoose(r.tipo_espacio_sic ?? "", filters.disciplina),
+    const byDisc = pool.filter((r) =>
+      estadisticaMatchesDisciplinaKpi(r, filters.disciplina, bridge),
     );
     if (byDisc.length > 0) pool = byDisc;
   }
@@ -520,6 +540,7 @@ export function applyDashboardFilters(
   densidadMacrozonas: Array<{ macrozona: string; porcentaje: number }>,
 ): FilteredDashboardView {
   const notices: string[] = [];
+  const disciplinaBridge = bridgeForRaw(raw);
 
   if (
     raw.estadisticas.length === 0 &&
@@ -550,6 +571,7 @@ export function applyDashboardFilters(
   const disciplinaPadron = filterEspaciosByDisciplina(
     espacios,
     filters.disciplina,
+    disciplinaBridge,
     raw.estadisticas,
     filters,
     raw.alcaldiaIdPorNombre,
@@ -563,11 +585,13 @@ export function applyDashboardFilters(
     estadisticasFiltradas,
     filters,
     raw.alcaldiaIdPorNombre,
+    disciplinaBridge,
   );
   const participacionRowsAgregado = elegirFilasParticipacionGeneroAgregado(
     estadisticasFiltradas,
     filters,
     raw.alcaldiaIdPorNombre,
+    disciplinaBridge,
   );
 
   const perfilPadron = filterEspaciosPorPerfilSocio(
@@ -647,6 +671,7 @@ export function applyDashboardFilters(
       disciplina: filters.disciplina,
     },
     raw.alcaldiaIdPorNombre,
+    disciplinaBridge,
   );
   const participacionNse = {
     ...buildParticipacionNseChart(nseRows),
