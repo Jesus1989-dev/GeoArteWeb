@@ -445,8 +445,6 @@ export function DashboardView({
   setDisciplina,
   periodo,
   setPeriodo,
-  nse,
-  setNse,
   edad,
   setEdad,
   genero,
@@ -527,12 +525,6 @@ export function DashboardView({
         onChange={setPeriodo}
       />
       <FilterSelect
-        label="Nivel socioeconómico"
-        options={filtroOpciones.nivelSocioeconomico}
-        value={nse}
-        onChange={setNse}
-      />
-      <FilterSelect
         label="Rango de edad"
         options={filtroOpciones.rangoEdad}
         value={edad}
@@ -573,7 +565,7 @@ export function DashboardView({
                 />
               </button>
             </div>
-            <div className="hidden flex-1 grid-cols-2 gap-3 sm:grid-cols-3 lg:grid xl:grid-cols-6">
+            <div className="hidden flex-1 grid-cols-2 gap-3 sm:grid-cols-3 lg:grid xl:grid-cols-5">
               {filterFields}
             </div>
             {filtersOpen && (
